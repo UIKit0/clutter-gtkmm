@@ -1,3 +1,11 @@
+2008-07-14  Murray Cumming  <murrayc@murrayc.com>
+
+	* Makefile.am:
+	* configure.in: Split clutter-gtkmm into this module, out of the 
+	main cluttermm module, because some people need the extra modularity.
+	This does not yet build (and will probalby need more work) because 
+	there is no clutter-gtk-0.8 yet.
+
 2008-07-05  Armin Burgmeier  <armin@openismus.com>
 
 	* configure.in: Post-release version bump to 0.7.1.

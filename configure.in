@@ -73,20 +73,11 @@ AC_CHECK_PROGS(PERL, perl5 perl)
 #  Dependancy checks
 #########################################################################
 
-PKG_CHECK_MODULES(CLUTTERMM,
-                  gtkmm-2.4 >= 2.10.9
-                  clutter-0.7)
-AC_SUBST(CLUTTERMM_CFLAGS)
-AC_SUBST(CLUTTERMM_LIBS)
-
-PKG_CHECK_MODULES(CLUTTERMM_CAIRO,
-                  [gtkmm-2.4
-                   clutter-cairo-0.7
-                   cairomm-1.0])
-
 PKG_CHECK_MODULES(CLUTTERMM_GTK,
                   [gtkmm-2.4
-                   clutter-gtk-0.7])
+                   clutter-gtk-0.8])
+AC_SUBST(CLUTTERMM_GTK_CFLAGS)
+AC_SUBST(CLUTTERMM_GTK_LIBS)
 
 # the API version of the library.  Libraries and pkg-config files will have this
 # value appended to them, e.g. libclutter-0.6.so
@@ -112,18 +103,6 @@ AUTOHEADER=':'
 
 AC_OUTPUT([
   Makefile
-
-  clutter/Makefile
-  clutter/cluttermm-$API_VER.pc:clutter/cluttermm.pc.in
-  clutter/src/Makefile
-  clutter/cluttermm/Makefile
-  clutter/cluttermm/private/Makefile
-
-  clutter-cairo/Makefile
-  clutter-cairo/cluttermm-cairo-$API_VER.pc:clutter-cairo/cluttermm-cairo.pc.in
-  clutter-cairo/src/Makefile
-  clutter-cairo/cluttermm-cairo/Makefile
-  clutter-cairo/cluttermm-cairo/private/Makefile
 
   clutter-gtk/Makefile
   clutter-gtk/cluttermm-gtk-$API_VER.pc:clutter-gtk/cluttermm-gtk.pc.in
