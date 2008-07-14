@@ -1,0 +1,123 @@
+/* Copyright (C) 2007 The cluttermm Development Team
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Library General Public
+ * License as published by the Free Software Foundation; either
+ * version 2 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Library General Public License for more details.
+ *
+ * You should have received a copy of the GNU Library General Public
+ * License along with this library; if not, write to the Free
+ * Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+ */
+
+#include <glibmm/ustring.h>
+#include <cluttermm/types.h>
+ 
+_DEFS(cluttermm,clutter)
+
+namespace Clutter
+{
+
+class Color
+{
+  _CLASS_BOXEDTYPE(Color, ClutterColor, NONE, clutter_color_copy, clutter_color_free)
+  _IGNORE(clutter_color_copy)
+  _IGNORE(clutter_color_free)
+public:
+
+
+  // TODO: it'd be nice if these constructors allowed you to specify the alpha
+  // value, but the underlying set_from_*() functions don't accept an alpha
+  // value so it would have to set the struct member directly.  The struct
+  // member is a guint8 type, so the Fixed-point version would need conversions
+  // or have an odd signature that takes a guint8 as the last parameter
+  _CUSTOM_DEFAULT_CTOR
+  Color();
+  /** Create a new Color object by specifying its value in RGB(A)
+   */
+  Color(guint8 red, guint8 green, guint8 blue, guint8 alpha=255);
+
+  /** Create a new Color object by specifying its pixel value
+   */
+  explicit Color(guint32 pixel);
+
+  // TODO: this could fail, just return a 'default' color or throw an exception?
+  explicit Color(const Glib::ustring& color);
+
+  void set_from_rgb(guint8 red, guint8 blue, guint8 green);
+  void set_from_string(const Glib::ustring& color);
+  _WRAP_METHOD(Glib::ustring to_string() const, clutter_color_to_string)
+  _WRAP_METHOD(void set_from_hls(guint8 hue, guint8 luminance, guint8 saturation), clutter_color_from_hls)
+  _WRAP_METHOD(void set_from_hlsx(Fixed hue, Fixed luminance, Fixed saturation), clutter_color_from_hlsx)
+  _WRAP_METHOD(void to_hls(guint8& hue, guint8& luminance, guint8& saturation) const, clutter_color_to_hls)
+  _WRAP_METHOD(void to_hlsx(Fixed& hue, Fixed& luminance, Fixed& saturation) const, clutter_color_to_hlsx)
+  _WRAP_METHOD(void set_from_pixel(guint32 pixel), clutter_color_from_pixel)
+  _WRAP_METHOD(guint32 to_pixel() const, clutter_color_to_pixel)
+
+  _WRAP_METHOD_DOCS_ONLY(clutter_color_add)
+  Color add(const Color& color) const;
+  _IGNORE(clutter_color_add)
+
+  _WRAP_METHOD_DOCS_ONLY(clutter_color_subtract)
+  Color subtract(const Color& color) const;
+  _IGNORE(clutter_color_subtract)
+
+  // the 'darken', 'lighten', and 'shade' functions modify the source color and
+  // store the result in the color object given by the 'dest' argument.  Usually
+  // we wrap functions with a 'dest' argument to return a copy by value.
+  // However, this means that we could never apply 'darken' directly to this
+  // object (as we could in C by doing something like clutter_color_darken(&foo,
+  // &foo)).  So I think it makes more sense in the C++ wrappers to darken
+  // 'this' by default and if the user wants to darken a different color, they
+  // can aways create the copy first and then call darken on it
+  // (e.g. Color c2 = c1; c1.darken();).  I think this is more flexible than the
+  // alternative.
+  _WRAP_METHOD_DOCS_ONLY(clutter_color_darken)
+  void darken();
+  _IGNORE(clutter_color_darken)
+  _WRAP_METHOD_DOCS_ONLY(clutter_color_lighten)
+  void lighten();
+  _IGNORE(clutter_color_lighten)
+
+  _WRAP_METHOD_DOCS_ONLY(clutter_color_shade)
+  void shade(double shade);
+  _IGNORE(clutter_color_shade)
+  _WRAP_METHOD_DOCS_ONLY(clutter_color_shadex)
+  void shadex(Fixed shade);
+  _IGNORE(clutter_color_shadex)
+
+
+  // provide accessors/mutators to modify the individual members like you could
+  // do in C by directly modifying the struct members
+  _MEMBER_GET(red, red, guint8, guint8)
+  _MEMBER_SET(red, red, guint8, guint8)
+  _MEMBER_GET(green, green, guint8, guint8)
+  _MEMBER_SET(green, green, guint8, guint8)
+  _MEMBER_GET(blue, blue, guint8, guint8)
+  _MEMBER_SET(blue, blue, guint8, guint8)
+  _MEMBER_GET(alpha, alpha, guint8, guint8)
+  _MEMBER_SET(alpha, alpha, guint8, guint8)
+
+#m4begin
+  _WRAP_EQUAL(clutter_color_equal)
+#m4end
+  _IGNORE(clutter_color_equal)
+};
+
+/** @relates Clutter::Color
+ * @return the sum of color1 and color2
+ */
+Color operator+(const Color& color1, const Color& color2);
+
+/** @relates Clutter::Color
+ * @return the color resulting from subtracting color2 from color1
+ */
+Color operator-(const Color& color1, const Color& color2);
+
+} // namespace Gdk
+
