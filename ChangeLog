@@ -1,0 +1,883 @@
+2008-06-02  Murray Cumming  <murrayc@murrayc.com>
+
+	* examples/Makefile.am: Added actor.png to the dist.
+	Bug #536180 (Denis Leroy).
+
+2008-06-02   Denis Leroy  <denis@poolshark.org>
+
+	* clutter-cairo/cluttermm-cairo.pc.in:
+	* clutter-gtk/cluttermm-gtk.pc.in: Use API_VER so the correct library 
+	names are used. Bug #536181.
+
+0.5.1:
+
+2008-05-06  Murray Cumming  <murrayc@murrayc.com>
+
+	* clutter-cairo/Makefile.am:
+	* clutter-gtk/Makefile.am:
+	* clutter/Makefile.am: Added the generated .pc files to DISTCLEANFILES 
+	to fix distcheck. 
+
+2008-04-22  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter-cairo/cluttermm-cairo/private/Makefile.am:
+	* clutter-gtk/cluttermm-gtk/private/Makefile.am:
+	* tools/m4/Makefile.am: fix up a couple things that were missed from the API
+	version rename
+
+2008-04-22  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter-cairo/Makefile.am:
+	* clutter-cairo/cluttermm-cairo/Makefile.am:
+	* clutter-gtk/Makefile.am:
+	* clutter-gtk/cluttermm-gtk/Makefile.am:
+	* clutter/Makefile.am:
+	* clutter/cluttermm.pc.in:
+	* clutter/cluttermm/Makefile.am:
+	* clutter/cluttermm/private/Makefile.am:
+	* clutter/cluttermmconfig.h.in:
+	* configure.in:
+	* examples/Makefile.am_fragment: now change everything over to use the -0.6
+	API version instead of -1.0.  The C Clutter library uses 0.6 for their API
+	version and if cluttermm uses -1.0 now, we might run into trouble when
+	clutterm reaches 1.0.  This should be ok yet since we don't have any real
+	users or complete releases yet.
+
+2008-04-22  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* autogen.sh: abort if automake fails
+
+2008-04-22  Siavash Safi  <siavash.safi@gmail.com>
+
+	* Makefile.am:
+	* clutter-gtk/Makefile.am:
+	* clutter-gtk/README:
+	* clutter-gtk/cluttermm-gtk-config.h.in:
+	* clutter-gtk/cluttermm-gtk.h:
+	* clutter-gtk/cluttermm-gtk.pc.in:
+	* clutter-gtk/cluttermm-gtk/Makefile.am:
+	* clutter-gtk/cluttermm-gtk/init.cc:
+	* clutter-gtk/cluttermm-gtk/init.h:
+	* clutter-gtk/cluttermm-gtk/private/Makefile.am:
+	* clutter-gtk/cluttermm-gtk/wrap_init.h:
+	* clutter-gtk/src/Makefile.am:
+	* clutter-gtk/src/Makefile_list_of_hg.am_fragment:
+	* clutter-gtk/src/clutter-gtk.defs:
+	* clutter-gtk/src/clutter-gtk_enums.defs:
+	* clutter-gtk/src/clutter-gtk_methods.defs:
+	* clutter-gtk/src/clutter-gtk_others.defs:
+	* clutter-gtk/src/clutter-gtk_signals.defs:
+	* clutter-gtk/src/clutter-gtk_vfuncs.defs:
+	* clutter-gtk/src/embed.ccg:
+	* clutter-gtk/src/embed.hg:
+	* configure.in:
+	* examples/Makefile.am:
+	* examples/Makefile.am_fragment:
+	* examples/embed-gtk.cc: Added support for clutter-gtk library.
+
+2008-04-20  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter-cairo: split cluttermm-cairo library into its own subdirectory to
+	match the way the underlying clutter library is divided
+
+2008-04-15  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* configure.in: bumped version number to 0.5.1
+	* clutter/Makefile.am:
+	* clutter/cluttermm-1.0.pc.in:
+	* clutter/cluttermm/Makefile.am:
+	* clutter/cluttermm/private/Makefile.am:
+	* examples/Makefile.am_fragment: previously, the library name was a mixture
+	of cluttermm-1.0 and cluttermm-0.1.  The pkg-config file and include
+	directories were 1.0, but the .so files were named -0.1.  Now everything
+	should be named -1.0
+
+2008-04-15  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/src/actor.hg: add default value of 'true' to Actor::set_reactive()
+
+2008-04-13  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/cluttermm-1.0.pc.in: require 'clutter-0.6' in the .pc file instead
+	of 'clutter'
+
+2008-04-13  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/cluttermm.h:
+	* clutter/src/Makefile_list_of_hg.am_fragment:
+	* clutter/src/cairo-texture.ccg:
+	* clutter/src/cairo-texture.hg:
+	* clutter/src/clutter_methods.defs:
+	* examples/Makefile.am:
+	* examples/flowers.cc:
+	* examples/simple-cairo.cc:
+	* examples/test-actors.cc: add support for the clutter-cairo library.
+	Currently this is required unconditionally, I'm not sure if we want to wrap
+	this in a separate library (e.g. cluttermm-cairo) since the underlying
+	libraries are separate.
+
+0.5.0:
+
+2008-02-21  Murray Cumming  <murrayc@murrayc.com>
+
+	* configure.in: Depend on clutter-0.6 instead of clutter-0.5.
+	* clutter/src/clutter_methods.defs: Regenereated with h2defs.py.
+
+	* clutter/src/clutter_vfuncs.defs:
+	* clutter/src/stage.hg: Remove set_offscreen() vfunc because it was 
+	removed from clutter.
+
+	* clutter/src/entry.hg: Renamed set_position() to set_cursor_position(), 
+	to match the change in clutter.
+
+2008-01-26  Murray Cumming  <murrayc@murrayc.com>
+
+	* clutter/src/script.hg:
+	* clutter/src/shader.hg: Do not use _DERIVES_INITIALLY_UNOWNED, because I 
+	do not think they do.
+
+2008-01-26  Murray Cumming  <murrayc@murrayc.com>
+
+	* clutter/src/score.hg: Do not use _DERIVES_INITIALLY_UNOWNED, because I 
+	do not think it does.
+	get_timeline(): Use refreturn. 
+	* clutter/src/script.hg: Wrap clutter_get_script_id() as a static method.
+	* clutter/src/scriptable.hg: Wrap the get_id() vfunc.
+	* clutter/src/shader.ccg:
+	* clutter/src/shader.hg: Use std::string for the source code (data) parameters.
+	* clutter/src/stage.hg: Added default values for set_*(bool) methods.
+
+2008-01-26  Murray Cumming  <murrayc@murrayc.com>
+
+	* clutter/src/media.hg:
+	* clutter/src/stage.hg: Added ustring conversions for signals, to fix the build.
+
+2008-01-25  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* tests/test-alpha-creation.cc:
+	* tests/test-alpha-func.cc: update tests for new BehaviourScale constructor API
+
+2008-01-20  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/src/actor.hg: implement Scriptable interface
+	* clutter/src/behaviour-bspline.hg: implement Scriptable interface
+	* clutter/src/behaviour-path.hg: implement Scriptable interface
+	* clutter/src/scriptable.hg: remove errant actor.h include
+
+2008-01-20  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/src/Makefile_list_of_hg.am_fragment:
+	* clutter/src/clutter_vfuncs.defs:
+	* clutter/src/scriptable.ccg:
+	* clutter/src/scriptable.hg: add new Scriptable Interface
+
+2008-01-20  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/cluttermm.h:
+	* clutter/src/Makefile_list_of_hg.am_fragment:
+	* clutter/src/clutter_signals.defs:
+	* clutter/src/script.ccg:
+	* clutter/src/script.hg:
+	* tools/extra_defs_gen/generate_defs_clutter.cc:
+	Added Script class.  A lot of it is still marked with TODOs since I haven't
+	thought about how to handle the signal connection stuff in C++.
+
+2008-01-20  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/src/shader.ccg:
+	* clutter/src/shader.hg:
+	* clutter/src/Makefile_list_of_hg.am_fragment: add new Shader class
+	* clutter/cluttermm.h: add score.h and shader.h to main include header
+	* clutter/src/clutter_signals.defs:
+	* tools/extra_defs_gen/generate_defs_clutter.cc: generate defs for new
+	Shader and Score classes
+
+2008-01-20  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/src/behaviour-opacity.hg: wrapped a couple missing methods
+
+2008-01-20  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/src/score.ccg:
+	* clutter/src/score.hg:
+	* clutter/src/Makefile_list_of_hg.am_fragment: add new Score class
+	* clutter/src/clutter_docs_override.xml: override some documentation for the
+	Score class since I overloaded append() with a NULL parameter for parent
+
+2008-01-19  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* examples/test-actors.cc: update example to use new BehaviourScale
+	constructor API
+
+2008-01-19  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/src/clutter_docs.xml: re-generated documentation
+	* clutter/src/stage.hg: wrapped missing functions
+	* clutter/src/timeline.hg: wrapped missing functions
+	* tools/m4/convert_cluttermm.m4: moved a conversion to the source file
+
+2008-01-19  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/src/behaviour-scale.hg: wrapped new BehaviourScale API and fixed
+	up some API changes (constructor, etc)
+	* clutter/src/stage.hg: wrapped new Stage API
+	* tools/m4/convert_cluttermm.m4: add conversions for Fog
+
+2008-01-19  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/src/behaviour-scale.hg: update get_bounds() API that now takes a
+	start and end instead of an angle
+
+2008-01-19  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/src/clutter_signals.defs: reverted a couple signal definitions back
+	to take const parameters.  These were hand-changed and overwritten by
+	re-generating the .defs file.
+
+2008-01-19  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/src/behaviour-ellipse.hg: API change, angle degree arguments were
+	changed from ClutterAngle to ClutterFixed in the C API
+
+2008-01-19  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/src/clutter_enums.defs:
+	* clutter/src/clutter_methods.defs:
+	* clutter/src/clutter_signals.defs: re-generated defs
+	* clutter/src/actor.hg: wrapped the new Unit-related API (e.g. get_xu()).
+	It might be nice to wrap the set_xu() functions as overloaded versions of
+	set_x(), but that won't work for get_xu() since you can't overload on return
+	values, so I left them all with the slightly awkward naming of the C
+	functions.
+
+2007-12-27  Daniel Elstner  <danielk@openismus.com>
+
+	* examples/src/color.ccg: Eliminate leftover inclusion of removed
+	clutter-layout.h header.
+
+2007-12-17  Murray Cumming  <murrayc@murrayc.com>
+
+	* clutter/src/Makefile_list_of_hg.am_fragment:
+	Added back container.hg because ClutterContainer was not removed 
+	from clutter.
+
+2007-11-30  Murray Cumming  <murrayc@murrayc.com>
+
+	* clutter/src/actor.hg: Removed deprecated 
+	set_scale_with_gravityx(). Added some new methods.
+
+	* clutter/cluttermm.h:
+	* clutter/src/Makefile_list_of_hg.am_fragment:
+	* examples/Makefile.am:
+	* tools/extra_defs_gen/generate_defs_clutter.cc:
+	Remove use of Box, Container, HBox, VBox, Layout and Margin 
+	because they have been removed from Clutter. We can move these 
+	to a wrapper for the Clutter higher-level library when that 
+	C library exists. 
+
+2007-11-22  Murray Cumming  <murrayc@murrayc.com>
+
+	* clutter/src/alpha.ccg:
+	* clutter/src/behaviour.ccg:
+	* clutter/src/container.ccg: Take a reference with Glib::wrap() 
+	in the slot/callback proxies, because the C callback does not 
+	give us one. Otherwise the RefPtr decreases the refcount in its 
+	destructor.
+	Jonathon, if you copied this code from somewhere, we should check 
+	the code that you copied from too.
+	* clutter/src/timeline.hg: Added =true to set_loop().
+	* tests/Makefile.am: Added a test of the alpha funcs.
+
+2007-11-19  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/src/actor.hg: wrap some more Actor methods
+	* examples/test-actors.cc: use the C++ versions of set_rotation()
+
+2007-11-19  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/src/alpha.hg:
+	* clutter/src/behaviour-depth.hg:
+	* clutter/src/behaviour-ellipse.hg:
+	* clutter/src/behaviour-opacity.hg:
+	* clutter/src/behaviour-path.hg:
+	* clutter/src/behaviour-rotate.hg:
+	* clutter/src/behaviour-scale.hg:
+	* clutter/src/behaviour.ccg:
+	* clutter/src/behaviour.hg:
+	* clutter/src/clutter_enums.defs:
+	* clutter/src/clutter_methods.defs:
+	* clutter/src/clutter_signals.defs:
+	* clutter/src/container.hg:
+	* clutter/src/entry.hg:
+	* clutter/src/group.hg:
+	* clutter/src/label.hg:
+	* clutter/src/timeline.hg:
+	* tools/m4/convert_cluttermm.m4: wrapped a lot of new API introduced by
+	generating new .defs files and cleaned up some of the missing stuff from
+	before, including wrapping a lot of new properties
+
+2007-11-19  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/src/clutter_enums.defs:
+	* clutter/src/clutter_methods.defs:
+	* clutter/src/clutter_signals.defs: re-generated defs
+
+2007-11-19  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* MAINTAINERS: I figure I might as well add myself as a maintainer
+
+2007-11-19  Murray Cumming  <murrayc@murrayc.com>
+
+	* clutter/src/alpha.ccg:
+	* clutter/src/alpha.hg: Added a constructor and create() 
+	that takes a regular ClutterAlphaFunc, because the slot version 
+	seems to have refcount problems. We might want this anyway, so it 
+	is easy for people to use new standard clutter ClutterAlphaFuncs. 
+	* tests/test-alpha-creation.cc: Use the new constructor to show 
+	that this removes the warning.
+
+2007-11-19  Murray Cumming  <murrayc@murrayc.com>
+
+	* Makefile.am:
+	* configure.in:
+	* tests/Makefile.am:
+	* tests/test-alpha-creation.cc: Added a tests directory, with one 
+	simple test, though it doesn't show the problem in the example.
+
+2007-11-19  Murray Cumming  <murrayc@murrayc.com>
+
+	* clutter/src/actor.hg: Commented-out the rotate_*() and get_r*_ang*() 
+	methods which have been removed from clutter in svn.
+	* examples/test-actors.cc: Used the C functions for now, because I am too 
+	lazy to regenerate the .defs file.
+
+2007-11-18  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/src/alpha.hg: add sigc::slot wrappers for all of the pre-defined
+	alpha functions provided by clutter
+	* clutter/src/alpha.ccg: Sink initially unowned ref in custom constructor,
+	also define the pre-defined alpha slots
+	* examples/test-actors.cc: update to use newly wrapped sine alpha func, also
+	make the example generally more c++-ified
+
+2007-11-17  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/cluttermm/init.cc: also initialize gdkmm so that we can use
+	Gdk::Pixbuf properly
+	* examples/test-actors.cc: added new test/example -- the one with the
+	spinning openedhand logos.  There are a few things that are not wrapped and
+	a couple of things print warnings on exit (indicating perhaps a reference
+	counting issue or something), but for the most part things work so far.
+
+2007-11-17  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/src/behaviour-scale.hg: fix the construction param names
+
+2007-11-17  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/src/clone-texture.hg: fixe CloneTexture so it actually works.
+	Give it the write GType, fix the construct param property name
+
+2007-11-17  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/src/timeline.hg: add proper constructor -- there is no default
+	constructor for Timeline
+
+2007-11-17  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/cluttermm.h: update main super-header to include all of the new
+	headers that we've added recently
+	* clutter/src/Makefile_list_of_hg.am_fragment:
+	* clutter/src/clone-texture.ccg:
+	* clutter/src/clone-texture.hg:
+	* tools/m4/convert_cluttermm.m4: add initial implementation of CloneTexture
+	class
+
+2007-11-17  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* tools/m4/convert_cluttermm.m4:
+	* clutter/src/types.hg: add Gravity enum
+	* clutter/src/Makefile_list_of_hg.am_fragment:
+	* clutter/src/behaviour-scale.ccg:
+	* clutter/src/behaviour-scale.hg: added initial implementation of
+	BehaviourScale class
+
+2007-11-17  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* Update to latest clutter trunk API
+	* clutter/src/actor.hg: renamed get_id() to get_gid()
+	* clutter/src/behaviour-ellipse.hg: renamed *_angle_begin to *_angle_start
+
+2007-11-17  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/src/Makefile_list_of_hg.am_fragment:
+	* clutter/src/behaviour-ellipse.ccg:
+	* clutter/src/behaviour-ellipse.hg:
+	* clutter/src/behaviour-rotate.ccg:
+	* clutter/src/behaviour-rotate.hg: added initial implementation of
+	BehaviourRotate class
+
+2007-11-17  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/src/types.ccg/hg:
+	* clutter/cluttermm/types.h: move this to types.hg so that we can wrap some
+	enums here with gmmproc
+	* clutter/src/Makefile_list_of_hg.am_fragment:
+	* clutter/src/behaviour-ellipse.ccg:
+	* clutter/src/behaviour-ellipse.hg: add initial implementation of
+	BehaviorEllipse class
+	* tools/m4/convert_cluttermm.m4: add enum conversions
+
+2007-11-17  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* docs/reference/Doxyfile.in: update to new config file format
+
+2007-11-15  Murray Cumming  <murrayc@murrayc.com>
+
+	* clutter/src/clutter_signals.defs: Corrected the 
+	Actor::enter-event signal definition.
+	* clutter/src/actor.hg: Added some event signals that were 
+	commented out.
+	* clutter/src/alpha.ccg:
+	* clutter/src/alpha.hg: Added a constructor (and create) 
+	which takes a timeline and alpha callback.
+	* clutter/src/container.ccg:
+	* clutter/src/container.hg: Added foreach() and 
+	sort_depth_order(), and the foreach() vfunc.
+	* clutter/src/stage.hg: Added stage_event().
+	* clutter/src/timeline.hg: Added clone().
+
+2007-11-12  Murray Cumming  <murrayc@murrayc.com>
+
+	* clutter/src/actor.hg: Wrapped get_scalex().
+	* clutter/src/behaviour.hg: Wrapped get_actors().
+	* tools/m4/convert_cluttermm.m4: Moved the signal conversion into the .hg file, 
+	to avoid it being used anywhere else.
+
+2007-11-12  Murray Cumming  <murrayc@murrayc.com>
+
+	* clutter/src/texture.ccg:
+	* clutter/src/texture.hg: Use _WRAP_GERROR() to wrap the 
+	GError, and use the errthrow parameter with _WRAP_METHOD.
+
+2007-11-12  Murray Cumming  <murrayc@murrayc.com>
+
+	* clutter/cluttermm/types.h: Added Fixed and *Event typedefs.
+	* tools/m4/convert_cluttermm.m4: Added conversions.
+	* clutter/src/actor.ccg:
+	* clutter/src/actor.hg: Used *Event typedefs.
+	* clutter/src/alpha.ccg:
+	* clutter/src/alpha.hg:
+	* clutter/src/behaviour-bspline.ccg:
+	* clutter/src/behaviour-bspline.hg:
+	* clutter/src/behaviour-depth.ccg:
+	* clutter/src/behaviour-depth.hg:
+	* clutter/src/behaviour-opacity.ccg:
+	* clutter/src/behaviour-opacity.hg:
+	* clutter/src/behaviour-path.ccg:
+	* clutter/src/behaviour-path.hg:
+	* clutter/src/behaviour.ccg:
+	* clutter/src/behaviour.hg:
+	* clutter/src/box.ccg:
+	* clutter/src/box.hg:
+	* clutter/src/color.ccg:
+	* clutter/src/color.hg:
+	* clutter/src/container.ccg:
+	* clutter/src/container.hg:
+	* clutter/src/entry.ccg:
+	* clutter/src/entry.hg:
+	* clutter/src/group.ccg:
+	* clutter/src/group.hg:
+	* clutter/src/label.ccg:
+	* clutter/src/label.hg:
+	* clutter/src/layout.hg:
+	* clutter/src/margin.ccg:
+	* clutter/src/margin.hg:
+	* clutter/src/media.hg:
+	* clutter/src/rectangle.ccg:
+	* clutter/src/rectangle.hg:
+	* clutter/src/stage.ccg:
+	* clutter/src/stage.hg:
+	* clutter/src/texture.ccg:
+	* clutter/src/texture.hg:
+	* clutter/src/timeline.ccg:
+	* clutter/src/timeline.hg: Use Fixed typedefs.
+	Removed unnecessary includes of C headers in our .hg headers - 
+	adding them to our .ccg files where necessary.
+
+2007-11-11  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* configure.in:
+	* docs/Makefile.am: build the API documentation by default
+
+2007-11-11  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/src/Makefile_list_of_hg.am_fragment:
+	* clutter/src/behaviour-path.ccg:
+	* clutter/src/behaviour-path.hg: Initial implementation of the BehaviourPath
+	class
+	* clutter/src/clutter_signals.defs: modified signal signature by hand to
+	change the knot_reached argument to const.
+
+2007-11-11  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/src/behaviour-depth.hg: removed incorrect comment (copy/paste
+	error)
+	* clutter/src/Makefile_list_of_hg.am_fragment:
+	* clutter/src/behaviour-opacity.ccg:
+	* clutter/src/behaviour-opacity.hg: initial implementation of the
+	BehaviourOpacity class
+
+2007-11-11  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/src/Makefile_list_of_hg.am_fragment:
+	* clutter/src/behaviour-depth.ccg:
+	* clutter/src/behaviour-depth.hg: initial implementation of the
+	BehaviourDepth class
+
+2007-11-10  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/src/clutter_signals.defs: re-generate signals and manually change
+	one parameter (in "knot_reached") to const since it didn't get detected
+	properly.  I'm not sure if this is the right way to do that or not
+	* clutter/cluttermm/types.h: add Knot type
+	* tools/m4/convert_cluttermm.m4:
+	* clutter/src/Makefile_list_of_hg.am_fragment:
+	* clutter/src/behaviour-bspline.ccg:
+	* clutter/src/behaviour-bspline.hg: add initial implementation of the
+	BehaviourBspline class
+
+2007-11-09  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/src/alpha.hg: added missing get_alpha() function
+	* clutter/src/Makefile_list_of_hg.am_fragment:
+	* clutter/src/behaviour.ccg:
+	* clutter/src/behaviour.hg:
+	* clutter/src/clutter_vfuncs.defs:
+	* tools/m4/convert_cluttermm.m4: added initial wrapper for Behavior
+
+2007-11-09  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/src/Makefile_list_of_hg.am_fragment:
+	* clutter/src/alpha.ccg:
+	* clutter/src/alpha.hg: added initial wrapper for ClutterAlpha
+	* clutter/src/timeline.hg: made Timeline only accessible via RefPtr
+
+2007-11-08  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/src/container.hg: added refreturn to some functions
+	* clutter/src/group.hg: added refreturn to some functions
+	* clutter/src/stage.hg: added refreturn to some functions
+	* examples/test-boxes.cc: connected the signal handlers, so the full
+	functionality of the C demo is now working (although there are some things
+	in the example which aren't wrapped yet).
+
+2007-11-08  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/src/color.ccg:
+	* clutter/src/color.hg: I had forgotten to add an rgb constructor, which is
+	the most common case and corresponds to the C use:
+	ClutterColor color = { 0, 0, 0, 255};
+	This means that we can't have a constructor for hls, because they would be
+	the same signature.  So I removed the hls and hlsx constructors.  If you
+	want to set a color via hls, you'll need to construct it and then call
+	Color::set_from_hls() instead.  I also added getters/setters for all of the
+	individual red/green/blue/alpha values and one setter for all of them at
+	once. This API might still need a bit more thought to make it more natural
+	* examples/test-boxes.cc: updated for the new color API
+
+2007-11-08  Murray Cumming  <murrayc@murrayc.com>
+
+	* clutter/src/actor.hg: Use the new _DERIVES_INITIALLY_UNOWNED 
+	gmmproc macro from the latest glibmm from svn.
+	* examples/test-boxes.cc: Remove the extra reference() calls. These 
+	should no longer be necessary.
+
+2007-11-07  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/cluttermm/init.cc:
+	* clutter/cluttermm/init.h: just modifiying the init() function enough so
+	that I can get the example to run
+	* examples/Makefile.am:
+	* examples/test-boxes.cc: added a simple example which is a translation of
+	the test-boxes.c program from clutter.  It doesn't work completely yet, but
+	a window shows up and it's the right size.
+
+2007-11-07  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/cluttermm.h: Add the rest of the headers created so far to the m
+	ain cluttermm.h include file
+	* configure.in: removed an example makefile from AC_OUTPUT since it no
+	longer exists
+
+2007-11-07  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/src/box.hg: I think the HBox and VBox classes should be used by
+	RefPtr, so I added create() functions and made their constructors private
+
+2007-11-07  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* configure.in: bump the version to 0.5.0 to try to avoid confusion with
+	people assuming that they can use it with clutter <= 0.3.  There's currently
+	a lot fo 0.5/0.6 clutter API wrapped in cluttermm, and this version change
+	hopefully makes that more clear
+
+2007-11-07  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/src/Makefile_list_of_hg.am_fragment:
+	* clutter/src/timeline.ccg:
+	* clutter/src/timeline.hg: Added initial wrapper for Timeline
+
+2007-11-07  Murray Cumming  <murrayc@murrayc.com>
+
+	* clutter/cluttermm/Makefile.am:
+	* clutter/cluttermm/types.h: Added this file. 
+	So far it just contains the Unit typedef.
+	* clutter/src/container.hg:
+	* clutter/src/layout.hg:
+	* clutter/src/texture.hg:
+	* tools/m4/convert_cluttermm.m4: Use Unit instead 
+	of ClutterUnit in our API.
+	* clutter/src/margin.ccg:
+	* clutter/src/margin.hg: Use _MEMBER_GET() and 
+	_MEMBER_SET() instead of hand-coding these.
+
+2007-11-07  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/src/Makefile_list_of_hg.am_fragment:
+	* clutter/src/clutter_vfuncs.defs:
+	* clutter/src/entry.ccg:
+	* clutter/src/entry.hg: Add wrapper for Entry class
+
+2007-11-07  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/src/rectangle.ccg:
+	* clutter/src/rectangle.hg:
+	* clutter/src/texture.ccg:
+	* clutter/src/texture.hg: use _WRAP_CTOR instead of doing hand-coded
+	constructors for Rectangle and Texture.
+
+2007-11-07  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/src/label.hg: re-enabled pango-related functions.  Fixed a typo
+	where get_* was mis-spelled set_*
+
+2007-11-07  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/src/Makefile_list_of_hg.am_fragment:
+	* clutter/src/label.ccg:
+	* clutter/src/label.hg:
+	* tools/m4/convert_cluttermm.m4: add Label class.  Commented out Pango-using
+	functions until I get conversions to work correctly
+
+2007-11-07  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/src/clutter_methods.defs: re-generate methods defs
+
+2007-11-06  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/src/actor.hg:
+	* clutter/src/clutter_signals.defs: added some signals to the Actor class
+
+2007-11-06  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/src/group.hg: removed a bunch of deprecated functions and added a
+	constversion of one function
+
+2007-11-06  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/src/container.hg: removed a function from Container that was
+	removed from the C library
+
+2007-11-06  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/src/stage.hg: wrapped some more functions of Stage
+
+2007-11-06  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/src/Makefile_list_of_hg.am_fragment:
+	* clutter/src/texture.ccg:
+	* clutter/src/texture.hg:
+	* tools/m4/convert_cluttermm.m4: Initial wrapper for Texture class
+
+2007-10-31  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/src/box.hg:
+	* clutter/src/color.hg:
+	* clutter/src/rectangle.hg:
+	* clutter/src/stage.hg: added _WRAP_METHOD_DOCS_ONLY calls to methods that
+	were customized and not wrapped automatically so that the relevant generated
+	documentation gets included
+	* clutter/src/clutter_docs.xml: re-generate the clutter docs
+
+2007-10-31  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/src/actor.hg: use wrapped Color class in the pick() method
+
+2007-10-31  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/cluttermm/init.cc:
+	* clutter/cluttermm/init.h:
+	* clutter/cluttermm/wrap_init.h:
+	* clutter/cluttermmconfig.h.in: removed a bunch more leftover namespaces and
+	such from goocanvasmm and gdamm
+
+2007-10-31  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/src/Makefile_list_of_hg.am_fragment:
+	* clutter/src/rectangle.ccg:
+	* clutter/src/rectangle.hg: Wrap the Rectangle class
+
+2007-10-31  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/src/stage.hg: add conversion so that Stage::get_default() returns
+	a RefPtr<Stage> type
+
+2007-10-30  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/src/Makefile_list_of_hg.am_fragment:
+	* clutter/src/clutter_vfuncs.defs:
+	* clutter/src/stage.ccg:
+	* clutter/src/stage.hg: added an initial wrapper for the Stage class.
+	The get_default() function returns a RefPtr<Actor> instead of a
+	RefPtr<Stage> since I'm not sure of the proper way to do the conversion, but
+	otherwise, it should be mostly complete.
+
+2007-10-29  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/src/box.hg: added HBox and VBox classes.  I decided against
+	creating separate headers for each of these classes like the base clutter
+	library does since they're so small, and I just put them all in box.h like
+	we do in gtkmm.
+
+2007-10-28  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/README: clean up a copy/paste error
+	* added some more files to ignore
+
+2007-10-28  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/src/Makefile_list_of_hg.am_fragment:
+	* clutter/src/group.ccg:
+	* clutter/src/group.hg: add initial wrapper for ClutterGroup
+
+2007-10-28  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/cluttermm.h: cleaned up the one-include-to-rule-them-all so that
+	it includes all of the header files created so far and so that it has proper
+	copyright information.  Also removed some commented-out cruft
+
+2007-10-28  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/cluttermm.h: changed the #include guard from LIBGOOCANVASMM_H to
+	LIBCLUTTERMM_H
+	* clutter/src/clutter_vfuncs.defs: removed a whole bunch of goocanvasmm
+	references
+
+2007-10-28  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* examples/Makefile.am:
+	* examples/README.txt:
+	* examples/simple/Makefile.am:
+	* examples/simple/simple.cc:
+	* examples/simple/window.cc:
+	* examples/simple/window.h: removed the leftover goocanvas example so that
+	the build doesn't break on the examples every time
+
+2007-10-28  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/src/Makefile_list_of_hg.am_fragment:
+	* clutter/src/clutter_vfuncs.defs:
+	* clutter/src/media.ccg:
+	* clutter/src/media.hg: Add initial wrapper for ClutterMedia Interface
+
+2007-10-28  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/src/margin.ccg:
+	* clutter/src/margin.hg: added getters and setters for the various margin
+	values (top, right, bottom, left)
+
+2007-10-28  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/src/color.ccg:
+	* clutter/src/color.hg:
+	* tools/m4/convert_cluttermm.m4: Finish wrapping the Color class.  There are
+	a couple of utility functions that have a signature like:
+	void darken(ClutterColor* src, ClutterColor*dest);
+	These I wrapped to act on the 'this' object (e.g. darken(this, this))
+	instead of returning a modified copy of the Color.  I did this because
+	otherwise you wouldn't have any way to darken the current object directly,
+	you'd have to do something like:
+	Color foo;
+	Color darkened_foo = foo.darken();
+	// now use the darkened color you wanted and throw away foo
+
+	This means, of course, that if you *do* want to create a darkened copy, you
+	have to create the copy manually, e.g.:
+	Color foo;
+	Color darkened_foo = foo;
+	darkened_foo.darken();
+	There are drawbacks to both approaches, but I think the second is more
+	flexible and feels better to me.
+
+2007-10-28  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/src/color.ccg:
+	* clutter/src/color.hg: implemented operator+ and operator- for the Color
+	class and re-implemented .add() and .subtract() with these new operators.
+	Also made add() and subtract() const since they don't modify the object,
+	they return a new object.
+
+2007-10-28  Murray Cumming  <murrayc@murrayc.com>
+
+	* clutter/src/Makefile_list_of_hg.am_fragment:
+	* tools/m4/convert_cluttermm.m4:
+	* clutter/src/box.ccg:
+	* clutter/src/box.hg:
+	* clutter/src/color.ccg:
+	* clutter/src/color.hg:
+	* clutter/src/margin.ccg:
+	* clutter/src/margin.hg: Added wrappers for these 
+	two boxed types.
+	* clutter/src/container.ccg:
+	* clutter/src/container.hg: Use the Color and Margin
+	classes.
+	* clutter/src/layout.hg: Moved the conversion for the 
+	signal to here, and fixed the reference-counting for it.
+	Some other minor const fixes.
+
+2007-10-27  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/src/Makefile_list_of_hg.am_fragment:
+	* clutter/src/box.ccg:
+	* clutter/src/box.hg:
+	* clutter/src/clutter_vfuncs.defs:
+	* tools/m4/convert_cluttermm.m4: add initial wrapper for ClutterBox
+
+2007-10-27  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/src/container.hg:
+	* clutter/src/layout.hg: make member functions public, accidentally left
+	them at the default private visibility
+
+2007-10-27  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/src/Makefile_list_of_hg.am_fragment:
+	* clutter/src/clutter_vfuncs.defs:
+	* clutter/src/layout.ccg:
+	* clutter/src/layout.hg:
+	* tools/m4/convert_cluttermm.m4: added initial wrapper for ClutterLayout
+	Interface
+
+2007-10-27  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* add svn:ignore properties so `svn status` is useful again
+
+2007-10-27  Jonathon Jongsma  <jjongsma@gnome.org>
+
+	* clutter/src/Makefile_list_of_hg.am_fragment:
+	* clutter/src/container.ccg:
+	* clutter/src/container.hg:
+	* tools/m4/convert_cluttermm.m4: added initial wrapping of the
+	ClutterContainer interface.
+

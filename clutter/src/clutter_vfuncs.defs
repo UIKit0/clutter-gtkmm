@@ -1,0 +1,231 @@
+; ClutterLayout
+
+(define-vfunc get_layout_flags
+	(of-object "ClutterLayout")
+	(return-type "ClutterLayoutFlags")
+)
+
+(define-vfunc width_for_height
+	(of-object "ClutterLayout")
+	(return-type "void")
+	(parameters
+		'("ClutterUnit*" "width")
+		'("ClutterUnit" "height")
+	)
+)
+
+(define-vfunc height_for_width
+	(of-object "ClutterLayout")
+	(return-type "void")
+	(parameters
+		'("ClutterUnit" "width")
+		'("ClutterUnit*" "height")
+	)
+)
+
+(define-vfunc natural_request
+	(of-object "ClutterLayout")
+	(return-type "void")
+	(parameters
+		'("ClutterUnit*" "width")
+		'("ClutterUnit*" "height")
+	)
+)
+
+(define-vfunc tune_request
+	(of-object "ClutterLayout")
+	(return-type "gboolean")
+	(parameters
+		'("ClutterUnit" "given_width")
+		'("ClutterUnit" "given_height")
+		'("ClutterUnit*" "width")
+		'("ClutterUnit*" "height")
+	)
+)
+
+; ClutterBox
+
+(define-vfunc unpack_child
+	(of-object "ClutterBox")
+	(return-type "void")
+	(parameters
+		'("ClutterBoxChild*" "child")
+	)
+)
+
+(define-vfunc pack_child
+	(of-object "ClutterBox")
+	(return-type "void")
+	(parameters
+		'("ClutterBoxChild*" "child")
+	)
+)
+
+; ClutterMedia
+
+(define-vfunc set_uri
+  (of-object "ClutterMedia")
+  (return-type "void")
+  (parameters
+    '("const-char*" "uri")
+  )
+)
+
+(define-vfunc get_uri
+  (of-object "ClutterMedia")
+  (return-type "const-char*")
+)
+
+(define-vfunc set_playing
+  (of-object "ClutterMedia")
+  (return-type "void")
+  (parameters
+    '("gboolean" "playing")
+  )
+)
+
+(define-vfunc get_playing
+  (of-object "ClutterMedia")
+  (return-type "gboolean")
+)
+
+(define-vfunc set_position
+  (of-object "ClutterMedia")
+  (return-type "void")
+  (parameters
+    '("int" "position")
+  )
+)
+
+(define-vfunc get_position
+  (of-object "ClutterMedia")
+  (return-type "int")
+)
+
+(define-vfunc set_volume
+  (of-object "ClutterMedia")
+  (return-type "void")
+  (parameters
+    '("double" "volume")
+  )
+)
+
+(define-vfunc get_volume
+  (of-object "ClutterMedia")
+  (return-type "double")
+)
+
+(define-vfunc can_seek
+  (of-object "ClutterMedia")
+  (return-type "gboolean")
+)
+
+(define-vfunc get_buffer_percent
+  (of-object "ClutterMedia")
+  (return-type "int")
+)
+
+(define-vfunc get_duration
+  (of-object "ClutterMedia")
+  (return-type "int")
+)
+
+; ClutterStage
+
+(define-vfunc set_fullscreen
+  (of-object "ClutterStage")
+  (return-type "void")
+  (parameters
+    '("gboolean" "fullscreen")
+  )
+)
+
+(define-vfunc set_cursor_visible
+  (of-object "ClutterStage")
+  (return-type "void")
+  (parameters
+    '("gboolean" "visible")
+  )
+)
+
+(define-vfunc draw_to_pixbuf
+  (of-object "ClutterStage")
+  (return-type "GdkPixbuf*")
+  (parameters
+    '("gint" "x")
+    '("gint" "y")
+    '("gint" "width")
+    '("gint" "height")
+  )
+)
+
+(define-vfunc set_title
+  (of-object "ClutterStage")
+  (return-type "void")
+  (parameters
+    '("const-gchar*" "title")
+  )
+)
+
+(define-vfunc set_user_resize
+  (of-object "ClutterStage")
+  (return-type "void")
+  (parameters
+    '("gboolean" "value")
+  )
+)
+
+; ClutterEntry
+
+(define-vfunc paint_cursor
+  (of-object "ClutterEntry")
+  (return-type "void")
+)
+
+
+; ClutterBehaviour
+
+(define-vfunc alpha_notify
+  (of-object "ClutterBehaviour")
+  (return-type "void")
+  (parameters
+    '("guint32" "alpha_value")
+  )
+)
+
+; ClutterScriptable
+
+(define-vfunc set_id
+  (of-object "ClutterScriptable")
+  (return-type "void")
+  (parameters
+    '("const-gchar*" "name")
+  )
+)
+
+(define-vfunc get_id
+  (of-object "ClutterScriptable")
+  (return-type "const-gchar*")
+)
+
+(define-vfunc parse_custom_node
+  (of-object "ClutterScriptable")
+  (return-type "gboolean")
+  (parameters
+    '("ClutterScript*" "script")
+    '("GValue*" "value")
+    '("const-gchar*" "name")
+    '("JSonNode*" "node")
+  )
+)
+
+(define-vfunc set_custom_property
+  (of-object "ClutterScriptable")
+  (return-type "void")
+  (parameters
+    '("ClutterScript*" "script")
+    '("const-gchar*" "name")
+    '("GValue*" "value")
+  )
+)
+

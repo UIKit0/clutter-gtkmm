@@ -1,0 +1,102 @@
+/* Copyright (C) 2007 The cluttermm Development Team
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Library General Public
+ * License as published by the Free Software Foundation; either
+ * version 2 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Library General Public License for more details.
+ *
+ * You should have received a copy of the GNU Library General Public
+ * License along with this library; if not, write to the Free
+ * Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+ */
+
+#include <cluttermm/group.h>
+#include <cluttermm/color.h>
+#include <gdkmm/pixbuf.h>
+#include <clutter/clutter-stage.h> // TODO: Remove this when we have a wrapper for ClutterPerspective.
+ 
+_DEFS(cluttermm,clutter)
+_PINCLUDE(cluttermm/private/group_p.h)
+
+namespace Clutter
+{
+
+typedef ClutterFog Fog;
+
+class Stage :
+  public Group
+{
+  _CLASS_GOBJECT(Stage, ClutterStage, CLUTTER_STAGE, Group, ClutterGroup)
+
+protected:
+  _CTOR_DEFAULT()
+
+public:
+#m4 _CONVERSION(`ClutterActor*',`Glib::RefPtr<Stage>',`Glib::wrap((ClutterStage*)$3)')
+  _WRAP_METHOD(static Glib::RefPtr<Stage> get_default(), clutter_stage_get_default, refreturn)
+  _WRAP_METHOD(void set_color(const Color& color), clutter_stage_set_color)
+  _WRAP_METHOD_DOCS_ONLY(clutter_stage_get_color)
+  Color get_color() const;
+  _IGNORE(clutter_stage_get_color)
+
+  // TODO: wrap ClutterPerspective
+  _WRAP_METHOD(void set_perspectivex(ClutterPerspective* perspective), clutter_stage_set_perspectivex)
+  // TODO: return the perspective by value
+  _WRAP_METHOD(void get_perspectivex(ClutterPerspective* perspective) const, clutter_stage_get_perspectivex)
+
+  _WRAP_METHOD(void set_perspective(float fovy, float aspect, float z_near, float z_far), clutter_stage_set_perspective)
+  _WRAP_METHOD(void get_perspective(float& fovy, float& aspect, float& z_near, float& z_far), clutter_stage_get_perspective)
+  _WRAP_METHOD(void fullscreen(), clutter_stage_fullscreen)
+  _WRAP_METHOD(void unfullscreen(), clutter_stage_unfullscreen)
+  _WRAP_METHOD(void show_cursor(), clutter_stage_show_cursor)
+  _WRAP_METHOD(void hide_cursor(), clutter_stage_hide_cursor)
+  _WRAP_METHOD(Glib::ustring get_title() const, clutter_stage_get_title)
+  _WRAP_METHOD(void set_title(const Glib::ustring& title), clutter_stage_set_title)
+  _WRAP_METHOD(void set_user_resizable(bool value), clutter_stage_set_user_resizable)
+  _WRAP_METHOD(bool get_user_resizable() const, clutter_stage_get_user_resizable)
+
+  _WRAP_METHOD(Glib::RefPtr<Actor> get_actor_at_pos(int x, int y), clutter_stage_get_actor_at_pos, refreturn)
+  _WRAP_METHOD(Glib::RefPtr<const Actor> get_actor_at_pos(int x, int y) const, clutter_stage_get_actor_at_pos, refreturn, constversion)
+
+  _WRAP_METHOD(Glib::RefPtr<Actor> get_key_focus(), clutter_stage_get_key_focus, refreturn)
+  _WRAP_METHOD(Glib::RefPtr<const Actor> get_key_focus() const, clutter_stage_get_key_focus,  refreturn, constversion)
+
+  //TODO: actor can be NULL.
+  _WRAP_METHOD(void set_key_focus(const Glib::RefPtr<Actor>& actor), clutter_stage_set_key_focus)
+
+  _WRAP_METHOD(Glib::RefPtr<Gdk::Pixbuf> snapshot(int x, int y, int width, int height) const, clutter_stage_snapshot)
+  _WRAP_METHOD(bool get_use_fog() const, clutter_stage_get_use_fog)
+  _WRAP_METHOD(void set_use_fog(bool fog = true), clutter_stage_set_use_fog)
+  _WRAP_METHOD(void set_fog(double density, double z_near, double z_far), clutter_stage_set_fog)
+  _WRAP_METHOD(void get_fog(double& density, double& z_near, double& z_far) const, clutter_stage_get_fog)
+#m4 _CONVERSION(`const Fog&',`ClutterFog*',`const_cast<ClutterFog*>(&($3))')
+  _WRAP_METHOD(void set_fogx(const Fog& fog), clutter_stage_set_fogx)
+  _WRAP_METHOD(void get_fogx(Fog& fog) const, clutter_stage_get_fogx)
+  _WRAP_METHOD(double get_resolution() const, clutter_stage_get_resolution)
+  _WRAP_METHOD(Fixed get_resolutionx() const, clutter_stage_get_resolutionx)
+  
+  _WRAP_METHOD(void stage_event(Event* event), clutter_stage_event);
+
+  _WRAP_SIGNAL(void fullscreen(), "fullscreen")
+  _WRAP_SIGNAL(void unfullscreen(), "unfullscreen")
+  _WRAP_SIGNAL(void activate(), "activate")
+  _WRAP_SIGNAL(void deactivate(), "deactivate")
+
+protected:
+  _WRAP_VFUNC(void set_fullscreen(bool fullscreen), set_fullscreen)
+  _WRAP_VFUNC(void set_cursor_visible(bool visible), set_cursor_visible)
+  _WRAP_VFUNC(Glib::RefPtr<Gdk::Pixbuf> draw_to_pixbuf(int x, int y, int width, int height), draw_to_pixbuf)
+
+#m4 _CONVERSION(`const char*',`const Glib::ustring&',__GCHARP_TO_USTRING)
+  _WRAP_VFUNC(void set_title(const Glib::ustring& title), set_title)
+  _WRAP_VFUNC(void set_user_resize(bool value), set_user_resize)
+};
+
+} // namespace Clutter
+
+//vim: ts=2,sw=2
