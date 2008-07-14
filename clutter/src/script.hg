@@ -1,0 +1,86 @@
+/* Copyright (C) 2007 The cluttermm Development Team
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Library General Public
+ * License as published by the Free Software Foundation; either
+ * version 2 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Library General Public License for more details.
+ *
+ * You should have received a copy of the GNU Library General Public
+ * License along with this library; if not, write to the Free
+ * Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+ */
+
+#include <glibmm/object.h>
+#include <cluttermm/timeline.h>
+#include <clutter/clutter-script.h>
+ 
+_DEFS(cluttermm,clutter)
+_PINCLUDE(glibmm/private/object_p.h)
+
+
+namespace Clutter
+{
+
+class Script : public Glib::Object
+{
+  _CLASS_GOBJECT(Script, ClutterScript, CLUTTER_SCRIPT, Glib::Object, GObject)
+
+protected:
+  _CTOR_DEFAULT()
+
+public:
+  _WRAP_CREATE()
+
+  // We don't support signal autoconnection in C++:
+  _IGNORE(clutter_script_connect_signals, clutter_script_connect_signals_full,
+          clutter_script_get_type_from_name)
+
+  _WRAP_METHOD_DOCS_ONLY(clutter_script_load_from_data)
+#ifdef GLIBMM_EXCEPTIONS_ENABLED
+  guint load_from_data(const Glib::ustring& data);
+#else
+  guint load_from_data(const Glib::ustring& data, std::auto_ptr<Glib::Error>& error);
+#endif
+  _WRAP_METHOD(guint load_from_file(const std::string& filename), clutter_script_load_from_file, errthrow)
+
+  _WRAP_METHOD(Glib::RefPtr<Glib::Object> get_object(const Glib::ustring& name), clutter_script_get_object, refreturn)
+  _WRAP_METHOD(Glib::RefPtr<const Glib::Object> get_object(const Glib::ustring& name) const, clutter_script_get_object, refreturn, constverrsion)
+
+  //clutter_script_get_objects() is a varargs convenience function for C.
+  _IGNORE(clutter_script_get_objects)
+
+  _WRAP_METHOD(void unmerge_object(guint merge_id), clutter_script_unmerge_objects)
+  _WRAP_METHOD(void ensure_objects(), clutter_script_ensure_objects)
+
+  // TODO: connect_signals functions
+  // TODO: do we need get_type_from_name()?
+  // clutter_script_connect_signals() and clutter_script_connect_signals_full() seem to be like glade_xml_autoconnect(), 
+  // and I don't see a way to implement them in C++. murrayc.
+
+  _WRAP_METHOD(static std::string get_script_id(const Glib::RefPtr<const Glib::Object>& object), clutter_get_script_id)
+
+  _WRAP_PROPERTY("filename", std::string)
+  _WRAP_PROPERTY("filename-set", bool)
+
+protected:
+#m4begin
+dnl Custom-coded vfunc:
+dnl
+  _PUSH(SECTION_PCC_CLASS_INIT_VFUNCS)
+  klass->get_type_from_name = &get_type_from_name_vfunc_callback;
+  _SECTION(SECTION_PH_VFUNCS)
+  static GType get_type_from_name_vfunc_callback(ClutterScript* script, const char* type_name);
+  _POP()
+#m4end
+
+  // TODO: Make sure this is actually invoked even with disabled vfuncs so
+  // that ClutterScript creates gtkmm's GObjects.
+  virtual GType get_type_from_name_vfunc(const Glib::ustring& type_name);
+};
+
+} // namespace Clutter

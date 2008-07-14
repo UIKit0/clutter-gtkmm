@@ -1,0 +1,5 @@
+(include clutter_methods.defs)
+(include clutter_signals.defs)
+(include clutter_vfuncs.defs)
+(include clutter_enums.defs)
+(include clutter_others.defs)

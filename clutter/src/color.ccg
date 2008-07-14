@@ -1,0 +1,115 @@
+/* Copyright (C) 2007 The cluttermm Development Team
+
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Library General Public
+ * License as published by the Free Software Foundation; either
+ * version 2 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Library General Public License for more details.
+ *
+ * You should have received a copy of the GNU Library General Public
+ * License along with this library; if not, write to the Free
+ * Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+ */
+
+_DEFS(cluttermm,clutter)
+
+namespace Clutter
+{
+
+Color::Color()
+{
+  // the set_from_*() functions don't modify the alpha value of the color, so
+  // default to max alpha since that's probably the most common case
+  ClutterColor tmp = { 0, 0, 0, 255 };
+  gobject_ = clutter_color_copy(&tmp);
+}
+
+Color::Color(const Glib::ustring& color)
+{
+  // the set_from_*() functions don't modify the alpha value of the color, so
+  // default to max alpha since that's probably the most common case
+  ClutterColor tmp = { 0, 0, 0, 255 };
+  gobject_ = clutter_color_copy(&tmp);
+  set_from_string(color);
+}
+
+Color::Color(guint8 red, guint8 green, guint8 blue, guint8 alpha)
+{
+  ClutterColor tmp = { red, green, blue, alpha };
+  gobject_ = clutter_color_copy(&tmp);
+}
+
+Color::Color(guint32 pixel)
+{
+  // the set_from_*() functions don't modify the alpha value of the color, so
+  // default to max alpha since that's probably the most common case
+  ClutterColor tmp = { 0, 0, 0, 255 };
+  gobject_ = clutter_color_copy(&tmp);
+  set_from_pixel(pixel);
+}
+
+void Color::set_from_string(const Glib::ustring& color)
+{
+  clutter_color_parse(color.c_str(), this->gobj());
+}
+
+void Color::set_from_rgb(guint8 red, guint8 blue, guint8 green)
+{
+    gobj()->red = red;
+    gobj()->green = green;
+    gobj()->blue = blue;
+}
+
+void set_from_rgb(guint8 red, guint8 blue, guint8 green);
+
+Color Color::add(const Color& color) const
+{
+  return *this + color;
+}
+
+Color Color::subtract(const Color& color) const
+{
+  return *this - color;
+}
+
+void Color::darken()
+{
+    clutter_color_darken(this->gobj(), this->gobj());
+}
+
+void Color::shade(double shade)
+{
+    clutter_color_shade(this->gobj(), this->gobj(), shade);
+}
+
+void Color::shadex(Fixed shade)
+{
+    clutter_color_shadex(this->gobj(), this->gobj(), shade);
+}
+
+void Color::lighten()
+{
+    clutter_color_lighten(this->gobj(), this->gobj());
+}
+
+Color operator+(const Color& color1, const Color& color2)
+{
+  Color result;
+  clutter_color_add(color1.gobj(), color2.gobj(), result.gobj());
+  return result;
+}
+
+Color operator-(const Color& color1, const Color& color2)
+{
+  Color result;
+  clutter_color_subtract(color1.gobj(), color2.gobj(), result.gobj());
+  return result;
+}
+
+} //namespace Clutter
+
