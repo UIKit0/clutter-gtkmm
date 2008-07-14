@@ -1,0 +1,315 @@
+; ClutterLayout
+
+(define-vfunc get_layout_flags
+	(of-object "ClutterLayout")
+	(return-type "ClutterLayoutFlags")
+)
+
+(define-vfunc width_for_height
+	(of-object "ClutterLayout")
+	(return-type "void")
+	(parameters
+		'("ClutterUnit*" "width")
+		'("ClutterUnit" "height")
+	)
+)
+
+(define-vfunc height_for_width
+	(of-object "ClutterLayout")
+	(return-type "void")
+	(parameters
+		'("ClutterUnit" "width")
+		'("ClutterUnit*" "height")
+	)
+)
+
+(define-vfunc natural_request
+	(of-object "ClutterLayout")
+	(return-type "void")
+	(parameters
+		'("ClutterUnit*" "width")
+		'("ClutterUnit*" "height")
+	)
+)
+
+(define-vfunc tune_request
+	(of-object "ClutterLayout")
+	(return-type "gboolean")
+	(parameters
+		'("ClutterUnit" "given_width")
+		'("ClutterUnit" "given_height")
+		'("ClutterUnit*" "width")
+		'("ClutterUnit*" "height")
+	)
+)
+
+; ClutterBox
+
+(define-vfunc unpack_child
+	(of-object "ClutterBox")
+	(return-type "void")
+	(parameters
+		'("ClutterBoxChild*" "child")
+	)
+)
+
+(define-vfunc pack_child
+	(of-object "ClutterBox")
+	(return-type "void")
+	(parameters
+		'("ClutterBoxChild*" "child")
+	)
+)
+
+; ClutterMedia
+
+(define-vfunc set_uri
+  (of-object "ClutterMedia")
+  (return-type "void")
+  (parameters
+    '("const-char*" "uri")
+  )
+)
+
+(define-vfunc get_uri
+  (of-object "ClutterMedia")
+  (return-type "const-char*")
+)
+
+(define-vfunc set_playing
+  (of-object "ClutterMedia")
+  (return-type "void")
+  (parameters
+    '("gboolean" "playing")
+  )
+)
+
+(define-vfunc get_playing
+  (of-object "ClutterMedia")
+  (return-type "gboolean")
+)
+
+(define-vfunc set_position
+  (of-object "ClutterMedia")
+  (return-type "void")
+  (parameters
+    '("int" "position")
+  )
+)
+
+(define-vfunc get_position
+  (of-object "ClutterMedia")
+  (return-type "int")
+)
+
+(define-vfunc set_volume
+  (of-object "ClutterMedia")
+  (return-type "void")
+  (parameters
+    '("double" "volume")
+  )
+)
+
+(define-vfunc get_volume
+  (of-object "ClutterMedia")
+  (return-type "double")
+)
+
+(define-vfunc can_seek
+  (of-object "ClutterMedia")
+  (return-type "gboolean")
+)
+
+(define-vfunc get_buffer_percent
+  (of-object "ClutterMedia")
+  (return-type "int")
+)
+
+(define-vfunc get_duration
+  (of-object "ClutterMedia")
+  (return-type "int")
+)
+
+; ClutterEntry
+
+(define-vfunc paint_cursor
+  (of-object "ClutterEntry")
+  (return-type "void")
+)
+
+
+; ClutterBehaviour
+
+(define-vfunc alpha_notify
+  (of-object "ClutterBehaviour")
+  (return-type "void")
+  (parameters
+    '("guint32" "alpha_value")
+  )
+)
+
+; ClutterScriptable
+
+(define-vfunc set_id
+  (of-object "ClutterScriptable")
+  (return-type "void")
+  (parameters
+    '("const-gchar*" "name")
+  )
+)
+
+(define-vfunc get_id
+  (of-object "ClutterScriptable")
+  (return-type "const-gchar*")
+)
+
+(define-vfunc parse_custom_node
+  (of-object "ClutterScriptable")
+  (return-type "gboolean")
+  (parameters
+    '("ClutterScript*" "script")
+    '("GValue*" "value")
+    '("const-gchar*" "name")
+    '("JSonNode*" "node")
+  )
+)
+
+(define-vfunc set_custom_property
+  (of-object "ClutterScriptable")
+  (return-type "void")
+  (parameters
+    '("ClutterScript*" "script")
+    '("const-gchar*" "name")
+    '("const-GValue*" "value")
+  )
+)
+
+; ClutterActor
+
+(define-vfunc show_all
+  (of-object "ClutterActor")
+  (return-type "void")
+)
+
+(define-vfunc hide_all
+  (of-object "ClutterActor")
+  (return-type "void")
+)
+
+(define-vfunc pick
+  (of-object "ClutterActor")
+  (return-type "void")
+  (parameters
+    '("const-ClutterColor*" "color")
+  )
+)
+
+(define-vfunc get_preferred_width
+  (of-object "ClutterActor")
+  (return-type "void")
+  (parameters
+    '("ClutterUnit" "for_height")
+    '("ClutterUnit*" "min_width_p")
+    '("ClutterUnit*" "natural_width_p")
+  )
+)
+
+(define-vfunc get_preferred_height
+  (of-object "ClutterActor")
+  (return-type "void")
+  (parameters
+    '("ClutterUnit" "for_width")
+    '("ClutterUnit*" "min_height_p")
+    '("ClutterUnit*" "natural_height_p")
+  )
+)
+
+(define-vfunc allocate
+  (of-object "ClutterActor")
+  (return-type "void")
+  (parameters
+    '("const-ClutterActorBox*" "box")
+    '("gboolean" "absolute_origin_changed")
+  )
+)
+
+(define-vfunc get_paint_area
+  (of-object "ClutterActor")
+  (return-type "void")
+  (parameters
+    '("ClutterActorBox*" "box")
+  )
+)
+
+; ClutterContainer
+
+(define-vfunc add
+  (of-object "ClutterContainer")
+  (return-type "void")
+  (parameters
+    '("ClutterActor*" "actor")
+  )
+)
+
+(define-vfunc remove
+  (of-object "ClutterContainer")
+  (return-type "void")
+  (parameters
+    '("ClutterActor*" "actor")
+  )
+)
+
+(define-vfunc foreach
+  (of-object "ClutterContainer")
+  (return-type "void")
+  (parameters
+    '("ClutterCallback" "callback")
+    '("gpointer" "user_data")
+  )
+)
+
+(define-vfunc raise
+  (of-object "ClutterContainer")
+  (return-type "void")
+  (parameters
+    '("ClutterActor*" "actor")
+    '("ClutterActor*" "sibling")
+  )
+)
+
+(define-vfunc lower
+  (of-object "ClutterContainer")
+  (return-type "void")
+  (parameters
+    '("ClutterActor*" "actor")
+    '("ClutterActor*" "sibling")
+  )
+)
+
+(define-vfunc sort_depth_order
+  (of-object "ClutterContainer")
+  (return-type "void")
+)
+
+(define-vfunc create_child_meta
+  (of-object "ClutterContainer")
+  (return-type "void")
+  (parameters
+    '("ClutterActor*" "actor")
+  )
+)
+
+(define-vfunc destroy_child_meta
+  (of-object "ClutterContainer")
+  (return-type "void")
+  (parameters
+    '("ClutterActor*" "actor")
+  )
+)
+(define-vfunc get_child_meta
+  (of-object "ClutterContainer")
+  (return-type "ClutterChildMeta*")
+  (parameters
+    '("ClutterActor*" "actor")
+  )
+)

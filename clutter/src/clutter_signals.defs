@@ -1,0 +1,3874 @@
+;; From ClutterActor
+
+(define-signal destroy
+  (of-object "ClutterActor")
+  (return-type "void")
+  (when "unknown")
+)
+
+(define-signal show
+  (of-object "ClutterActor")
+  (return-type "void")
+  (when "first")
+)
+
+(define-signal hide
+  (of-object "ClutterActor")
+  (return-type "void")
+  (when "first")
+)
+
+(define-signal parent-set
+  (of-object "ClutterActor")
+  (return-type "void")
+  (when "last")
+  (parameters
+    '("ClutterActor*" "p0")
+  )
+)
+
+(define-signal event
+  (of-object "ClutterActor")
+  (return-type "gboolean")
+  (when "last")
+  (parameters
+    '("ClutterEvent*" "p0")
+  )
+)
+
+(define-signal button-press-event
+  (of-object "ClutterActor")
+  (return-type "gboolean")
+  (when "last")
+  (parameters
+    '("ClutterButtonEvent*" "p0")
+  )
+)
+
+(define-signal button-release-event
+  (of-object "ClutterActor")
+  (return-type "gboolean")
+  (when "last")
+  (parameters
+    '("ClutterButtonEvent*" "p0")
+  )
+)
+
+(define-signal scroll-event
+  (of-object "ClutterActor")
+  (return-type "gboolean")
+  (when "last")
+  (parameters
+    '("ClutterScrollEvent*" "p0")
+  )
+)
+
+(define-signal key-press-event
+  (of-object "ClutterActor")
+  (return-type "gboolean")
+  (when "last")
+  (parameters
+    '("ClutterKeyEvent*" "p0")
+  )
+)
+
+(define-signal key-release-event
+  (of-object "ClutterActor")
+  (return-type "gboolean")
+  (when "last")
+  (parameters
+    '("ClutterKeyEvent*" "p0")
+  )
+)
+
+(define-signal motion-event
+  (of-object "ClutterActor")
+  (return-type "gboolean")
+  (when "last")
+  (parameters
+    '("ClutterMotionEvent*" "p0")
+  )
+)
+
+(define-signal focus-in
+  (of-object "ClutterActor")
+  (return-type "void")
+  (when "last")
+)
+
+(define-signal focus-out
+  (of-object "ClutterActor")
+  (return-type "void")
+  (when "last")
+)
+
+(define-signal enter-event
+  (of-object "ClutterActor")
+  (return-type "gboolean")
+  (when "last")
+  (parameters
+    '("ClutterCrossingEvent*" "p0")
+  )
+)
+
+(define-signal leave-event
+  (of-object "ClutterActor")
+  (return-type "gboolean")
+  (when "last")
+  (parameters
+    '("ClutterCrossingEvent*" "p0")
+  )
+)
+
+(define-signal captured-event
+  (of-object "ClutterActor")
+  (return-type "gboolean")
+  (when "last")
+  (parameters
+    '("ClutterEvent*" "p0")
+  )
+)
+
+(define-signal paint
+  (of-object "ClutterActor")
+  (return-type "void")
+  (when "last")
+)
+
+(define-signal realize
+  (of-object "ClutterActor")
+  (return-type "void")
+  (when "last")
+)
+
+(define-signal unrealize
+  (of-object "ClutterActor")
+  (return-type "void")
+  (when "last")
+)
+
+(define-property name
+  (of-object "ClutterActor")
+  (prop-type "GParamString")
+  (docs "Name of the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property x
+  (of-object "ClutterActor")
+  (prop-type "GParamInt")
+  (docs "X coordinate of the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property y
+  (of-object "ClutterActor")
+  (prop-type "GParamInt")
+  (docs "Y coordinate of the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property width
+  (of-object "ClutterActor")
+  (prop-type "GParamInt")
+  (docs "Width of the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property height
+  (of-object "ClutterActor")
+  (prop-type "GParamInt")
+  (docs "Height of the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property fixed-x
+  (of-object "ClutterActor")
+  (prop-type "ClutterParamSpecUnit")
+  (docs "Forced X position of the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property fixed-y
+  (of-object "ClutterActor")
+  (prop-type "ClutterParamSpecUnit")
+  (docs "Forced Y position of the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property fixed-position-set
+  (of-object "ClutterActor")
+  (prop-type "GParamBoolean")
+  (docs "Whether to use fixed positioning for the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property min-width
+  (of-object "ClutterActor")
+  (prop-type "ClutterParamSpecUnit")
+  (docs "Forced minimum width request for the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property min-width-set
+  (of-object "ClutterActor")
+  (prop-type "GParamBoolean")
+  (docs "Whether to use the min-width property")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property min-height
+  (of-object "ClutterActor")
+  (prop-type "ClutterParamSpecUnit")
+  (docs "Forced minimum height request for the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property min-height-set
+  (of-object "ClutterActor")
+  (prop-type "GParamBoolean")
+  (docs "Whether to use the min-height property")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property natural-width
+  (of-object "ClutterActor")
+  (prop-type "ClutterParamSpecUnit")
+  (docs "Forced natural width request for the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property natural-width-set
+  (of-object "ClutterActor")
+  (prop-type "GParamBoolean")
+  (docs "Whether to use the natural-width property")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property natural-height
+  (of-object "ClutterActor")
+  (prop-type "ClutterParamSpecUnit")
+  (docs "Forced natural height request for the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property natural-height-set
+  (of-object "ClutterActor")
+  (prop-type "GParamBoolean")
+  (docs "Whether to use the natural-height property")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property request-mode
+  (of-object "ClutterActor")
+  (prop-type "GParamEnum")
+  (docs "The actor's request mode")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property allocation
+  (of-object "ClutterActor")
+  (prop-type "GParamBoxed")
+  (docs "The actor's allocation")
+  (readable #t)
+  (writable #f)
+  (construct-only #f)
+)
+
+(define-property depth
+  (of-object "ClutterActor")
+  (prop-type "GParamInt")
+  (docs "Depth of actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property clip
+  (of-object "ClutterActor")
+  (prop-type "GParamBoxed")
+  (docs "The clip region for the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property has-clip
+  (of-object "ClutterActor")
+  (prop-type "GParamBoolean")
+  (docs "Whether the actor has a clip set or not")
+  (readable #t)
+  (writable #f)
+  (construct-only #f)
+)
+
+(define-property opacity
+  (of-object "ClutterActor")
+  (prop-type "GParamUChar")
+  (docs "Opacity of actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property visible
+  (of-object "ClutterActor")
+  (prop-type "GParamBoolean")
+  (docs "Whether the actor is visible or not")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property reactive
+  (of-object "ClutterActor")
+  (prop-type "GParamBoolean")
+  (docs "Whether the actor is reactive to events or not")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property scale-x
+  (of-object "ClutterActor")
+  (prop-type "GParamDouble")
+  (docs "Scale factor on the X axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property scale-y
+  (of-object "ClutterActor")
+  (prop-type "GParamDouble")
+  (docs "Scale factor on the Y axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property rotation-angle-x
+  (of-object "ClutterActor")
+  (prop-type "GParamDouble")
+  (docs "The rotation angle on the X axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property rotation-angle-y
+  (of-object "ClutterActor")
+  (prop-type "GParamDouble")
+  (docs "The rotation angle on the Y axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property rotation-angle-z
+  (of-object "ClutterActor")
+  (prop-type "GParamDouble")
+  (docs "The rotation angle on the Z axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property rotation-center-x
+  (of-object "ClutterActor")
+  (prop-type "GParamBoxed")
+  (docs "The rotation center on the X axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property rotation-center-y
+  (of-object "ClutterActor")
+  (prop-type "GParamBoxed")
+  (docs "The rotation center on the Y axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property rotation-center-z
+  (of-object "ClutterActor")
+  (prop-type "GParamBoxed")
+  (docs "The rotation center on the Z axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property anchor-x
+  (of-object "ClutterActor")
+  (prop-type "GParamInt")
+  (docs "X coordinate of the anchor point")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property anchor-y
+  (of-object "ClutterActor")
+  (prop-type "GParamInt")
+  (docs "Y coordinate of the anchor point")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property show-on-set-parent
+  (of-object "ClutterActor")
+  (prop-type "GParamBoolean")
+  (docs "Whether the actor is shown when parented")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+;; From ClutterAlpha
+
+(define-property timeline
+  (of-object "ClutterAlpha")
+  (prop-type "GParamObject")
+  (docs "Timeline")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property alpha
+  (of-object "ClutterAlpha")
+  (prop-type "GParamUInt")
+  (docs "Alpha value")
+  (readable #t)
+  (writable #f)
+  (construct-only #f)
+)
+
+;; From ClutterBackend
+
+;; From ClutterBehaviourBspline
+
+(define-signal knot-reached
+  (of-object "ClutterBehaviourBspline")
+  (return-type "void")
+  (when "last")
+  (parameters
+    '("const-ClutterKnot*" "p0")
+  )
+)
+
+(define-property alpha
+  (of-object "ClutterBehaviourBspline")
+  (prop-type "GParamObject")
+  (docs "Alpha Object to drive the behaviour")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+;; From ClutterBehaviourDepth
+
+(define-property alpha
+  (of-object "ClutterBehaviourDepth")
+  (prop-type "GParamObject")
+  (docs "Alpha Object to drive the behaviour")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property depth-start
+  (of-object "ClutterBehaviourDepth")
+  (prop-type "GParamInt")
+  (docs "Initial depth to apply")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property depth-end
+  (of-object "ClutterBehaviourDepth")
+  (prop-type "GParamInt")
+  (docs "Final depth to apply")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+;; From ClutterBehaviourEllipse
+
+(define-property alpha
+  (of-object "ClutterBehaviourEllipse")
+  (prop-type "GParamObject")
+  (docs "Alpha Object to drive the behaviour")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property center
+  (of-object "ClutterBehaviourEllipse")
+  (prop-type "GParamBoxed")
+  (docs "Center of ellipse")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property width
+  (of-object "ClutterBehaviourEllipse")
+  (prop-type "GParamInt")
+  (docs "Width of ellipse")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property height
+  (of-object "ClutterBehaviourEllipse")
+  (prop-type "GParamInt")
+  (docs "Height of ellipse")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property angle-start
+  (of-object "ClutterBehaviourEllipse")
+  (prop-type "GParamDouble")
+  (docs "Initial angle")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property angle-end
+  (of-object "ClutterBehaviourEllipse")
+  (prop-type "GParamDouble")
+  (docs "Final angle")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property angle-tilt-x
+  (of-object "ClutterBehaviourEllipse")
+  (prop-type "GParamDouble")
+  (docs "Tilt of the ellipse around x axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property angle-tilt-y
+  (of-object "ClutterBehaviourEllipse")
+  (prop-type "GParamDouble")
+  (docs "Tilt of the ellipse around y axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property angle-tilt-z
+  (of-object "ClutterBehaviourEllipse")
+  (prop-type "GParamDouble")
+  (docs "Tilt of the ellipse around z axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property direction
+  (of-object "ClutterBehaviourEllipse")
+  (prop-type "GParamEnum")
+  (docs "Direction of rotation")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+;; From ClutterBehaviour
+
+(define-signal applied
+  (of-object "ClutterBehaviour")
+  (return-type "void")
+  (when "first")
+  (parameters
+    '("ClutterActor*" "p0")
+  )
+)
+
+(define-signal removed
+  (of-object "ClutterBehaviour")
+  (return-type "void")
+  (when "first")
+  (parameters
+    '("ClutterActor*" "p0")
+  )
+)
+
+(define-property alpha
+  (of-object "ClutterBehaviour")
+  (prop-type "GParamObject")
+  (docs "Alpha Object to drive the behaviour")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+;; From ClutterBehaviourOpacity
+
+(define-property alpha
+  (of-object "ClutterBehaviourOpacity")
+  (prop-type "GParamObject")
+  (docs "Alpha Object to drive the behaviour")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property opacity-start
+  (of-object "ClutterBehaviourOpacity")
+  (prop-type "GParamUInt")
+  (docs "Initial opacity level")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property opacity-end
+  (of-object "ClutterBehaviourOpacity")
+  (prop-type "GParamUInt")
+  (docs "Final opacity level")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+;; From ClutterBehaviourPath
+
+(define-signal knot-reached
+  (of-object "ClutterBehaviourPath")
+  (return-type "void")
+  (when "last")
+  (parameters
+    '("const-ClutterKnot*" "p0")
+  )
+)
+
+(define-property alpha
+  (of-object "ClutterBehaviourPath")
+  (prop-type "GParamObject")
+  (docs "Alpha Object to drive the behaviour")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property knot
+  (of-object "ClutterBehaviourPath")
+  (prop-type "GParamBoxed")
+  (docs "Can be used to append a knot to the path")
+  (readable #f)
+  (writable #t)
+  (construct-only #f)
+)
+
+;; From ClutterBehaviourRotate
+
+(define-property alpha
+  (of-object "ClutterBehaviourRotate")
+  (prop-type "GParamObject")
+  (docs "Alpha Object to drive the behaviour")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property angle-start
+  (of-object "ClutterBehaviourRotate")
+  (prop-type "GParamDouble")
+  (docs "Initial angle")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property angle-end
+  (of-object "ClutterBehaviourRotate")
+  (prop-type "GParamDouble")
+  (docs "Final angle")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property axis
+  (of-object "ClutterBehaviourRotate")
+  (prop-type "GParamEnum")
+  (docs "Axis of rotation")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property direction
+  (of-object "ClutterBehaviourRotate")
+  (prop-type "GParamEnum")
+  (docs "Direction of rotation")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property center-x
+  (of-object "ClutterBehaviourRotate")
+  (prop-type "GParamInt")
+  (docs "X center of rotation")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property center-y
+  (of-object "ClutterBehaviourRotate")
+  (prop-type "GParamInt")
+  (docs "Y center of rotation")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property center-z
+  (of-object "ClutterBehaviourRotate")
+  (prop-type "GParamInt")
+  (docs "Z center of rotation")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+;; From ClutterBehaviourScale
+
+(define-property alpha
+  (of-object "ClutterBehaviourScale")
+  (prop-type "GParamObject")
+  (docs "Alpha Object to drive the behaviour")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property x-scale-start
+  (of-object "ClutterBehaviourScale")
+  (prop-type "GParamDouble")
+  (docs "Initial scale on the X axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property y-scale-start
+  (of-object "ClutterBehaviourScale")
+  (prop-type "GParamDouble")
+  (docs "Initial scale on the Y axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property x-scale-end
+  (of-object "ClutterBehaviourScale")
+  (prop-type "GParamDouble")
+  (docs "Final scale on the X axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property y-scale-end
+  (of-object "ClutterBehaviourScale")
+  (prop-type "GParamDouble")
+  (docs "Final scale on the Y axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+;; From ClutterCloneTexture
+
+(define-property name
+  (of-object "ClutterCloneTexture")
+  (prop-type "GParamString")
+  (docs "Name of the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property x
+  (of-object "ClutterCloneTexture")
+  (prop-type "GParamInt")
+  (docs "X coordinate of the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property y
+  (of-object "ClutterCloneTexture")
+  (prop-type "GParamInt")
+  (docs "Y coordinate of the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property width
+  (of-object "ClutterCloneTexture")
+  (prop-type "GParamInt")
+  (docs "Width of the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property height
+  (of-object "ClutterCloneTexture")
+  (prop-type "GParamInt")
+  (docs "Height of the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property fixed-x
+  (of-object "ClutterCloneTexture")
+  (prop-type "ClutterParamSpecUnit")
+  (docs "Forced X position of the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property fixed-y
+  (of-object "ClutterCloneTexture")
+  (prop-type "ClutterParamSpecUnit")
+  (docs "Forced Y position of the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property fixed-position-set
+  (of-object "ClutterCloneTexture")
+  (prop-type "GParamBoolean")
+  (docs "Whether to use fixed positioning for the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property min-width
+  (of-object "ClutterCloneTexture")
+  (prop-type "ClutterParamSpecUnit")
+  (docs "Forced minimum width request for the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property min-width-set
+  (of-object "ClutterCloneTexture")
+  (prop-type "GParamBoolean")
+  (docs "Whether to use the min-width property")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property min-height
+  (of-object "ClutterCloneTexture")
+  (prop-type "ClutterParamSpecUnit")
+  (docs "Forced minimum height request for the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property min-height-set
+  (of-object "ClutterCloneTexture")
+  (prop-type "GParamBoolean")
+  (docs "Whether to use the min-height property")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property natural-width
+  (of-object "ClutterCloneTexture")
+  (prop-type "ClutterParamSpecUnit")
+  (docs "Forced natural width request for the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property natural-width-set
+  (of-object "ClutterCloneTexture")
+  (prop-type "GParamBoolean")
+  (docs "Whether to use the natural-width property")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property natural-height
+  (of-object "ClutterCloneTexture")
+  (prop-type "ClutterParamSpecUnit")
+  (docs "Forced natural height request for the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property natural-height-set
+  (of-object "ClutterCloneTexture")
+  (prop-type "GParamBoolean")
+  (docs "Whether to use the natural-height property")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property request-mode
+  (of-object "ClutterCloneTexture")
+  (prop-type "GParamEnum")
+  (docs "The actor's request mode")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property allocation
+  (of-object "ClutterCloneTexture")
+  (prop-type "GParamBoxed")
+  (docs "The actor's allocation")
+  (readable #t)
+  (writable #f)
+  (construct-only #f)
+)
+
+(define-property depth
+  (of-object "ClutterCloneTexture")
+  (prop-type "GParamInt")
+  (docs "Depth of actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property clip
+  (of-object "ClutterCloneTexture")
+  (prop-type "GParamBoxed")
+  (docs "The clip region for the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property has-clip
+  (of-object "ClutterCloneTexture")
+  (prop-type "GParamBoolean")
+  (docs "Whether the actor has a clip set or not")
+  (readable #t)
+  (writable #f)
+  (construct-only #f)
+)
+
+(define-property opacity
+  (of-object "ClutterCloneTexture")
+  (prop-type "GParamUChar")
+  (docs "Opacity of actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property visible
+  (of-object "ClutterCloneTexture")
+  (prop-type "GParamBoolean")
+  (docs "Whether the actor is visible or not")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property reactive
+  (of-object "ClutterCloneTexture")
+  (prop-type "GParamBoolean")
+  (docs "Whether the actor is reactive to events or not")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property scale-x
+  (of-object "ClutterCloneTexture")
+  (prop-type "GParamDouble")
+  (docs "Scale factor on the X axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property scale-y
+  (of-object "ClutterCloneTexture")
+  (prop-type "GParamDouble")
+  (docs "Scale factor on the Y axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property rotation-angle-x
+  (of-object "ClutterCloneTexture")
+  (prop-type "GParamDouble")
+  (docs "The rotation angle on the X axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property rotation-angle-y
+  (of-object "ClutterCloneTexture")
+  (prop-type "GParamDouble")
+  (docs "The rotation angle on the Y axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property rotation-angle-z
+  (of-object "ClutterCloneTexture")
+  (prop-type "GParamDouble")
+  (docs "The rotation angle on the Z axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property rotation-center-x
+  (of-object "ClutterCloneTexture")
+  (prop-type "GParamBoxed")
+  (docs "The rotation center on the X axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property rotation-center-y
+  (of-object "ClutterCloneTexture")
+  (prop-type "GParamBoxed")
+  (docs "The rotation center on the Y axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property rotation-center-z
+  (of-object "ClutterCloneTexture")
+  (prop-type "GParamBoxed")
+  (docs "The rotation center on the Z axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property anchor-x
+  (of-object "ClutterCloneTexture")
+  (prop-type "GParamInt")
+  (docs "X coordinate of the anchor point")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property anchor-y
+  (of-object "ClutterCloneTexture")
+  (prop-type "GParamInt")
+  (docs "Y coordinate of the anchor point")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property show-on-set-parent
+  (of-object "ClutterCloneTexture")
+  (prop-type "GParamBoolean")
+  (docs "Whether the actor is shown when parented")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property parent-texture
+  (of-object "ClutterCloneTexture")
+  (prop-type "GParamObject")
+  (docs "The parent texture to clone")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property repeat-y
+  (of-object "ClutterCloneTexture")
+  (prop-type "GParamBoolean")
+  (docs "Reapeat underlying pixbuf rather than scale in y direction.")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property repeat-x
+  (of-object "ClutterCloneTexture")
+  (prop-type "GParamBoolean")
+  (docs "Reapeat underlying pixbuf rather than scale in x direction.")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+;; From ClutterColor
+
+;; From ClutterEffectTemplate
+
+(define-property timeline
+  (of-object "ClutterEffectTemplate")
+  (prop-type "GParamObject")
+  (docs "Timeline to use as a reference for the Template")
+  (readable #t)
+  (writable #t)
+  (construct-only #t)
+)
+
+(define-property clone
+  (of-object "ClutterEffectTemplate")
+  (prop-type "GParamBoolean")
+  (docs "controls if effects should clone or reference the templated timeline")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+;; From ClutterEntry
+
+(define-signal activate
+  (of-object "ClutterEntry")
+  (return-type "void")
+  (when "last")
+)
+
+(define-signal text-changed
+  (of-object "ClutterEntry")
+  (return-type "void")
+  (when "last")
+)
+
+(define-signal cursor-event
+  (of-object "ClutterEntry")
+  (return-type "void")
+  (when "last")
+  (parameters
+    '("ClutterGeometry*" "p0")
+  )
+)
+
+(define-property name
+  (of-object "ClutterEntry")
+  (prop-type "GParamString")
+  (docs "Name of the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property x
+  (of-object "ClutterEntry")
+  (prop-type "GParamInt")
+  (docs "X coordinate of the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property y
+  (of-object "ClutterEntry")
+  (prop-type "GParamInt")
+  (docs "Y coordinate of the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property width
+  (of-object "ClutterEntry")
+  (prop-type "GParamInt")
+  (docs "Width of the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property height
+  (of-object "ClutterEntry")
+  (prop-type "GParamInt")
+  (docs "Height of the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property fixed-x
+  (of-object "ClutterEntry")
+  (prop-type "ClutterParamSpecUnit")
+  (docs "Forced X position of the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property fixed-y
+  (of-object "ClutterEntry")
+  (prop-type "ClutterParamSpecUnit")
+  (docs "Forced Y position of the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property fixed-position-set
+  (of-object "ClutterEntry")
+  (prop-type "GParamBoolean")
+  (docs "Whether to use fixed positioning for the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property min-width
+  (of-object "ClutterEntry")
+  (prop-type "ClutterParamSpecUnit")
+  (docs "Forced minimum width request for the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property min-width-set
+  (of-object "ClutterEntry")
+  (prop-type "GParamBoolean")
+  (docs "Whether to use the min-width property")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property min-height
+  (of-object "ClutterEntry")
+  (prop-type "ClutterParamSpecUnit")
+  (docs "Forced minimum height request for the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property min-height-set
+  (of-object "ClutterEntry")
+  (prop-type "GParamBoolean")
+  (docs "Whether to use the min-height property")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property natural-width
+  (of-object "ClutterEntry")
+  (prop-type "ClutterParamSpecUnit")
+  (docs "Forced natural width request for the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property natural-width-set
+  (of-object "ClutterEntry")
+  (prop-type "GParamBoolean")
+  (docs "Whether to use the natural-width property")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property natural-height
+  (of-object "ClutterEntry")
+  (prop-type "ClutterParamSpecUnit")
+  (docs "Forced natural height request for the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property natural-height-set
+  (of-object "ClutterEntry")
+  (prop-type "GParamBoolean")
+  (docs "Whether to use the natural-height property")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property request-mode
+  (of-object "ClutterEntry")
+  (prop-type "GParamEnum")
+  (docs "The actor's request mode")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property allocation
+  (of-object "ClutterEntry")
+  (prop-type "GParamBoxed")
+  (docs "The actor's allocation")
+  (readable #t)
+  (writable #f)
+  (construct-only #f)
+)
+
+(define-property depth
+  (of-object "ClutterEntry")
+  (prop-type "GParamInt")
+  (docs "Depth of actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property clip
+  (of-object "ClutterEntry")
+  (prop-type "GParamBoxed")
+  (docs "The clip region for the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property has-clip
+  (of-object "ClutterEntry")
+  (prop-type "GParamBoolean")
+  (docs "Whether the actor has a clip set or not")
+  (readable #t)
+  (writable #f)
+  (construct-only #f)
+)
+
+(define-property opacity
+  (of-object "ClutterEntry")
+  (prop-type "GParamUChar")
+  (docs "Opacity of actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property visible
+  (of-object "ClutterEntry")
+  (prop-type "GParamBoolean")
+  (docs "Whether the actor is visible or not")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property reactive
+  (of-object "ClutterEntry")
+  (prop-type "GParamBoolean")
+  (docs "Whether the actor is reactive to events or not")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property scale-x
+  (of-object "ClutterEntry")
+  (prop-type "GParamDouble")
+  (docs "Scale factor on the X axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property scale-y
+  (of-object "ClutterEntry")
+  (prop-type "GParamDouble")
+  (docs "Scale factor on the Y axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property rotation-angle-x
+  (of-object "ClutterEntry")
+  (prop-type "GParamDouble")
+  (docs "The rotation angle on the X axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property rotation-angle-y
+  (of-object "ClutterEntry")
+  (prop-type "GParamDouble")
+  (docs "The rotation angle on the Y axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property rotation-angle-z
+  (of-object "ClutterEntry")
+  (prop-type "GParamDouble")
+  (docs "The rotation angle on the Z axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property rotation-center-x
+  (of-object "ClutterEntry")
+  (prop-type "GParamBoxed")
+  (docs "The rotation center on the X axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property rotation-center-y
+  (of-object "ClutterEntry")
+  (prop-type "GParamBoxed")
+  (docs "The rotation center on the Y axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property rotation-center-z
+  (of-object "ClutterEntry")
+  (prop-type "GParamBoxed")
+  (docs "The rotation center on the Z axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property anchor-x
+  (of-object "ClutterEntry")
+  (prop-type "GParamInt")
+  (docs "X coordinate of the anchor point")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property anchor-y
+  (of-object "ClutterEntry")
+  (prop-type "GParamInt")
+  (docs "Y coordinate of the anchor point")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property show-on-set-parent
+  (of-object "ClutterEntry")
+  (prop-type "GParamBoolean")
+  (docs "Whether the actor is shown when parented")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property font-name
+  (of-object "ClutterEntry")
+  (prop-type "GParamString")
+  (docs "Pango font description")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property text
+  (of-object "ClutterEntry")
+  (prop-type "GParamString")
+  (docs "Text to render")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property color
+  (of-object "ClutterEntry")
+  (prop-type "GParamBoxed")
+  (docs "Font Colour")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property alignment
+  (of-object "ClutterEntry")
+  (prop-type "GParamEnum")
+  (docs "The preferred alignment for the string,")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property position
+  (of-object "ClutterEntry")
+  (prop-type "GParamInt")
+  (docs "The cursor position")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property cursor-visible
+  (of-object "ClutterEntry")
+  (prop-type "GParamBoolean")
+  (docs "Whether the input cursor is visible")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property text-visible
+  (of-object "ClutterEntry")
+  (prop-type "GParamBoolean")
+  (docs "Whether the text is visible in plain form")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property max-length
+  (of-object "ClutterEntry")
+  (prop-type "GParamInt")
+  (docs "The maximum length of the entry text")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property entry-padding
+  (of-object "ClutterEntry")
+  (prop-type "GParamUInt")
+  (docs "The padding space between the text and the left and right borders")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property x-align
+  (of-object "ClutterEntry")
+  (prop-type "GParamDouble")
+  (docs "The horizontal alignment to be used for the text")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+;; From ClutterEvent
+
+;; From ClutterGroup
+
+(define-signal add
+  (of-object "ClutterGroup")
+  (return-type "void")
+  (when "first")
+  (parameters
+    '("ClutterActor*" "p0")
+  )
+)
+
+(define-signal remove
+  (of-object "ClutterGroup")
+  (return-type "void")
+  (when "first")
+  (parameters
+    '("ClutterActor*" "p0")
+  )
+)
+
+(define-property name
+  (of-object "ClutterGroup")
+  (prop-type "GParamString")
+  (docs "Name of the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property x
+  (of-object "ClutterGroup")
+  (prop-type "GParamInt")
+  (docs "X coordinate of the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property y
+  (of-object "ClutterGroup")
+  (prop-type "GParamInt")
+  (docs "Y coordinate of the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property width
+  (of-object "ClutterGroup")
+  (prop-type "GParamInt")
+  (docs "Width of the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property height
+  (of-object "ClutterGroup")
+  (prop-type "GParamInt")
+  (docs "Height of the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property fixed-x
+  (of-object "ClutterGroup")
+  (prop-type "ClutterParamSpecUnit")
+  (docs "Forced X position of the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property fixed-y
+  (of-object "ClutterGroup")
+  (prop-type "ClutterParamSpecUnit")
+  (docs "Forced Y position of the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property fixed-position-set
+  (of-object "ClutterGroup")
+  (prop-type "GParamBoolean")
+  (docs "Whether to use fixed positioning for the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property min-width
+  (of-object "ClutterGroup")
+  (prop-type "ClutterParamSpecUnit")
+  (docs "Forced minimum width request for the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property min-width-set
+  (of-object "ClutterGroup")
+  (prop-type "GParamBoolean")
+  (docs "Whether to use the min-width property")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property min-height
+  (of-object "ClutterGroup")
+  (prop-type "ClutterParamSpecUnit")
+  (docs "Forced minimum height request for the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property min-height-set
+  (of-object "ClutterGroup")
+  (prop-type "GParamBoolean")
+  (docs "Whether to use the min-height property")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property natural-width
+  (of-object "ClutterGroup")
+  (prop-type "ClutterParamSpecUnit")
+  (docs "Forced natural width request for the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property natural-width-set
+  (of-object "ClutterGroup")
+  (prop-type "GParamBoolean")
+  (docs "Whether to use the natural-width property")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property natural-height
+  (of-object "ClutterGroup")
+  (prop-type "ClutterParamSpecUnit")
+  (docs "Forced natural height request for the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property natural-height-set
+  (of-object "ClutterGroup")
+  (prop-type "GParamBoolean")
+  (docs "Whether to use the natural-height property")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property request-mode
+  (of-object "ClutterGroup")
+  (prop-type "GParamEnum")
+  (docs "The actor's request mode")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property allocation
+  (of-object "ClutterGroup")
+  (prop-type "GParamBoxed")
+  (docs "The actor's allocation")
+  (readable #t)
+  (writable #f)
+  (construct-only #f)
+)
+
+(define-property depth
+  (of-object "ClutterGroup")
+  (prop-type "GParamInt")
+  (docs "Depth of actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property clip
+  (of-object "ClutterGroup")
+  (prop-type "GParamBoxed")
+  (docs "The clip region for the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property has-clip
+  (of-object "ClutterGroup")
+  (prop-type "GParamBoolean")
+  (docs "Whether the actor has a clip set or not")
+  (readable #t)
+  (writable #f)
+  (construct-only #f)
+)
+
+(define-property opacity
+  (of-object "ClutterGroup")
+  (prop-type "GParamUChar")
+  (docs "Opacity of actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property visible
+  (of-object "ClutterGroup")
+  (prop-type "GParamBoolean")
+  (docs "Whether the actor is visible or not")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property reactive
+  (of-object "ClutterGroup")
+  (prop-type "GParamBoolean")
+  (docs "Whether the actor is reactive to events or not")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property scale-x
+  (of-object "ClutterGroup")
+  (prop-type "GParamDouble")
+  (docs "Scale factor on the X axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property scale-y
+  (of-object "ClutterGroup")
+  (prop-type "GParamDouble")
+  (docs "Scale factor on the Y axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property rotation-angle-x
+  (of-object "ClutterGroup")
+  (prop-type "GParamDouble")
+  (docs "The rotation angle on the X axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property rotation-angle-y
+  (of-object "ClutterGroup")
+  (prop-type "GParamDouble")
+  (docs "The rotation angle on the Y axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property rotation-angle-z
+  (of-object "ClutterGroup")
+  (prop-type "GParamDouble")
+  (docs "The rotation angle on the Z axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property rotation-center-x
+  (of-object "ClutterGroup")
+  (prop-type "GParamBoxed")
+  (docs "The rotation center on the X axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property rotation-center-y
+  (of-object "ClutterGroup")
+  (prop-type "GParamBoxed")
+  (docs "The rotation center on the Y axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property rotation-center-z
+  (of-object "ClutterGroup")
+  (prop-type "GParamBoxed")
+  (docs "The rotation center on the Z axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property anchor-x
+  (of-object "ClutterGroup")
+  (prop-type "GParamInt")
+  (docs "X coordinate of the anchor point")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property anchor-y
+  (of-object "ClutterGroup")
+  (prop-type "GParamInt")
+  (docs "Y coordinate of the anchor point")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property show-on-set-parent
+  (of-object "ClutterGroup")
+  (prop-type "GParamBoolean")
+  (docs "Whether the actor is shown when parented")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+;; From ClutterLabel
+
+(define-property name
+  (of-object "ClutterLabel")
+  (prop-type "GParamString")
+  (docs "Name of the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property x
+  (of-object "ClutterLabel")
+  (prop-type "GParamInt")
+  (docs "X coordinate of the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property y
+  (of-object "ClutterLabel")
+  (prop-type "GParamInt")
+  (docs "Y coordinate of the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property width
+  (of-object "ClutterLabel")
+  (prop-type "GParamInt")
+  (docs "Width of the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property height
+  (of-object "ClutterLabel")
+  (prop-type "GParamInt")
+  (docs "Height of the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property fixed-x
+  (of-object "ClutterLabel")
+  (prop-type "ClutterParamSpecUnit")
+  (docs "Forced X position of the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property fixed-y
+  (of-object "ClutterLabel")
+  (prop-type "ClutterParamSpecUnit")
+  (docs "Forced Y position of the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property fixed-position-set
+  (of-object "ClutterLabel")
+  (prop-type "GParamBoolean")
+  (docs "Whether to use fixed positioning for the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property min-width
+  (of-object "ClutterLabel")
+  (prop-type "ClutterParamSpecUnit")
+  (docs "Forced minimum width request for the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property min-width-set
+  (of-object "ClutterLabel")
+  (prop-type "GParamBoolean")
+  (docs "Whether to use the min-width property")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property min-height
+  (of-object "ClutterLabel")
+  (prop-type "ClutterParamSpecUnit")
+  (docs "Forced minimum height request for the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property min-height-set
+  (of-object "ClutterLabel")
+  (prop-type "GParamBoolean")
+  (docs "Whether to use the min-height property")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property natural-width
+  (of-object "ClutterLabel")
+  (prop-type "ClutterParamSpecUnit")
+  (docs "Forced natural width request for the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property natural-width-set
+  (of-object "ClutterLabel")
+  (prop-type "GParamBoolean")
+  (docs "Whether to use the natural-width property")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property natural-height
+  (of-object "ClutterLabel")
+  (prop-type "ClutterParamSpecUnit")
+  (docs "Forced natural height request for the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property natural-height-set
+  (of-object "ClutterLabel")
+  (prop-type "GParamBoolean")
+  (docs "Whether to use the natural-height property")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property request-mode
+  (of-object "ClutterLabel")
+  (prop-type "GParamEnum")
+  (docs "The actor's request mode")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property allocation
+  (of-object "ClutterLabel")
+  (prop-type "GParamBoxed")
+  (docs "The actor's allocation")
+  (readable #t)
+  (writable #f)
+  (construct-only #f)
+)
+
+(define-property depth
+  (of-object "ClutterLabel")
+  (prop-type "GParamInt")
+  (docs "Depth of actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property clip
+  (of-object "ClutterLabel")
+  (prop-type "GParamBoxed")
+  (docs "The clip region for the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property has-clip
+  (of-object "ClutterLabel")
+  (prop-type "GParamBoolean")
+  (docs "Whether the actor has a clip set or not")
+  (readable #t)
+  (writable #f)
+  (construct-only #f)
+)
+
+(define-property opacity
+  (of-object "ClutterLabel")
+  (prop-type "GParamUChar")
+  (docs "Opacity of actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property visible
+  (of-object "ClutterLabel")
+  (prop-type "GParamBoolean")
+  (docs "Whether the actor is visible or not")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property reactive
+  (of-object "ClutterLabel")
+  (prop-type "GParamBoolean")
+  (docs "Whether the actor is reactive to events or not")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property scale-x
+  (of-object "ClutterLabel")
+  (prop-type "GParamDouble")
+  (docs "Scale factor on the X axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property scale-y
+  (of-object "ClutterLabel")
+  (prop-type "GParamDouble")
+  (docs "Scale factor on the Y axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property rotation-angle-x
+  (of-object "ClutterLabel")
+  (prop-type "GParamDouble")
+  (docs "The rotation angle on the X axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property rotation-angle-y
+  (of-object "ClutterLabel")
+  (prop-type "GParamDouble")
+  (docs "The rotation angle on the Y axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property rotation-angle-z
+  (of-object "ClutterLabel")
+  (prop-type "GParamDouble")
+  (docs "The rotation angle on the Z axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property rotation-center-x
+  (of-object "ClutterLabel")
+  (prop-type "GParamBoxed")
+  (docs "The rotation center on the X axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property rotation-center-y
+  (of-object "ClutterLabel")
+  (prop-type "GParamBoxed")
+  (docs "The rotation center on the Y axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property rotation-center-z
+  (of-object "ClutterLabel")
+  (prop-type "GParamBoxed")
+  (docs "The rotation center on the Z axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property anchor-x
+  (of-object "ClutterLabel")
+  (prop-type "GParamInt")
+  (docs "X coordinate of the anchor point")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property anchor-y
+  (of-object "ClutterLabel")
+  (prop-type "GParamInt")
+  (docs "Y coordinate of the anchor point")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property show-on-set-parent
+  (of-object "ClutterLabel")
+  (prop-type "GParamBoolean")
+  (docs "Whether the actor is shown when parented")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property font-name
+  (of-object "ClutterLabel")
+  (prop-type "GParamString")
+  (docs "Pango font description")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property text
+  (of-object "ClutterLabel")
+  (prop-type "GParamString")
+  (docs "Text to render")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property color
+  (of-object "ClutterLabel")
+  (prop-type "GParamBoxed")
+  (docs "Font Colour")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property attributes
+  (of-object "ClutterLabel")
+  (prop-type "GParamBoxed")
+  (docs "A list of style attributes to apply to the text of the label")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property use-markup
+  (of-object "ClutterLabel")
+  (prop-type "GParamBoolean")
+  (docs "The text of the label includes XML markup. See pango_parse_markup()")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property alignment
+  (of-object "ClutterLabel")
+  (prop-type "GParamEnum")
+  (docs "The preferred alignment for the string")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property wrap
+  (of-object "ClutterLabel")
+  (prop-type "GParamBoolean")
+  (docs "If set, wrap lines if the text becomes too wide")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property wrap-mode
+  (of-object "ClutterLabel")
+  (prop-type "GParamEnum")
+  (docs "If wrap is set, controls how line-wrapping is done")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property justify
+  (of-object "ClutterLabel")
+  (prop-type "GParamBoolean")
+  (docs "Whether the contents of the label should be justified")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property ellipsize
+  (of-object "ClutterLabel")
+  (prop-type "GParamEnum")
+  (docs "The preferred place to ellipsize the string, if the label does not have enough room to display the entire string")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+;; From ClutterMedia
+
+(define-property position
+  (of-object "ClutterMedia")
+  (prop-type "GParamInt")
+  (docs "The position in the current stream in seconds.")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property can-seek
+  (of-object "ClutterMedia")
+  (prop-type "GParamBoolean")
+  (docs "TRUE if the current stream is seekable.")
+  (readable #t)
+  (writable #f)
+  (construct-only #f)
+)
+
+(define-property duration
+  (of-object "ClutterMedia")
+  (prop-type "GParamInt")
+  (docs "The duration of the current stream in seconds.")
+  (readable #t)
+  (writable #f)
+  (construct-only #f)
+)
+
+(define-property uri
+  (of-object "ClutterMedia")
+  (prop-type "GParamString")
+  (docs "The loaded URI.")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property playing
+  (of-object "ClutterMedia")
+  (prop-type "GParamBoolean")
+  (docs "TRUE if playing.")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property buffer-percent
+  (of-object "ClutterMedia")
+  (prop-type "GParamInt")
+  (docs "The percentage the current stream buffer is filled.")
+  (readable #t)
+  (writable #f)
+  (construct-only #f)
+)
+
+(define-property volume
+  (of-object "ClutterMedia")
+  (prop-type "GParamDouble")
+  (docs "The audio volume.")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+;; From ClutterRectangle
+
+(define-property name
+  (of-object "ClutterRectangle")
+  (prop-type "GParamString")
+  (docs "Name of the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property x
+  (of-object "ClutterRectangle")
+  (prop-type "GParamInt")
+  (docs "X coordinate of the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property y
+  (of-object "ClutterRectangle")
+  (prop-type "GParamInt")
+  (docs "Y coordinate of the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property width
+  (of-object "ClutterRectangle")
+  (prop-type "GParamInt")
+  (docs "Width of the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property height
+  (of-object "ClutterRectangle")
+  (prop-type "GParamInt")
+  (docs "Height of the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property fixed-x
+  (of-object "ClutterRectangle")
+  (prop-type "ClutterParamSpecUnit")
+  (docs "Forced X position of the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property fixed-y
+  (of-object "ClutterRectangle")
+  (prop-type "ClutterParamSpecUnit")
+  (docs "Forced Y position of the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property fixed-position-set
+  (of-object "ClutterRectangle")
+  (prop-type "GParamBoolean")
+  (docs "Whether to use fixed positioning for the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property min-width
+  (of-object "ClutterRectangle")
+  (prop-type "ClutterParamSpecUnit")
+  (docs "Forced minimum width request for the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property min-width-set
+  (of-object "ClutterRectangle")
+  (prop-type "GParamBoolean")
+  (docs "Whether to use the min-width property")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property min-height
+  (of-object "ClutterRectangle")
+  (prop-type "ClutterParamSpecUnit")
+  (docs "Forced minimum height request for the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property min-height-set
+  (of-object "ClutterRectangle")
+  (prop-type "GParamBoolean")
+  (docs "Whether to use the min-height property")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property natural-width
+  (of-object "ClutterRectangle")
+  (prop-type "ClutterParamSpecUnit")
+  (docs "Forced natural width request for the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property natural-width-set
+  (of-object "ClutterRectangle")
+  (prop-type "GParamBoolean")
+  (docs "Whether to use the natural-width property")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property natural-height
+  (of-object "ClutterRectangle")
+  (prop-type "ClutterParamSpecUnit")
+  (docs "Forced natural height request for the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property natural-height-set
+  (of-object "ClutterRectangle")
+  (prop-type "GParamBoolean")
+  (docs "Whether to use the natural-height property")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property request-mode
+  (of-object "ClutterRectangle")
+  (prop-type "GParamEnum")
+  (docs "The actor's request mode")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property allocation
+  (of-object "ClutterRectangle")
+  (prop-type "GParamBoxed")
+  (docs "The actor's allocation")
+  (readable #t)
+  (writable #f)
+  (construct-only #f)
+)
+
+(define-property depth
+  (of-object "ClutterRectangle")
+  (prop-type "GParamInt")
+  (docs "Depth of actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property clip
+  (of-object "ClutterRectangle")
+  (prop-type "GParamBoxed")
+  (docs "The clip region for the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property has-clip
+  (of-object "ClutterRectangle")
+  (prop-type "GParamBoolean")
+  (docs "Whether the actor has a clip set or not")
+  (readable #t)
+  (writable #f)
+  (construct-only #f)
+)
+
+(define-property opacity
+  (of-object "ClutterRectangle")
+  (prop-type "GParamUChar")
+  (docs "Opacity of actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property visible
+  (of-object "ClutterRectangle")
+  (prop-type "GParamBoolean")
+  (docs "Whether the actor is visible or not")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property reactive
+  (of-object "ClutterRectangle")
+  (prop-type "GParamBoolean")
+  (docs "Whether the actor is reactive to events or not")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property scale-x
+  (of-object "ClutterRectangle")
+  (prop-type "GParamDouble")
+  (docs "Scale factor on the X axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property scale-y
+  (of-object "ClutterRectangle")
+  (prop-type "GParamDouble")
+  (docs "Scale factor on the Y axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property rotation-angle-x
+  (of-object "ClutterRectangle")
+  (prop-type "GParamDouble")
+  (docs "The rotation angle on the X axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property rotation-angle-y
+  (of-object "ClutterRectangle")
+  (prop-type "GParamDouble")
+  (docs "The rotation angle on the Y axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property rotation-angle-z
+  (of-object "ClutterRectangle")
+  (prop-type "GParamDouble")
+  (docs "The rotation angle on the Z axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property rotation-center-x
+  (of-object "ClutterRectangle")
+  (prop-type "GParamBoxed")
+  (docs "The rotation center on the X axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property rotation-center-y
+  (of-object "ClutterRectangle")
+  (prop-type "GParamBoxed")
+  (docs "The rotation center on the Y axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property rotation-center-z
+  (of-object "ClutterRectangle")
+  (prop-type "GParamBoxed")
+  (docs "The rotation center on the Z axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property anchor-x
+  (of-object "ClutterRectangle")
+  (prop-type "GParamInt")
+  (docs "X coordinate of the anchor point")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property anchor-y
+  (of-object "ClutterRectangle")
+  (prop-type "GParamInt")
+  (docs "Y coordinate of the anchor point")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property show-on-set-parent
+  (of-object "ClutterRectangle")
+  (prop-type "GParamBoolean")
+  (docs "Whether the actor is shown when parented")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property color
+  (of-object "ClutterRectangle")
+  (prop-type "GParamBoxed")
+  (docs "The color of the rectangle")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property border-color
+  (of-object "ClutterRectangle")
+  (prop-type "GParamBoxed")
+  (docs "The color of the border of the rectangle")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property border-width
+  (of-object "ClutterRectangle")
+  (prop-type "GParamUInt")
+  (docs "The width of the border of the rectangle")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property has-border
+  (of-object "ClutterRectangle")
+  (prop-type "GParamBoolean")
+  (docs "Whether the rectangle should have a border")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+;; From ClutterScore
+
+(define-signal timeline-started
+  (of-object "ClutterScore")
+  (return-type "void")
+  (when "last")
+  (parameters
+    '("ClutterTimeline*" "p0")
+  )
+)
+
+(define-signal timeline-completed
+  (of-object "ClutterScore")
+  (return-type "void")
+  (when "last")
+  (parameters
+    '("ClutterTimeline*" "p0")
+  )
+)
+
+(define-signal completed
+  (of-object "ClutterScore")
+  (return-type "void")
+  (when "last")
+)
+
+(define-signal started
+  (of-object "ClutterScore")
+  (return-type "void")
+  (when "last")
+)
+
+(define-signal paused
+  (of-object "ClutterScore")
+  (return-type "void")
+  (when "last")
+)
+
+(define-property loop
+  (of-object "ClutterScore")
+  (prop-type "GParamBoolean")
+  (docs "Whether the score should restart once finished")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+;; From ClutterScript
+
+(define-property filename-set
+  (of-object "ClutterScript")
+  (prop-type "GParamBoolean")
+  (docs "Whether the :filename property is set")
+  (readable #t)
+  (writable #f)
+  (construct-only #f)
+)
+
+(define-property filename
+  (of-object "ClutterScript")
+  (prop-type "GParamString")
+  (docs "The path of the currently parsed file")
+  (readable #t)
+  (writable #f)
+  (construct-only #f)
+)
+
+;; From ClutterStage
+
+(define-signal fullscreen
+  (of-object "ClutterStage")
+  (return-type "void")
+  (when "first")
+)
+
+(define-signal unfullscreen
+  (of-object "ClutterStage")
+  (return-type "void")
+  (when "last")
+)
+
+(define-signal activate
+  (of-object "ClutterStage")
+  (return-type "void")
+  (when "last")
+)
+
+(define-signal deactivate
+  (of-object "ClutterStage")
+  (return-type "void")
+  (when "last")
+)
+
+(define-property name
+  (of-object "ClutterStage")
+  (prop-type "GParamString")
+  (docs "Name of the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property x
+  (of-object "ClutterStage")
+  (prop-type "GParamInt")
+  (docs "X coordinate of the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property y
+  (of-object "ClutterStage")
+  (prop-type "GParamInt")
+  (docs "Y coordinate of the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property width
+  (of-object "ClutterStage")
+  (prop-type "GParamInt")
+  (docs "Width of the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property height
+  (of-object "ClutterStage")
+  (prop-type "GParamInt")
+  (docs "Height of the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property fixed-x
+  (of-object "ClutterStage")
+  (prop-type "ClutterParamSpecUnit")
+  (docs "Forced X position of the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property fixed-y
+  (of-object "ClutterStage")
+  (prop-type "ClutterParamSpecUnit")
+  (docs "Forced Y position of the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property fixed-position-set
+  (of-object "ClutterStage")
+  (prop-type "GParamBoolean")
+  (docs "Whether to use fixed positioning for the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property min-width
+  (of-object "ClutterStage")
+  (prop-type "ClutterParamSpecUnit")
+  (docs "Forced minimum width request for the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property min-width-set
+  (of-object "ClutterStage")
+  (prop-type "GParamBoolean")
+  (docs "Whether to use the min-width property")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property min-height
+  (of-object "ClutterStage")
+  (prop-type "ClutterParamSpecUnit")
+  (docs "Forced minimum height request for the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property min-height-set
+  (of-object "ClutterStage")
+  (prop-type "GParamBoolean")
+  (docs "Whether to use the min-height property")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property natural-width
+  (of-object "ClutterStage")
+  (prop-type "ClutterParamSpecUnit")
+  (docs "Forced natural width request for the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property natural-width-set
+  (of-object "ClutterStage")
+  (prop-type "GParamBoolean")
+  (docs "Whether to use the natural-width property")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property natural-height
+  (of-object "ClutterStage")
+  (prop-type "ClutterParamSpecUnit")
+  (docs "Forced natural height request for the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property natural-height-set
+  (of-object "ClutterStage")
+  (prop-type "GParamBoolean")
+  (docs "Whether to use the natural-height property")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property request-mode
+  (of-object "ClutterStage")
+  (prop-type "GParamEnum")
+  (docs "The actor's request mode")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property allocation
+  (of-object "ClutterStage")
+  (prop-type "GParamBoxed")
+  (docs "The actor's allocation")
+  (readable #t)
+  (writable #f)
+  (construct-only #f)
+)
+
+(define-property depth
+  (of-object "ClutterStage")
+  (prop-type "GParamInt")
+  (docs "Depth of actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property clip
+  (of-object "ClutterStage")
+  (prop-type "GParamBoxed")
+  (docs "The clip region for the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property has-clip
+  (of-object "ClutterStage")
+  (prop-type "GParamBoolean")
+  (docs "Whether the actor has a clip set or not")
+  (readable #t)
+  (writable #f)
+  (construct-only #f)
+)
+
+(define-property opacity
+  (of-object "ClutterStage")
+  (prop-type "GParamUChar")
+  (docs "Opacity of actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property visible
+  (of-object "ClutterStage")
+  (prop-type "GParamBoolean")
+  (docs "Whether the actor is visible or not")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property reactive
+  (of-object "ClutterStage")
+  (prop-type "GParamBoolean")
+  (docs "Whether the actor is reactive to events or not")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property scale-x
+  (of-object "ClutterStage")
+  (prop-type "GParamDouble")
+  (docs "Scale factor on the X axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property scale-y
+  (of-object "ClutterStage")
+  (prop-type "GParamDouble")
+  (docs "Scale factor on the Y axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property rotation-angle-x
+  (of-object "ClutterStage")
+  (prop-type "GParamDouble")
+  (docs "The rotation angle on the X axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property rotation-angle-y
+  (of-object "ClutterStage")
+  (prop-type "GParamDouble")
+  (docs "The rotation angle on the Y axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property rotation-angle-z
+  (of-object "ClutterStage")
+  (prop-type "GParamDouble")
+  (docs "The rotation angle on the Z axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property rotation-center-x
+  (of-object "ClutterStage")
+  (prop-type "GParamBoxed")
+  (docs "The rotation center on the X axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property rotation-center-y
+  (of-object "ClutterStage")
+  (prop-type "GParamBoxed")
+  (docs "The rotation center on the Y axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property rotation-center-z
+  (of-object "ClutterStage")
+  (prop-type "GParamBoxed")
+  (docs "The rotation center on the Z axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property anchor-x
+  (of-object "ClutterStage")
+  (prop-type "GParamInt")
+  (docs "X coordinate of the anchor point")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property anchor-y
+  (of-object "ClutterStage")
+  (prop-type "GParamInt")
+  (docs "Y coordinate of the anchor point")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property show-on-set-parent
+  (of-object "ClutterStage")
+  (prop-type "GParamBoolean")
+  (docs "Whether the actor is shown when parented")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property color
+  (of-object "ClutterStage")
+  (prop-type "GParamBoxed")
+  (docs "The color of the main stage")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property fullscreen
+  (of-object "ClutterStage")
+  (prop-type "GParamBoolean")
+  (docs "Whether the main stage is fullscreen")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property offscreen
+  (of-object "ClutterStage")
+  (prop-type "GParamBoolean")
+  (docs "Whether the main stage is renderer offscreen")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property cursor-visible
+  (of-object "ClutterStage")
+  (prop-type "GParamBoolean")
+  (docs "Whether the mouse pointer is visible on the main stage ")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property title
+  (of-object "ClutterStage")
+  (prop-type "GParamString")
+  (docs "Stage Title")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property user-resizable
+  (of-object "ClutterStage")
+  (prop-type "GParamBoolean")
+  (docs "Whether the stage is able to be resized via user interaction")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property use-fog
+  (of-object "ClutterStage")
+  (prop-type "GParamBoolean")
+  (docs "Whether to enable depth cueing")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+;; From ClutterTexture
+
+(define-signal size-change
+  (of-object "ClutterTexture")
+  (return-type "void")
+  (when "last")
+  (parameters
+    '("gint" "p0")
+    '("gint" "p1")
+  )
+)
+
+(define-signal pixbuf-change
+  (of-object "ClutterTexture")
+  (return-type "void")
+  (when "last")
+)
+
+(define-property name
+  (of-object "ClutterTexture")
+  (prop-type "GParamString")
+  (docs "Name of the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property x
+  (of-object "ClutterTexture")
+  (prop-type "GParamInt")
+  (docs "X coordinate of the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property y
+  (of-object "ClutterTexture")
+  (prop-type "GParamInt")
+  (docs "Y coordinate of the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property width
+  (of-object "ClutterTexture")
+  (prop-type "GParamInt")
+  (docs "Width of the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property height
+  (of-object "ClutterTexture")
+  (prop-type "GParamInt")
+  (docs "Height of the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property fixed-x
+  (of-object "ClutterTexture")
+  (prop-type "ClutterParamSpecUnit")
+  (docs "Forced X position of the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property fixed-y
+  (of-object "ClutterTexture")
+  (prop-type "ClutterParamSpecUnit")
+  (docs "Forced Y position of the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property fixed-position-set
+  (of-object "ClutterTexture")
+  (prop-type "GParamBoolean")
+  (docs "Whether to use fixed positioning for the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property min-width
+  (of-object "ClutterTexture")
+  (prop-type "ClutterParamSpecUnit")
+  (docs "Forced minimum width request for the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property min-width-set
+  (of-object "ClutterTexture")
+  (prop-type "GParamBoolean")
+  (docs "Whether to use the min-width property")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property min-height
+  (of-object "ClutterTexture")
+  (prop-type "ClutterParamSpecUnit")
+  (docs "Forced minimum height request for the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property min-height-set
+  (of-object "ClutterTexture")
+  (prop-type "GParamBoolean")
+  (docs "Whether to use the min-height property")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property natural-width
+  (of-object "ClutterTexture")
+  (prop-type "ClutterParamSpecUnit")
+  (docs "Forced natural width request for the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property natural-width-set
+  (of-object "ClutterTexture")
+  (prop-type "GParamBoolean")
+  (docs "Whether to use the natural-width property")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property natural-height
+  (of-object "ClutterTexture")
+  (prop-type "ClutterParamSpecUnit")
+  (docs "Forced natural height request for the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property natural-height-set
+  (of-object "ClutterTexture")
+  (prop-type "GParamBoolean")
+  (docs "Whether to use the natural-height property")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property request-mode
+  (of-object "ClutterTexture")
+  (prop-type "GParamEnum")
+  (docs "The actor's request mode")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property allocation
+  (of-object "ClutterTexture")
+  (prop-type "GParamBoxed")
+  (docs "The actor's allocation")
+  (readable #t)
+  (writable #f)
+  (construct-only #f)
+)
+
+(define-property depth
+  (of-object "ClutterTexture")
+  (prop-type "GParamInt")
+  (docs "Depth of actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property clip
+  (of-object "ClutterTexture")
+  (prop-type "GParamBoxed")
+  (docs "The clip region for the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property has-clip
+  (of-object "ClutterTexture")
+  (prop-type "GParamBoolean")
+  (docs "Whether the actor has a clip set or not")
+  (readable #t)
+  (writable #f)
+  (construct-only #f)
+)
+
+(define-property opacity
+  (of-object "ClutterTexture")
+  (prop-type "GParamUChar")
+  (docs "Opacity of actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property visible
+  (of-object "ClutterTexture")
+  (prop-type "GParamBoolean")
+  (docs "Whether the actor is visible or not")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property reactive
+  (of-object "ClutterTexture")
+  (prop-type "GParamBoolean")
+  (docs "Whether the actor is reactive to events or not")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property scale-x
+  (of-object "ClutterTexture")
+  (prop-type "GParamDouble")
+  (docs "Scale factor on the X axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property scale-y
+  (of-object "ClutterTexture")
+  (prop-type "GParamDouble")
+  (docs "Scale factor on the Y axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property rotation-angle-x
+  (of-object "ClutterTexture")
+  (prop-type "GParamDouble")
+  (docs "The rotation angle on the X axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property rotation-angle-y
+  (of-object "ClutterTexture")
+  (prop-type "GParamDouble")
+  (docs "The rotation angle on the Y axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property rotation-angle-z
+  (of-object "ClutterTexture")
+  (prop-type "GParamDouble")
+  (docs "The rotation angle on the Z axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property rotation-center-x
+  (of-object "ClutterTexture")
+  (prop-type "GParamBoxed")
+  (docs "The rotation center on the X axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property rotation-center-y
+  (of-object "ClutterTexture")
+  (prop-type "GParamBoxed")
+  (docs "The rotation center on the Y axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property rotation-center-z
+  (of-object "ClutterTexture")
+  (prop-type "GParamBoxed")
+  (docs "The rotation center on the Z axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property anchor-x
+  (of-object "ClutterTexture")
+  (prop-type "GParamInt")
+  (docs "X coordinate of the anchor point")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property anchor-y
+  (of-object "ClutterTexture")
+  (prop-type "GParamInt")
+  (docs "Y coordinate of the anchor point")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property show-on-set-parent
+  (of-object "ClutterTexture")
+  (prop-type "GParamBoolean")
+  (docs "Whether the actor is shown when parented")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property disable-slicing
+  (of-object "ClutterTexture")
+  (prop-type "GParamBoolean")
+  (docs "Force the underlying texture to be singlularand not made of of smaller space saving inidivual textures.")
+  (readable #t)
+  (writable #t)
+  (construct-only #t)
+)
+
+(define-property tile-waste
+  (of-object "ClutterTexture")
+  (prop-type "GParamInt")
+  (docs "Max wastage dimension of a texture when using sliced textures or -1 to disable slicing. Bigger values use less textures, smaller values less texture memory.")
+  (readable #t)
+  (writable #t)
+  (construct-only #t)
+)
+
+(define-property pixel-format
+  (of-object "ClutterTexture")
+  (prop-type "GParamInt")
+  (docs "CoglPixelFormat to use.")
+  (readable #t)
+  (writable #f)
+  (construct-only #f)
+)
+
+(define-property sync-size
+  (of-object "ClutterTexture")
+  (prop-type "GParamBoolean")
+  (docs "Auto sync size of actor to underlying pixbuf dimensions")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property repeat-y
+  (of-object "ClutterTexture")
+  (prop-type "GParamBoolean")
+  (docs "Repeat underlying pixbuf rather than scale in y direction.")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property repeat-x
+  (of-object "ClutterTexture")
+  (prop-type "GParamBoolean")
+  (docs "Repeat underlying pixbuf rather than scale in x direction.")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property filter-quality
+  (of-object "ClutterTexture")
+  (prop-type "GParamEnum")
+  (docs "Rendering quality used when drawing the texture.")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property cogl-texture
+  (of-object "ClutterTexture")
+  (prop-type "GParamBoxed")
+  (docs "The underlying COGL texture handle used to draw this actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property filename
+  (of-object "ClutterTexture")
+  (prop-type "GParamString")
+  (docs "The full path of the file containing the texture")
+  (readable #f)
+  (writable #t)
+  (construct-only #f)
+)
+
+;; From ClutterTimeline
+
+(define-signal completed
+  (of-object "ClutterTimeline")
+  (return-type "void")
+  (when "last")
+)
+
+(define-signal started
+  (of-object "ClutterTimeline")
+  (return-type "void")
+  (when "last")
+)
+
+(define-signal paused
+  (of-object "ClutterTimeline")
+  (return-type "void")
+  (when "last")
+)
+
+(define-signal new-frame
+  (of-object "ClutterTimeline")
+  (return-type "void")
+  (when "last")
+  (parameters
+    '("gint" "p0")
+  )
+)
+
+(define-signal marker-reached
+  (of-object "ClutterTimeline")
+  (return-type "void")
+  (when "last")
+  (parameters
+    '("const-gchar*" "p0")
+    '("gint" "p1")
+  )
+)
+
+(define-property fps
+  (of-object "ClutterTimeline")
+  (prop-type "GParamUInt")
+  (docs "Timeline frames per second")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property num-frames
+  (of-object "ClutterTimeline")
+  (prop-type "GParamUInt")
+  (docs "Timelines total number of frames")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property loop
+  (of-object "ClutterTimeline")
+  (prop-type "GParamBoolean")
+  (docs "Should the timeline automatically restart")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property delay
+  (of-object "ClutterTimeline")
+  (prop-type "GParamUInt")
+  (docs "Delay before start")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property duration
+  (of-object "ClutterTimeline")
+  (prop-type "GParamUInt")
+  (docs "Duration of the timeline in milliseconds")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property direction
+  (of-object "ClutterTimeline")
+  (prop-type "GParamEnum")
+  (docs "Direction of the timeline")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+;; From ClutterScore
+
+(define-signal timeline-started
+  (of-object "ClutterScore")
+  (return-type "void")
+  (when "last")
+  (parameters
+    '("ClutterTimeline*" "p0")
+  )
+)
+
+(define-signal timeline-completed
+  (of-object "ClutterScore")
+  (return-type "void")
+  (when "last")
+  (parameters
+    '("ClutterTimeline*" "p0")
+  )
+)
+
+(define-signal completed
+  (of-object "ClutterScore")
+  (return-type "void")
+  (when "last")
+)
+
+(define-signal started
+  (of-object "ClutterScore")
+  (return-type "void")
+  (when "last")
+)
+
+(define-signal paused
+  (of-object "ClutterScore")
+  (return-type "void")
+  (when "last")
+)
+
+(define-property loop
+  (of-object "ClutterScore")
+  (prop-type "GParamBoolean")
+  (docs "Whether the score should restart once finished")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+;; From ClutterShader
+
+(define-property vertex-source
+  (of-object "ClutterShader")
+  (prop-type "GParamString")
+  (docs "Source of vertex shader")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property fragment-source
+  (of-object "ClutterShader")
+  (prop-type "GParamString")
+  (docs "Source of fragment shader")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property compiled
+  (of-object "ClutterShader")
+  (prop-type "GParamBoolean")
+  (docs "Whether the shader is compiled and linked")
+  (readable #t)
+  (writable #f)
+  (construct-only #f)
+)
+
+(define-property enabled
+  (of-object "ClutterShader")
+  (prop-type "GParamBoolean")
+  (docs "Whether the shader is enabled")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+;; From ClutterScript
+
+(define-property filename-set
+  (of-object "ClutterScript")
+  (prop-type "GParamBoolean")
+  (docs "Whether the :filename property is set")
+  (readable #t)
+  (writable #f)
+  (construct-only #f)
+)
+
+(define-property filename
+  (of-object "ClutterScript")
+  (prop-type "GParamString")
+  (docs "The path of the currently parsed file")
+  (readable #t)
+  (writable #f)
+  (construct-only #f)
+)
+

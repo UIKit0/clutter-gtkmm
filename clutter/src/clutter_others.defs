@@ -1,0 +1,48 @@
+; This file is written by hand because we can't instantiate interfaces:
+
+; ClutterMedia
+
+(define-signal eos
+  (of-object "ClutterMedia")
+  (return-type "void")
+  (when "last")
+)
+
+(define-signal error
+  (of-object "ClutterMedia")
+  (return-type "void")
+  (when "last")
+  (parameters
+    '("GError*" "error")
+  )
+)
+
+; ClutterContainer
+
+(define-signal actor-added
+  (of-object "ClutterContainer")
+  (return-type "void")
+  (when "first")
+  (parameters
+    '("ClutterActor*" "actor")
+  )
+)
+
+(define-signal actor-removed
+  (of-object "ClutterContainer")
+  (return-type "void")
+  (when "first")
+  (parameters
+    '("ClutterActor*" "actor")
+  )
+)
+
+(define-signal child-notify
+  (of-object "ClutterContainer")
+  (return-type "void")
+  (when "first")
+  (parameters
+    '("ClutterActor*" "actor")
+    '("GParamSpec*" "pspec")
+  )
+)

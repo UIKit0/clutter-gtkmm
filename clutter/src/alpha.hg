@@ -1,0 +1,96 @@
+/* Copyright (C) 2007 The cluttermm Development Team
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Library General Public
+ * License as published by the Free Software Foundation; either
+ * version 2 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Library General Public License for more details.
+ *
+ * You should have received a copy of the GNU Library General Public
+ * License along with this library; if not, write to the Free
+ * Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+ */
+
+#include <glibmm/object.h>
+#include <cluttermm/timeline.h>
+#include <clutter/clutter-alpha.h>
+ 
+_DEFS(cluttermm,clutter)
+_PINCLUDE(glibmm/private/object_p.h)
+
+
+namespace Clutter
+{
+
+class Alpha : public Glib::Object
+{
+  _CLASS_GOBJECT(Alpha, ClutterAlpha, CLUTTER_ALPHA, Glib::Object, GObject)
+  _DERIVES_INITIALLY_UNOWNED()
+
+protected:
+  _CTOR_DEFAULT()
+
+public:
+
+  /** For instance,
+   * guint32 on_alpha(const Glib::RefPtr<Alpha>& alpha);
+   */
+  typedef sigc::slot<guint32, const Glib::RefPtr<Alpha>& > SlotAlphaFunc;
+
+protected:
+  /** Creates a new Alpha instance and sets the timeline and the alpha function.
+   * @param timeline Timeline.
+   * @param slot Alpha function.
+   */
+  Alpha(const Glib::RefPtr<Timeline>& timeline, const SlotAlphaFunc& slot);
+
+  /** Creates a new Alpha instance and sets the timeline and the alpha function.
+   * @param timeline Timeline.
+   * @param slot Alpha function.
+   */
+  Alpha(const Glib::RefPtr<Timeline>& timeline, ClutterAlphaFunc callback);
+
+public:
+  _WRAP_CREATE()
+  _WRAP_CREATE(const Glib::RefPtr<Timeline>& timeline, const SlotAlphaFunc& slot)
+  _WRAP_CREATE(const Glib::RefPtr<Timeline>& timeline, ClutterAlphaFunc callback)
+
+
+
+  _WRAP_METHOD(void set_timeline(const Glib::RefPtr<Timeline>& timeline), clutter_alpha_set_timeline)
+  _WRAP_METHOD(Glib::RefPtr<Timeline> get_timeline() const, clutter_alpha_get_timeline)
+  _WRAP_METHOD(guint32 get_alpha() const, clutter_alpha_get_alpha)
+
+  void set_func(const SlotAlphaFunc& slot);
+  _IGNORE(clutter_alpha_set_func)
+
+  _WRAP_PROPERTY("alpha", guint)
+  _WRAP_PROPERTY("timeline", Glib::RefPtr<Timeline>)
+
+  // We don't need the GClosure stuff in C++:
+  _IGNORE(clutter_alpha_set_closure)
+};
+
+/// @name Pre-defined Alpha functions
+/// @related Alpha
+/// @{
+extern Alpha::SlotAlphaFunc ALPHA_RAMP_INC;
+extern Alpha::SlotAlphaFunc ALPHA_RAMP_DEC;
+extern Alpha::SlotAlphaFunc ALPHA_RAMP;
+extern Alpha::SlotAlphaFunc ALPHA_SINE;
+extern Alpha::SlotAlphaFunc ALPHA_SINE_INC;
+extern Alpha::SlotAlphaFunc ALPHA_SINE_DEC;
+extern Alpha::SlotAlphaFunc ALPHA_SINE_HALF;
+extern Alpha::SlotAlphaFunc ALPHA_SQUARE;
+extern Alpha::SlotAlphaFunc ALPHA_SMOOTHSTEP_INC;
+extern Alpha::SlotAlphaFunc ALPHA_SMOOTHSTEP_DEC;
+extern Alpha::SlotAlphaFunc ALPHA_EXP_INC;
+extern Alpha::SlotAlphaFunc ALPHA_EXP_DEC;
+/// @}
+
+} // namespace Clutter
+// vim:ts=2,sw=2
