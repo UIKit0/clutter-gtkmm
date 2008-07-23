@@ -1,5 +1,5 @@
 #include <gtkmm.h>
-#include <cluttermm-gtk.h>
+#include <clutter-gtkmm.h>
 
 Glib::RefPtr<Clutter::Label> label;
 Gtk::Entry *pentry;

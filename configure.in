@@ -1,11 +1,11 @@
-AC_INIT(clutter/cluttermmconfig.h.in)
+AC_INIT(clutter-gtk/clutter-gtkmm-config.h.in)
 
 #########################################################################
 #  Version and initialization
 #########################################################################
-CLUTTERMM_MAJOR_VERSION=0
-CLUTTERMM_MINOR_VERSION=7
-CLUTTERMM_MICRO_VERSION=1
+CLUTTER_GTKMM_MAJOR_VERSION=0
+CLUTTER_GTKMM_MINOR_VERSION=7
+CLUTTER_GTKMM_MICRO_VERSION=1
 
 #
 # +1 : ? : +1  == new interface that does not break old one
@@ -14,31 +14,29 @@ CLUTTERMM_MICRO_VERSION=1
 #  ? :+1 : ?   == just some internal changes, nothing breaks but might work
 #                 better
 # CURRENT : REVISION : AGE
-CLUTTERMM_SO_VERSION=1:0:0
+CLUTTER_GTKMM_SO_VERSION=1:0:0
 
-CLUTTERMM_VERSION=$CLUTTERMM_MAJOR_VERSION.$CLUTTERMM_MINOR_VERSION.$CLUTTERMM_MICRO_VERSION
-CLUTTERMM_RELEASE=$CLUTTERMM_MAJOR_VERSION.$CLUTTERMM_MINOR_VERSION
-AC_DEFINE_UNQUOTED([CLUTTERMM_MAJOR_VERSION], $CLUTTERMM_MAJOR_VERSION, major version)
-AC_DEFINE_UNQUOTED([CLUTTERMM_MINOR_VERSION], $CLUTTERMM_MINOR_VERSION, minor version)
-AC_DEFINE_UNQUOTED([CLUTTERMM_MICRO_VERSION], $CLUTTERMM_MICRO_VERSION, micro version)
-AC_DEFINE_UNQUOTED([CLUTTERMM_VERSION], "$CLUTTERMM_VERSION", cluttermm version string)
-AC_SUBST(CLUTTERMM_VERSION)
-AC_SUBST(CLUTTERMM_RELEASE)
-AC_SUBST(CLUTTERMM_SO_VERSION)
+CLUTTER_GTKMM_VERSION=$CLUTTER_GTKMM_MAJOR_VERSION.$CLUTTER_GTKMM_MINOR_VERSION.$CLUTTER_GTKMM_MICRO_VERSION
+CLUTTER_GTKMM_RELEASE=$CLUTTER_GTKMM_MAJOR_VERSION.$CLUTTER_GTKMM_MINOR_VERSION
+AC_DEFINE_UNQUOTED([CLUTTER_GTKMM_MAJOR_VERSION], $CLUTTER_GTKMM_MAJOR_VERSION, major version)
+AC_DEFINE_UNQUOTED([CLUTTER_GTKMM_MINOR_VERSION], $CLUTTER_GTKMM_MINOR_VERSION, minor version)
+AC_DEFINE_UNQUOTED([CLUTTER_GTKMM_MICRO_VERSION], $CLUTTER_GTKMM_MICRO_VERSION, micro version)
+AC_DEFINE_UNQUOTED([CLUTTER_GTKMM_VERSION], "$CLUTTER_GTKMM_VERSION", clutter-gtkmm version string)
+AC_SUBST(CLUTTER_GTKMM_VERSION)
+AC_SUBST(CLUTTER_GTKMM_RELEASE)
+AC_SUBST(CLUTTER_GTKMM_SO_VERSION)
 
 AC_CONFIG_AUX_DIR(scripts)
 
 dnl For automake.
-VERSION=$CLUTTERMM_VERSION
-PACKAGE=cluttermm
+VERSION=$CLUTTER_GTKMM_VERSION
+PACKAGE=clutter-gtkmm
 
 dnl Initialize automake stuff
 AM_INIT_AUTOMAKE($PACKAGE, $VERSION)
 
 dnl Specify a configuration file (no autoheader)
-AM_CONFIG_HEADER(clutter/cluttermmconfig.h)
-AM_CONFIG_HEADER(clutter-cairo/cluttermm-cairo-config.h)
-AM_CONFIG_HEADER(clutter-gtk/cluttermm-gtk-config.h)
+AM_CONFIG_HEADER(clutter-gtk/clutter-gtkmm-config.h)
 AM_MAINTAINER_MODE
 AL_ACLOCAL_INCLUDE(scripts)
 
@@ -58,14 +56,14 @@ AM_DISABLE_STATIC
 AM_PROG_LIBTOOL
 
 AL_PROG_GNU_M4(AC_MSG_ERROR([dnl
-SUN m4 does not work for building cluttermm.
+SUN m4 does not work for building clutter-gtkmm.
 Please install GNU m4.]))
 
 AL_PROG_GNU_MAKE(AC_MSG_ERROR([dnl
-SUN make does not work for building cluttermm.
+SUN make does not work for building clutter-gtkmm.
 Please install GNU make.]))
 
-AL_PROG_PERL(AC_MSG_ERROR([Perl is required to build cluttermm.]))
+AL_PROG_PERL(AC_MSG_ERROR([Perl is required to build clutter-gtkmm.]))
 
 AC_CHECK_PROGS(PERL, perl5 perl)
 
@@ -73,11 +71,12 @@ AC_CHECK_PROGS(PERL, perl5 perl)
 #  Dependancy checks
 #########################################################################
 
-PKG_CHECK_MODULES(CLUTTERMM_GTK,
+PKG_CHECK_MODULES(CLUTTER_GTKMM,
                   [gtkmm-2.4
+				   cluttermm-0.8
                    clutter-gtk-0.8])
-AC_SUBST(CLUTTERMM_GTK_CFLAGS)
-AC_SUBST(CLUTTERMM_GTK_LIBS)
+AC_SUBST(CLUTTER_GTKMM_CFLAGS)
+AC_SUBST(CLUTTER_GTKMM_LIBS)
 
 # the API version of the library.  Libraries and pkg-config files will have this
 # value appended to them, e.g. libclutter-0.6.so
@@ -105,10 +104,10 @@ AC_OUTPUT([
   Makefile
 
   clutter-gtk/Makefile
-  clutter-gtk/cluttermm-gtk-$API_VER.pc:clutter-gtk/cluttermm-gtk.pc.in
+  clutter-gtk/clutter-gtkmm-$API_VER.pc:clutter-gtk/clutter-gtkmm.pc.in
   clutter-gtk/src/Makefile
-  clutter-gtk/cluttermm-gtk/Makefile
-  clutter-gtk/cluttermm-gtk/private/Makefile
+  clutter-gtk/clutter-gtkmm/Makefile
+  clutter-gtk/clutter-gtkmm/private/Makefile
 
   tools/Makefile
     tools/extra_defs_gen/Makefile

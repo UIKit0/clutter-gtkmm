@@ -5,23 +5,23 @@ web_path_reference = /home/groups/g/gt/gtkmm/htdocs/gtkmm2DONTUPLOADTHIS/referen
 EXTRA_DIST	= README $(doxygen_configfile)
 
 
-cluttermm-reference: $(doxygen_configfile)
+clutter-gtkmm-reference: $(doxygen_configfile)
 	doxygen $(doxygen_configfile)
 
-cluttermm-reference-html: cluttermm-reference
+clutter-gtkmm-reference-html: clutter-gtkmm-reference
 
-cluttermm-reference-html.tar.gz: cluttermm-reference-html
+clutter-gtkmm-reference-html.tar.gz: clutter-gtkmm-reference-html
 	tar -cf - $< | gzip > $@
 
 
-post-html: cluttermm-reference
+post-html: clutter-gtkmm-reference
 	(cd html && tar -cf - *.html *.gif *.css | gzip -3 | \
 	 ssh $$SSH_OPT $$USER@gtkmm.sourceforge.net "cd $(web_path_reference)/html ; gunzip | tar -xvf - ; chmod a+r,g+w * ; chgrp gtkmm *")
 
 
-all-local: cluttermm-reference
+all-local: clutter-gtkmm-reference
 
 clean-local:
 	-rm -rf html
-	-rm -f cluttermm-reference-html.tar.gz
+	-rm -f clutter-gtkmm-reference-html.tar.gz
 

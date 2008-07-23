@@ -1,4 +1,6 @@
-/* Copyright (C) 2007 The cluttermm Development Team
+/* cluttermm-gtk - a C++ wrapper for clutter-gtk
+ *
+ * Copyright 2007 The cluttermm Development Team
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
@@ -15,33 +17,16 @@
  * Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-#include <cluttermm/stage.h>
-#include <gtkmm/widget.h>
- 
-_DEFS(clutter-gtkmm,clutter-gtk)
-_PINCLUDE(cluttermm/private/stage_p.h)
-_PINCLUDE(gtkmm/private/widget_p.h)
+#ifndef LIBCLUTTER_GTKMM_H
+#define LIBCLUTTER_GTKMM_H
 
+/* cluttermm version.  */
+extern const int clutter_gtkmm_major_version;
+extern const int clutter_gtkmm_minor_version;
+extern const int clutter_gtkmm_micro_version;
 
-namespace Clutter
-{
-namespace Gtk
-{
+#include <cluttermm.h>
+#include <clutter-gtkmm/init.h>
+#include <clutter-gtkmm/embed.h>
 
-//TODO: Documentation.
-class Embed :
-  public ::Gtk::Widget
-{
-  _CLASS_GTKOBJECT(Embed, GtkClutterEmbed, GTK_CLUTTER_EMBED, ::Gtk::Widget, GtkWidget)
-
-public:
-  _CTOR_DEFAULT
-
-#m4 _CONVERSION(`ClutterActor*',`Glib::RefPtr<Stage>',`Glib::wrap(CLUTTER_STAGE($3), false)')
-  _WRAP_METHOD(Glib::RefPtr<Stage> get_stage(), gtk_clutter_embed_get_stage)
-};
-
-} // namespace Gtk
-} // namespace Clutter
-
-//vim: ts=2,sw=2
+#endif /* #ifndef LIBCLUTTER_GTKMM_H */

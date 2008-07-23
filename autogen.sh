@@ -15,11 +15,11 @@ echo Found GNU Make at $MAKE ... good.
 srcdir=`dirname $0`
 test -z "$srcdir" && srcdir=.
 
-PKG_NAME="cluttermm"
+PKG_NAME="clutter-gtkmm"
 
 (test -f $srcdir/configure.in \
-  && test -d $srcdir/clutter/src \
-  && test -d $srcdir/clutter/cluttermm) || {
+  && test -d $srcdir/clutter-gtk/src \
+  && test -d $srcdir/clutter-gtk/clutter-gtkmm) || {
     echo -n "**Error**: Directory "\`$srcdir\'" does not look like the"
     echo " top-level $PKG_NAME directory"
     exit 1

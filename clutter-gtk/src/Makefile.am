@@ -1,10 +1,10 @@
 ## Copyright (c) 2001
 ## The cluttermm development team.
 
-sublib_name	= cluttermm-gtk
+sublib_name	= clutter-gtkmm
 #nested namespaces separated with spaces
 sublib_namespace = Clutter Gtk
-sublib_parentdir = cluttermm-gtk
+sublib_parentdir = clutter-gtkmm
 files_defs	= clutter-gtk.defs \
 			  clutter-gtk_methods.defs \
 			  clutter-gtk_signals.defs \
