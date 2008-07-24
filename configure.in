@@ -5,7 +5,7 @@ AC_INIT(clutter-gtk/clutter-gtkmm-config.h.in)
 #########################################################################
 CLUTTER_GTKMM_MAJOR_VERSION=0
 CLUTTER_GTKMM_MINOR_VERSION=7
-CLUTTER_GTKMM_MICRO_VERSION=2
+CLUTTER_GTKMM_MICRO_VERSION=3
 
 #
 # +1 : ? : +1  == new interface that does not break old one
