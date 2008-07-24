@@ -1,25 +1,11 @@
+0.7.2:
+
 2008-07-23  Siavash Safi  <siavash.safi@gmail.com>
 
 	* autogen.sh:
 	* clutter-cairo/Makefile.am:
 	* clutter-cairo/README:
-	* clutter-cairo/cluttermm-cairo-config.h.in:
-	* clutter-cairo/cluttermm-cairo.h:
-	* clutter-cairo/cluttermm-cairo.pc.in:
-	* clutter-cairo/cluttermm-cairo/Makefile.am:
-	* clutter-cairo/cluttermm-cairo/init.cc:
-	* clutter-cairo/cluttermm-cairo/init.h:
-	* clutter-cairo/cluttermm-cairo/private/Makefile.am:
-	* clutter-cairo/cluttermm-cairo/wrap_init.h:
-	* clutter-cairo/src/Makefile.am:
-	* clutter-cairo/src/Makefile_list_of_hg.am_fragment:
-	* clutter-cairo/src/cairo-texture.ccg:
-	* clutter-cairo/src/cairo-texture.hg:
-	* clutter-cairo/src/clutter-cairo.defs:
-	* clutter-cairo/src/clutter-cairo_docs.xml:
-	* clutter-cairo/src/clutter-cairo_methods.defs:
-	* clutter-cairo/src/clutter-cairo_others.defs:
-	* clutter-cairo/src/clutter-cairo_signals.defs:
+	* clutter-cairo/
 	* clutter-gtk/Makefile.am:
 	* clutter-gtk/clutter-gtkmm.h:
 	* clutter-gtk/clutter-gtkmm.pc.in:
@@ -40,96 +26,7 @@
 	* clutter-gtk/src/embed.hg:
 	* clutter/Makefile.am:
 	* clutter/README:
-	* clutter/cluttermm.h:
-	* clutter/cluttermm.pc.in:
-	* clutter/cluttermm/Makefile.am:
-	* clutter/cluttermm/event.cc:
-	* clutter/cluttermm/event.h:
-	* clutter/cluttermm/frame-source.cc:
-	* clutter/cluttermm/frame-source.h:
-	* clutter/cluttermm/init.cc:
-	* clutter/cluttermm/init.h:
-	* clutter/cluttermm/main.cc:
-	* clutter/cluttermm/main.h:
-	* clutter/cluttermm/private/Makefile.am:
-	* clutter/cluttermm/threads.cc:
-	* clutter/cluttermm/threads.h:
-	* clutter/cluttermm/utility.cc:
-	* clutter/cluttermm/utility.h:
-	* clutter/cluttermm/wrap_init.h:
-	* clutter/cluttermmconfig.h.in:
-	* clutter/src/Makefile.am:
-	* clutter/src/Makefile_list_of_hg.am_fragment:
-	* clutter/src/actor.ccg:
-	* clutter/src/actor.hg:
-	* clutter/src/alpha.ccg:
-	* clutter/src/alpha.hg:
-	* clutter/src/behaviour-bspline.ccg:
-	* clutter/src/behaviour-bspline.hg:
-	* clutter/src/behaviour-depth.ccg:
-	* clutter/src/behaviour-depth.hg:
-	* clutter/src/behaviour-ellipse.ccg:
-	* clutter/src/behaviour-ellipse.hg:
-	* clutter/src/behaviour-opacity.ccg:
-	* clutter/src/behaviour-opacity.hg:
-	* clutter/src/behaviour-path.ccg:
-	* clutter/src/behaviour-path.hg:
-	* clutter/src/behaviour-rotate.ccg:
-	* clutter/src/behaviour-rotate.hg:
-	* clutter/src/behaviour-scale.ccg:
-	* clutter/src/behaviour-scale.hg:
-	* clutter/src/behaviour.ccg:
-	* clutter/src/behaviour.hg:
-	* clutter/src/box.ccg:
-	* clutter/src/box.hg:
-	* clutter/src/clone-texture.ccg:
-	* clutter/src/clone-texture.hg:
-	* clutter/src/clutter.defs:
-	* clutter/src/clutter_docs.xml:
-	* clutter/src/clutter_docs_override.xml:
-	* clutter/src/clutter_enums.defs:
-	* clutter/src/clutter_methods.defs:
-	* clutter/src/clutter_others.defs:
-	* clutter/src/clutter_signals.defs:
-	* clutter/src/clutter_vfuncs.defs:
-	* clutter/src/color.ccg:
-	* clutter/src/color.hg:
-	* clutter/src/container.ccg:
-	* clutter/src/container.hg:
-	* clutter/src/effecttemplate.ccg:
-	* clutter/src/effecttemplate.hg:
-	* clutter/src/entry.ccg:
-	* clutter/src/entry.hg:
-	* clutter/src/group.ccg:
-	* clutter/src/group.hg:
-	* clutter/src/label.ccg:
-	* clutter/src/label.hg:
-	* clutter/src/layout.ccg:
-	* clutter/src/layout.hg:
-	* clutter/src/margin.ccg:
-	* clutter/src/margin.hg:
-	* clutter/src/media.ccg:
-	* clutter/src/media.hg:
-	* clutter/src/rectangle.ccg:
-	* clutter/src/rectangle.hg:
-	* clutter/src/score.ccg:
-	* clutter/src/score.hg:
-	* clutter/src/script.ccg:
-	* clutter/src/script.hg:
-	* clutter/src/scriptable.ccg:
-	* clutter/src/scriptable.hg:
-	* clutter/src/shader.ccg:
-	* clutter/src/shader.hg:
-	* clutter/src/stage.ccg:
-	* clutter/src/stage.hg:
-	* clutter/src/texture.ccg:
-	* clutter/src/texture.hg:
-	* clutter/src/timeline.ccg:
-	* clutter/src/timeline.hg:
-	* clutter/src/timeout-pool.ccg:
-	* clutter/src/timeout-pool.hg:
-	* clutter/src/types.ccg:
-	* clutter/src/types.hg:
+	* clutter/
 	* configure.in:
 	* docs/reference/Doxyfile.in:
 	* docs/reference/Makefile.am:

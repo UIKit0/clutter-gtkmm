@@ -5,7 +5,7 @@ AC_INIT(clutter-gtk/clutter-gtkmm-config.h.in)
 #########################################################################
 CLUTTER_GTKMM_MAJOR_VERSION=0
 CLUTTER_GTKMM_MINOR_VERSION=7
-CLUTTER_GTKMM_MICRO_VERSION=1
+CLUTTER_GTKMM_MICRO_VERSION=2
 
 #
 # +1 : ? : +1  == new interface that does not break old one
@@ -73,7 +73,7 @@ AC_CHECK_PROGS(PERL, perl5 perl)
 
 PKG_CHECK_MODULES(CLUTTER_GTKMM,
                   [gtkmm-2.4
-				   cluttermm-0.8
+                   cluttermm-0.8
                    clutter-gtk-0.8])
 AC_SUBST(CLUTTER_GTKMM_CFLAGS)
 AC_SUBST(CLUTTER_GTKMM_LIBS)
