@@ -25,7 +25,12 @@
 namespace Clutter
 {
 
+namespace Gtk
+{
+
 void wrap_init();
+
+} //namespace Gtk
 
 } //namespace Clutter
 

@@ -1,3 +1,11 @@
+2008-07-25  Murray Cumming  <murrayc@murrayc.com>
+
+	* clutter-gtk/clutter-gtkmm-config.h.in: Corrected the header guard.
+	* clutter-gtk/clutter-gtkmm/wrap_init.h: Corrected the namespace
+	* tools/m4/Makefile.am:
+	* tools/m4/Makefile_list_of_sources.am_fragment:
+	* tools/m4/convert_cluttermm.m4: Renamed to convert_clutter-gtkmm.m4
+
 0.7.2:
 
 2008-07-23  Siavash Safi  <siavash.safi@gmail.com>
