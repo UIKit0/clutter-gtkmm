@@ -1,5 +1,9 @@
 2008-12-19  Daniel Elstner  <danielk@openismus.com>
 
+	* configure.in (API_VER): Bump to 0.9.
+
+2008-12-19  Daniel Elstner  <danielk@openismus.com>
+
 	* tests/test-alpha-creation.cc: Adapt to cluttermm API change.
 	Also get rid of some cruft.
 

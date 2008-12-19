@@ -80,8 +80,8 @@ AC_SUBST(CLUTTER_GTKMM_LIBS)
 
 # the API version of the library.  Libraries and pkg-config files will have this
 # value appended to them, e.g. libclutter-0.6.so
-API_VER=[0.8]
-AC_SUBST(API_VER)
+API_VER=0.9
+AC_SUBST([API_VER])
 
 GMM_PROCDIR=`pkg-config --variable=gmmprocdir glibmm-2.4`
 AC_SUBST(GMM_PROCDIR)
