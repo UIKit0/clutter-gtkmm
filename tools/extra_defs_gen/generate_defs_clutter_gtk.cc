@@ -17,15 +17,14 @@
 
 #include "glibmm_generate_extra_defs/generate_extra_defs.h"
 #include <clutter/clutter.h>
-#include <clutter-gtk/gtk-clutter-embed.h>
+#include <clutter-gtk/clutter-gtk.h>
 #include <iostream>
 
-
-int main (int argc, char *argv[])
+int main(int argc, char** argv)
 {
-  clutter_init(&argc, &argv) ;
+  clutter_init(&argc, &argv);
 
-  std::cout 
+  std::cout
     << get_defs(GTK_TYPE_CLUTTER_EMBED)
     ;
 

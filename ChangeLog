@@ -1,5 +1,11 @@
 2008-12-19  Daniel Elstner  <danielk@openismus.com>
 
+	* tools/extra_defs_gen/generate_defs_clutter_gtk.cc: Fix to obey the
+	single central header policy of clutter 0.9.
+	* clutter-gtk/src/embed.ccg: ditto.
+
+2008-12-19  Daniel Elstner  <danielk@openismus.com>
+
 	* configure.in (CLUTTER_GTKMM): Depend on clutter-0.9 and
 	clutter-gtk-0.9.
 
