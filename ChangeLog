@@ -1,3 +1,8 @@
+2008-12-19  Daniel Elstner  <danielk@openismus.com>
+
+	* configure.in (CLUTTER_GTKMM): Depend on clutter-0.9 and
+	clutter-gtk-0.9.
+
 2008-07-25  Murray Cumming  <murrayc@murrayc.com>
 
 	* tools/m4/convert.m4: Mention the correct file to fix the build.
