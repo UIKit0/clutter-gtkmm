@@ -1,6 +1,4 @@
-/* cluttermm-gtk - a C++ wrapper for clutter-gtk
- *
- * Copyright 2007 The cluttermm Development Team
+/* Copyright (C) 2007 The cluttermm Development Team
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
@@ -17,17 +15,34 @@
  * Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-#ifndef LIBCLUTTER_GTKMM_H
-#define LIBCLUTTER_GTKMM_H
+#include <cluttermm/actor.h>
 
-/* cluttermm version.  */
-extern const int clutter_gtkmm_major_version;
-extern const int clutter_gtkmm_minor_version;
-extern const int clutter_gtkmm_micro_version;
+_DEFS(clutter-gtkmm,clutter-gtk)
+_PINCLUDE(cluttermm/private/actor_p.h)
 
-#include <cluttermm.h>
-#include <clutter-gtkmm/init.h>
-#include <clutter-gtkmm/embed.h>
-#include <clutter-gtkmm/viewport.h>
 
-#endif /* #ifndef LIBCLUTTER_GTKMM_H */
+namespace Clutter
+{
+namespace Gtk
+{
+
+//TODO: Documentation.
+class Viewport :
+  public ::Clutter::Actor
+{
+  _CLASS_GOBJECT(Viewport, GtkClutterViewport, GTK_CLUTTER_VIEWPORT, ::Clutter::Actor, ClutterActor)
+
+protected:
+  _CTOR_DEFAULT()
+
+public:
+
+  _WRAP_METHOD(void get_origin(int& x, int& y, int& z), gtk_clutter_viewport_get_origin)
+#m4 _CONVERSION(`Vertex&',`ClutterVertex*',`($3).gobj()')
+  _WRAP_METHOD(void get_originu(Vertex& origin), gtk_clutter_viewport_get_originu)
+};
+
+} // namespace Gtk
+} // namespace Clutter
+
+//vim: ts=2,sw=2
