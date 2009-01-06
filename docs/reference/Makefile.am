@@ -1,9 +1,10 @@
 
 doxygen_configfile = Doxyfile
-web_path_reference = /home/groups/g/gt/gtkmm/htdocs/gtkmm2DONTUPLOADTHIS/reference
 
 EXTRA_DIST	= README $(doxygen_configfile)
 
+include $(top_srcdir)/docs/Makefile_web.am_fragment
+web_path_reference = $(web_path_docs)reference
 
 clutter-gtkmm-reference: $(doxygen_configfile)
 	doxygen $(doxygen_configfile)
@@ -13,11 +14,8 @@ clutter-gtkmm-reference-html: clutter-gtkmm-reference
 clutter-gtkmm-reference-html.tar.gz: clutter-gtkmm-reference-html
 	tar -cf - $< | gzip > $@
 
-
-post-html: clutter-gtkmm-reference
-	(cd html && tar -cf - *.html *.gif *.css | gzip -3 | \
-	 ssh $$SSH_OPT $$USER@gtkmm.sourceforge.net "cd $(web_path_reference)/html ; gunzip | tar -xvf - ; chmod a+r,g+w * ; chgrp gtkmm *")
-
+post-html: html/index.html
+	rsync $(rsync_args) -r html/ $$USER@$(web_host):$(web_path_reference)/html/
 
 all-local: clutter-gtkmm-reference
 
