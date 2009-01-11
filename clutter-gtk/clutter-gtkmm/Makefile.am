@@ -10,8 +10,8 @@ sublib_namespace = Clutter
 sublib_cflags = $(CLUTTER_GTKMM_CFLAGS)
 sublib_topdir = clutter-gtk
 
-files_extra_h = wrap_init.h init.h
-files_extra_cc = init.cc
+files_extra_h = wrap_init.h init.h utility.h
+files_extra_cc = init.cc utility.cc
 
 include $(top_srcdir)/build_shared/Makefile_build_gensrc.am_fragment
 

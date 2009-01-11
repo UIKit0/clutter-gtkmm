@@ -1,3 +1,22 @@
+2009-01-12  Siavash Safi  <siavash@siavashs.org>
+
+	* clutter-gtkmm/trunk/clutter-gtk/clutter-gtkmm/utility.cc:
+	* clutter-gtkmm/trunk/clutter-gtk/clutter-gtkmm/utility.h: Hand coded
+	utility functions
+	* clutter-gtkmm/trunk/examples/events/Makefile.am:
+	* clutter-gtkmm/trunk/examples/events/event.cc:
+	* clutter-gtkmm/trunk/examples/events/event.h:
+	* clutter-gtkmm/trunk/examples/events/main.cc: New example ported from
+	clutter-gtk
+	* clutter-gtk/clutter-gtkmm.h:
+	* clutter-gtk/clutter-gtkmm/Makefile.am:
+	* clutter-gtk/clutter-gtkmm/init.cc:
+	* clutter-gtk/src/embed.hg: Updated Copyright
+	* configure.in:
+	* examples/Makefile.am:
+	* examples/actor.png: Renamed to redhand.png
+	* examples/embed-gtk.cc: Removed
+
 2009-01-06  Murray Cumming  <murrayc@murrayc.com>
 
 	* docs/Makefile.am:

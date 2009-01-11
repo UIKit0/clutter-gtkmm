@@ -1,6 +1,6 @@
-/* cluttermm-gtk - a C++ wrapper for clutter-gtk
+/* clutter-gtkmm - a C++ wrapper for clutter-gtk
  *
- * Copyright 2007 The cluttermm Development Team
+ * Copyright 2008-2009 The cluttermm Development Team
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
@@ -29,5 +29,6 @@ extern const int clutter_gtkmm_micro_version;
 #include <clutter-gtkmm/init.h>
 #include <clutter-gtkmm/embed.h>
 #include <clutter-gtkmm/viewport.h>
+#include <clutter-gtkmm/utility.h>
 
 #endif /* #ifndef LIBCLUTTER_GTKMM_H */

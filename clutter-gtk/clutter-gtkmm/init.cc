@@ -1,6 +1,6 @@
 // -*- c++ -*-
 /*
- * Copyright 2008 Jonathon Jongsma
+ * Copyright 2008-2009 The cluttermm Development Team
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public

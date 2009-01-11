@@ -120,6 +120,7 @@ AC_OUTPUT([
     docs/reference/Doxyfile
 
   examples/Makefile
+    examples/events/Makefile
   tests/Makefile
 ])
 :
