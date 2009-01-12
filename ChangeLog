@@ -1,3 +1,9 @@
+2009-01-12  Murray Cumming  <murrayc@murrayc.com>
+
+	* examples/events/event.[h|cc]: Correct the coding style to match 
+	gtkmm examples: Use of m_, use of Gtk::PACK*, use of std::cout, 
+	no unnecessary virtuals.
+
 2009-01-12  Siavash Safi  <siavash@siavashs.org>
 
 	* clutter-gtkmm/trunk/clutter-gtk/clutter-gtkmm/utility.cc:
