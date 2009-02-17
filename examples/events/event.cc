@@ -53,7 +53,7 @@ Event::Event()
 
   Clutter::Color text_color;
   //Clutter::Gtk::get_text_color(*this, Gtk::STATE_NORMAL, text_color);
-  m_clutter_entry = Clutter::Text::create("Sans 10", "", text_color);
+  m_clutter_entry = Clutter::Entry::create("Sans 10", "", text_color);
   m_stage->add_actor(m_clutter_entry);
   m_clutter_entry->set_position(0, 0);
   m_clutter_entry->set_size(500, 20);

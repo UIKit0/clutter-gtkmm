@@ -1,5 +1,5 @@
 web_host = gtkmm.org
-web_path_gtkmm = /home/murrayc/gtkmm.org/docs/clutter-gtkmm-0.9/
+web_path_gtkmm = /home/murrayc/gtkmm.org/docs/clutter-gtkmm-0.8/
 web_path_docs = $(web_path_gtkmm)docs/
 
 #--delete and --delete-after are causing

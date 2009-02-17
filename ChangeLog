@@ -1,3 +1,5 @@
+0.7.4:
+
 2009-01-24  Deng Xiyue  <manphiz@gmail.com>
 
 	* Change license header to mention Lesser General Public License
@@ -37,38 +39,6 @@
 	the documentation. We really need to get library.gnome.org working for us.
 	There are no inter-links yet, for instance to glibmm - that needs us to 
 	arrange the Doxygen tags as done already elsewhere.
-
-2009-01-03  Siavash Safi  <siavash@siavashs.org>
-
-	* clutter-gtk/src/clutter-gtk_methods.defs: Regenerated
-	* clutter-gtk/src/Makefile_list_of_hg.am_fragment:
-	* clutter-gtk/clutter-gtkmm.h
-	* clutter-gtkmm/trunk/clutter-gtk/src/viewport.ccg:
-	* clutter-gtkmm/trunk/clutter-gtk/src/viewport.hg: Added Viewport
-
-2008-12-29  Daniel Elstner  <danielk@openismus.com>
-
-	* configure.in: Bump version number to 0.9.0.
-
-2008-12-19  Daniel Elstner  <danielk@openismus.com>
-
-	* configure.in (API_VER): Bump to 0.9.
-
-2008-12-19  Daniel Elstner  <danielk@openismus.com>
-
-	* tests/test-alpha-creation.cc: Adapt to cluttermm API change.
-	Also get rid of some cruft.
-
-2008-12-19  Daniel Elstner  <danielk@openismus.com>
-
-	* tools/extra_defs_gen/generate_defs_clutter_gtk.cc: Fix to obey the
-	single central header policy of clutter 0.9.
-	* clutter-gtk/src/embed.ccg: ditto.
-
-2008-12-19  Daniel Elstner  <danielk@openismus.com>
-
-	* configure.in (CLUTTER_GTKMM): Depend on clutter-0.9 and
-	clutter-gtk-0.9.
 
 2008-07-25  Murray Cumming  <murrayc@murrayc.com>
 

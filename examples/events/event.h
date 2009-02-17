@@ -28,6 +28,6 @@ protected:
   Clutter::Gtk::Embed m_embed;
   Glib::RefPtr<Clutter::Stage> m_stage;
   Glib::RefPtr<Clutter::Texture> m_hand;
-  Glib::RefPtr<Clutter::Text> m_clutter_entry;
+  Glib::RefPtr<Clutter::Entry> m_clutter_entry;
 };
 

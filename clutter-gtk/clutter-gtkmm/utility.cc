@@ -18,7 +18,7 @@
  */
 
 #include <clutter-gtkmm/utility.h>
-#include <clutter-gtk/clutter-gtk.h>
+#include <clutter-gtk/gtk-clutter-embed.h>
 
 namespace Clutter
 {

@@ -28,7 +28,6 @@ extern const int clutter_gtkmm_micro_version;
 #include <cluttermm.h>
 #include <clutter-gtkmm/init.h>
 #include <clutter-gtkmm/embed.h>
-#include <clutter-gtkmm/viewport.h>
 #include <clutter-gtkmm/utility.h>
 
 #endif /* #ifndef LIBCLUTTER_GTKMM_H */
