@@ -261,18 +261,9 @@
   (c-name "gtk_clutter_viewport_get_origin")
   (return-type "none")
   (parameters
-    '("gint*" "x")
-    '("gint*" "y")
-    '("gint*" "z")
-  )
-)
-
-(define-method get_originu
-  (of-object "GtkClutterViewport")
-  (c-name "gtk_clutter_viewport_get_originu")
-  (return-type "none")
-  (parameters
-    '("ClutterVertex*" "origin")
+    '("gfloat*" "x")
+    '("gfloat*" "y")
+    '("gfloat*" "z")
   )
 )
 

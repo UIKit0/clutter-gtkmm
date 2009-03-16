@@ -37,7 +37,7 @@ protected:
 
 public:
 
-  _WRAP_METHOD(void get_origin(int& x, int& y, int& z), gtk_clutter_viewport_get_origin)
+  _WRAP_METHOD(void get_origin(float& x, float& y, float& z), gtk_clutter_viewport_get_origin)
 #m4 _CONVERSION(`Vertex&',`ClutterVertex*',`($3).gobj()')
   _WRAP_METHOD(void get_originu(Vertex& origin), gtk_clutter_viewport_get_originu)
 };

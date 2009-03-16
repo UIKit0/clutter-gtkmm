@@ -1,3 +1,11 @@
+2009-03-16  Siavash Safi  <siavash@siavashs.org>
+
+	* trunk/Makefile.am: Remove test/ directory since it includes old tests from
+	cluttermm
+	* trunk/clutter-gtk/src/clutter-gtk_methods.defs: Regenerated
+	* trunk/clutter-gtk/src/viewport.hg: Updated get_origin() to use new argument
+	types
+
 2009-01-24  Deng Xiyue  <manphiz@gmail.com>
 
 	* Change license header to mention Lesser General Public License
