@@ -38,7 +38,7 @@ public:
   _CTOR_DEFAULT
 
 #m4 _CONVERSION(`ClutterActor*',`Glib::RefPtr<Stage>',`Glib::wrap(CLUTTER_STAGE($3), false)')
-  _WRAP_METHOD(Glib::RefPtr<Stage> get_stage(), gtk_clutter_embed_get_stage)
+  _WRAP_METHOD(Glib::RefPtr<Stage> get_stage(), gtk_clutter_embed_get_stage, refreturn)
 };
 
 } // namespace Gtk

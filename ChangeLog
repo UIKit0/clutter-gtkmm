@@ -1,9 +1,14 @@
+2009-03-19  Murray Cumming  <murrayc@murrayc.com>
+
+	* clutter-gtk/src/embed.hg: get_stage(): Use refreturn to fix the 
+	refcount.
+
 2009-03-16  Siavash Safi  <siavash@siavashs.org>
 
-	* trunk/Makefile.am: Remove test/ directory since it includes old tests from
+	* Makefile.am: Remove test/ directory since it includes old tests from
 	cluttermm
-	* trunk/clutter-gtk/src/clutter-gtk_methods.defs: Regenerated
-	* trunk/clutter-gtk/src/viewport.hg: Updated get_origin() to use new argument
+	* clutter-gtk/src/clutter-gtk_methods.defs: Regenerated
+	* clutter-gtk/src/viewport.hg: Updated get_origin() to use new argument
 	types
 
 2009-01-24  Deng Xiyue  <manphiz@gmail.com>
@@ -20,13 +25,13 @@
 
 2009-01-12  Siavash Safi  <siavash@siavashs.org>
 
-	* clutter-gtkmm/trunk/clutter-gtk/clutter-gtkmm/utility.cc:
-	* clutter-gtkmm/trunk/clutter-gtk/clutter-gtkmm/utility.h: Hand coded
+	* clutter-gtk/clutter-gtkmm/utility.cc:
+	* clutter-gtk/clutter-gtkmm/utility.h: Hand coded
 	utility functions
-	* clutter-gtkmm/trunk/examples/events/Makefile.am:
-	* clutter-gtkmm/trunk/examples/events/event.cc:
-	* clutter-gtkmm/trunk/examples/events/event.h:
-	* clutter-gtkmm/trunk/examples/events/main.cc: New example ported from
+	* examples/events/Makefile.am:
+	* examples/events/event.cc:
+	* examples/events/event.h:
+	* examples/events/main.cc: New example ported from
 	clutter-gtk
 	* clutter-gtk/clutter-gtkmm.h:
 	* clutter-gtk/clutter-gtkmm/Makefile.am:
@@ -51,8 +56,8 @@
 	* clutter-gtk/src/clutter-gtk_methods.defs: Regenerated
 	* clutter-gtk/src/Makefile_list_of_hg.am_fragment:
 	* clutter-gtk/clutter-gtkmm.h
-	* clutter-gtkmm/trunk/clutter-gtk/src/viewport.ccg:
-	* clutter-gtkmm/trunk/clutter-gtk/src/viewport.hg: Added Viewport
+	* clutter-gtk/src/viewport.ccg:
+	* clutter-gtk/src/viewport.hg: Added Viewport
 
 2008-12-29  Daniel Elstner  <danielk@openismus.com>
 
