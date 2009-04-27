@@ -1,0 +1,610 @@
+<root>
+<function name="gtk_clutter_viewport_get_origin">
+<description>
+Retrieves the current translation factor (&quot;origin&quot;) used when
+displaying the child of @viewport.
+
+Since: 1.0.
+
+</description>
+<parameters>
+<parameter name="viewport">
+<parameter_description> a #GtkClutterViewport
+</parameter_description>
+</parameter>
+<parameter name="x">
+<parameter_description> return location for the X origin in pixels, or %NULL
+</parameter_description>
+</parameter>
+<parameter name="y">
+<parameter_description> return location for the Y origin in pixels, or %NULL
+</parameter_description>
+</parameter>
+<parameter name="z">
+<parameter_description> return location for the Z origin in pixels, or %NULL
+</parameter_description>
+</parameter>
+</parameters>
+<return></return>
+</function>
+
+<function name="SECTION">
+<description>
+#GtkClutterViewport is a scrollable actor that can contain a single
+#ClutterActor. Using two #GtkAdjustment&lt;!-- --&gt;s it is possible to
+control the visible area of the child actor if the size of the viewport
+is smaller than the size of the child.
+
+The #GtkAdjustment&lt;!-- --&gt;s used to control the horizontal and
+vertical scrolling can be attached to a #GtkScrollbar subclass,
+like #GtkHScrollbar or #GtkVScrollbar.
+
+The #GtkClutterViewport can be used inside any #ClutterContainer
+implementation.
+
+#GtkClutterViewport is available since Clutter-GTK 1.0
+
+</description>
+<parameters>
+<parameter name="short_description">
+<parameter_description> A scrollable actor
+</parameter_description>
+</parameter>
+</parameters>
+<return></return>
+</function>
+
+<function name="gtk_clutter_texture_set_from_pixbuf">
+<description>
+Sets the contents of @texture with a copy of @pixbuf.
+
+Since: 0.8
+
+</description>
+<parameters>
+<parameter name="texture">
+<parameter_description> a #ClutterTexture
+</parameter_description>
+</parameter>
+<parameter name="pixbuf">
+<parameter_description> a #GdkPixbuf
+</parameter_description>
+</parameter>
+</parameters>
+<return></return>
+</function>
+
+<function name="gtk_clutter_get_text_aa_color">
+<description>
+Retrieves the text-aa color of @widget for the given @state and copies it
+into @color.
+
+Since: 0.8
+
+</description>
+<parameters>
+<parameter name="widget">
+<parameter_description> a #GtkWidget
+</parameter_description>
+</parameter>
+<parameter name="state">
+<parameter_description> a state
+</parameter_description>
+</parameter>
+<parameter name="color">
+<parameter_description> return location for a #ClutterColor
+</parameter_description>
+</parameter>
+</parameters>
+<return></return>
+</function>
+
+<function name="gtk_clutter_scrollable_set_adjustments">
+<description>
+Sets the horizontal and vertical adjustments used to determine
+the position of the scrollable actor.
+
+Since: 1.0
+
+</description>
+<parameters>
+<parameter name="scrollable">
+<parameter_description> a #GtkClutterScrollable
+</parameter_description>
+</parameter>
+<parameter name="h_adjust">
+<parameter_description> a #GtkAdjustment, or %NULL
+</parameter_description>
+</parameter>
+<parameter name="v_adjust">
+<parameter_description> a #GtkAdjustment, or %NULL
+</parameter_description>
+</parameter>
+</parameters>
+<return></return>
+</function>
+
+<function name="gtk_clutter_texture_set_from_icon_name">
+<description>
+Sets the contents of @texture using the @icon_name from the
+current icon theme.
+
+Since: 0.8
+
+</description>
+<parameters>
+<parameter name="texture">
+<parameter_description> a #ClutterTexture
+</parameter_description>
+</parameter>
+<parameter name="widget">
+<parameter_description> a #GtkWidget or %NULL
+</parameter_description>
+</parameter>
+<parameter name="icon_name">
+<parameter_description> the name of the icon
+</parameter_description>
+</parameter>
+<parameter name="size">
+<parameter_description> the icon size or -1
+</parameter_description>
+</parameter>
+</parameters>
+<return></return>
+</function>
+
+<function name="GtkClutterViewport">
+<description>
+The current origin of the viewport.
+
+Since: 1.0
+
+</description>
+<parameters>
+</parameters>
+<return></return>
+</function>
+
+<function name="gtk_clutter_texture_new_from_icon_name">
+<description>
+Creates a new #ClutterTexture and sets its contents to be
+the @icon_name from the current icon theme.
+
+
+</description>
+<parameters>
+<parameter name="widget">
+<parameter_description> a #GtkWidget or %NULL
+</parameter_description>
+</parameter>
+<parameter name="icon_name">
+<parameter_description> the name of the icon
+</parameter_description>
+</parameter>
+<parameter name="size">
+<parameter_description> the size of the icon, or -1
+</parameter_description>
+</parameter>
+</parameters>
+<return> the newly created texture, or %NULL if @widget
+was %NULL and @icon_name was not found.
+
+Since: 0.8
+</return>
+</function>
+
+<function name="gtk_clutter_embed_get_stage">
+<description>
+Retrieves the #ClutterStage from @embed. The returned stage can be
+used to add actors to the Clutter scene.
+
+
+</description>
+<parameters>
+<parameter name="embed">
+<parameter_description> a #GtkClutterEmbed
+</parameter_description>
+</parameter>
+</parameters>
+<return> the Clutter stage. You should never destroy or unref
+the returned actor.
+
+Since: 0.6
+</return>
+</function>
+
+<function name="gtk_clutter_get_mid_color">
+<description>
+Retrieves the mid color of @widget for the given @state and copies it
+into @color.
+
+Since: 0.8
+
+</description>
+<parameters>
+<parameter name="widget">
+<parameter_description> a #GtkWidget
+</parameter_description>
+</parameter>
+<parameter name="state">
+<parameter_description> a state
+</parameter_description>
+</parameter>
+<parameter name="color">
+<parameter_description> return location for a #ClutterColor
+</parameter_description>
+</parameter>
+</parameters>
+<return></return>
+</function>
+
+<function name="gtk_clutter_texture_new_from_pixbuf">
+<description>
+Creates a new #ClutterTexture and sets its contents with a copy
+of @pixbuf.
+
+
+</description>
+<parameters>
+<parameter name="pixbuf">
+<parameter_description> a #GdkPixbuf
+</parameter_description>
+</parameter>
+</parameters>
+<return> the newly created #ClutterTexture
+
+Since: 0.8
+</return>
+</function>
+
+<function name="gtk_clutter_embed_new">
+<description>
+Creates a new #GtkClutterEmbed widget. This widget can be
+used to build a scene using Clutter API into a GTK+ application.
+
+
+</description>
+<parameters>
+</parameters>
+<return> the newly created #GtkClutterEmbed
+
+Since: 0.6
+</return>
+</function>
+
+<function name="gtk_clutter_scrollable_get_adjustments">
+<description>
+Retrieves the horizontal and vertical adjustments used to
+determine the position of the scrollable actor.
+
+Since: 1.0
+
+</description>
+<parameters>
+<parameter name="scrollable">
+<parameter_description> a #GtkClutterScrollable
+</parameter_description>
+</parameter>
+<parameter name="h_adjust">
+<parameter_description> return location for a #GtkAdjustment, or %NULL
+</parameter_description>
+</parameter>
+<parameter name="v_adjust">
+<parameter_description> return location for a #GtkAdjustment, or %NULL
+</parameter_description>
+</parameter>
+</parameters>
+<return></return>
+</function>
+
+<function name="gtk_clutter_get_base_color">
+<description>
+Retrieves the base color of @widget for the given @state and copies it
+into @color.
+
+Since: 0.8
+
+</description>
+<parameters>
+<parameter name="widget">
+<parameter_description> a #GtkWidget
+</parameter_description>
+</parameter>
+<parameter name="state">
+<parameter_description> a state
+</parameter_description>
+</parameter>
+<parameter name="color">
+<parameter_description> return location for a #ClutterColor
+</parameter_description>
+</parameter>
+</parameters>
+<return></return>
+</function>
+
+<function name="gtk_clutter_init_with_args">
+<description>
+This function should be called instead of clutter_init() and
+gtk_init_with_args().
+
+
+</description>
+<parameters>
+<parameter name="argc">
+<parameter_description> a pointer to the number of command line arguments.
+</parameter_description>
+</parameter>
+<parameter name="argv">
+<parameter_description> a pointer to the array of command line arguments.
+</parameter_description>
+</parameter>
+<parameter name="parameter_string">
+<parameter_description> a string which is displayed in
+the first line of &lt;option&gt;--help&lt;/option&gt; output, after
+&lt;literal&gt;&lt;replaceable&gt;programname&lt;/replaceable&gt; [OPTION...]&lt;/literal&gt;
+</parameter_description>
+</parameter>
+<parameter name="entries">
+<parameter_description> a %NULL-terminated array of #GOptionEntry&lt;!-- --&gt;s
+describing the options of your program
+</parameter_description>
+</parameter>
+<parameter name="translation_domain">
+<parameter_description> a translation domain to use for translating
+the &lt;option&gt;--help&lt;/option&gt; output for the options in @entries
+with gettext(), or %NULL
+</parameter_description>
+</parameter>
+<parameter name="error">
+<parameter_description> a return location for errors
+</parameter_description>
+</parameter>
+</parameters>
+<return> %CLUTTER_INIT_SUCCESS on success, a negative integer
+on failure.
+
+Since: 1.0
+</return>
+</function>
+
+<function name="gtk_clutter_get_light_color">
+<description>
+Retrieves the light color of @widget for the given @state and copies it
+into @color.
+
+Since: 0.8
+
+</description>
+<parameters>
+<parameter name="widget">
+<parameter_description> a #GtkWidget
+</parameter_description>
+</parameter>
+<parameter name="state">
+<parameter_description> a state
+</parameter_description>
+</parameter>
+<parameter name="color">
+<parameter_description> return location for a #ClutterColor
+</parameter_description>
+</parameter>
+</parameters>
+<return></return>
+</function>
+
+<function name="gtk_clutter_viewport_new">
+<description>
+Creates a new #GtkClutterViewport with the given adjustments.
+
+
+</description>
+<parameters>
+<parameter name="h_adjust">
+<parameter_description> horizontal adjustment, or %NULL
+</parameter_description>
+</parameter>
+<parameter name="v_adjust">
+<parameter_description> vertical adjustment, or %NULL
+</parameter_description>
+</parameter>
+</parameters>
+<return> the newly created viewport actor
+
+Since: 1.0
+</return>
+</function>
+
+<function name="gtk_clutter_texture_set_from_stock">
+<description>
+Sets the contents of @texture using the stock icon @stock_id, as
+rendered by @widget.
+
+Since: 0.8
+
+</description>
+<parameters>
+<parameter name="texture">
+<parameter_description> a #ClutterTexture
+</parameter_description>
+</parameter>
+<parameter name="widget">
+<parameter_description> a #GtkWidget
+</parameter_description>
+</parameter>
+<parameter name="stock_id">
+<parameter_description> the stock id of the icon
+</parameter_description>
+</parameter>
+<parameter name="size">
+<parameter_description> the size of the icon, or -1
+</parameter_description>
+</parameter>
+</parameters>
+<return></return>
+</function>
+
+<function name="gtk_clutter_get_fg_color">
+<description>
+Retrieves the foreground color of @widget for the given @state and copies
+it into @color.
+
+Since: 0.8
+
+</description>
+<parameters>
+<parameter name="widget">
+<parameter_description> a #GtkWidget
+</parameter_description>
+</parameter>
+<parameter name="state">
+<parameter_description> a state
+</parameter_description>
+</parameter>
+<parameter name="color">
+<parameter_description> return location for a #ClutterColor
+</parameter_description>
+</parameter>
+</parameters>
+<return></return>
+</function>
+
+<function name="gtk_clutter_get_bg_color">
+<description>
+Retrieves the background color of @widget for the given @state and copies
+it into @color.
+
+Since: 0.8
+
+</description>
+<parameters>
+<parameter name="widget">
+<parameter_description> a #GtkWidget
+</parameter_description>
+</parameter>
+<parameter name="state">
+<parameter_description> a state
+</parameter_description>
+</parameter>
+<parameter name="color">
+<parameter_description> return location for a #ClutterColor
+</parameter_description>
+</parameter>
+</parameters>
+<return></return>
+</function>
+
+<function name="gtk_clutter_get_dark_color">
+<description>
+Retrieves the dark color of @widget for the given @state and copies it
+into @color.
+
+Since: 0.8
+
+</description>
+<parameters>
+<parameter name="widget">
+<parameter_description> a #GtkWidget
+</parameter_description>
+</parameter>
+<parameter name="state">
+<parameter_description> a state
+</parameter_description>
+</parameter>
+<parameter name="color">
+<parameter_description> return location for a #ClutterColor
+</parameter_description>
+</parameter>
+</parameters>
+<return></return>
+</function>
+
+<function name="gtk_clutter_get_text_color">
+<description>
+Retrieves the text color of @widget for the given @state and copies it
+into @color.
+
+Since: 0.8
+
+</description>
+<parameters>
+<parameter name="widget">
+<parameter_description> a #GtkWidget
+</parameter_description>
+</parameter>
+<parameter name="state">
+<parameter_description> a state
+</parameter_description>
+</parameter>
+<parameter name="color">
+<parameter_description> return location for a #ClutterColor
+</parameter_description>
+</parameter>
+</parameters>
+<return></return>
+</function>
+
+<function name="GtkClutterScrollable">
+<description>
+The #GtkAdjustment that determines the value of the
+vertical position for this scrollable actor.
+
+Since: 1.0
+
+</description>
+<parameters>
+</parameters>
+<return></return>
+</function>
+
+<function name="gtk_clutter_init">
+<description>
+This function should be called instead of clutter_init() and
+gtk_init().
+
+
+</description>
+<parameters>
+<parameter name="argc">
+<parameter_description> pointer to the arguments count, or %NULL
+</parameter_description>
+</parameter>
+<parameter name="argv">
+<parameter_description> pointer to the arguments vector, or %NULL
+</parameter_description>
+</parameter>
+</parameters>
+<return> %CLUTTER_INIT_SUCCESS on success, a negative integer
+on failure.
+
+Since: 0.8
+</return>
+</function>
+
+<function name="gtk_clutter_texture_new_from_stock">
+<description>
+Creates a new #ClutterTexture and sets its contents using the stock
+icon @stock_id as rendered by @widget.
+
+
+</description>
+<parameters>
+<parameter name="widget">
+<parameter_description> a #GtkWidget
+</parameter_description>
+</parameter>
+<parameter name="stock_id">
+<parameter_description> the stock id of the icon
+</parameter_description>
+</parameter>
+<parameter name="size">
+<parameter_description> the size of the icon, or -1
+</parameter_description>
+</parameter>
+</parameters>
+<return> the newly created #ClutterTexture
+
+Since: 0.8
+</return>
+</function>
+
+</root>

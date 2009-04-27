@@ -56,15 +56,6 @@
   (return-type "ClutterActor*")
 )
 
-(define-function gtk_clutter_init
-  (c-name "gtk_clutter_init")
-  (return-type "ClutterInitError")
-  (parameters
-    '("gint*" "argc")
-    '("gchar***" "argv")
-  )
-)
-
 
 
 ;; From gtk-clutter-scrollable.h
@@ -97,6 +88,28 @@
 
 
 ;; From gtk-clutter-util.h
+
+(define-function gtk_clutter_init
+  (c-name "gtk_clutter_init")
+  (return-type "ClutterInitError")
+  (parameters
+    '("int*" "argc")
+    '("char***" "argv")
+  )
+)
+
+(define-function gtk_clutter_init_with_args
+  (c-name "gtk_clutter_init_with_args")
+  (return-type "ClutterInitError")
+  (parameters
+    '("int*" "argc")
+    '("char***" "argv")
+    '("const-char*" "parameter_string")
+    '("GOptionEntry*" "entries")
+    '("const-char*" "translation_domain")
+    '("GError**" "error")
+  )
+)
 
 (define-function gtk_clutter_get_fg_color
   (c-name "gtk_clutter_get_fg_color")

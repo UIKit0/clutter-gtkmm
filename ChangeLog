@@ -1,3 +1,16 @@
+2009-04-27  Siavash Safi  <siavash@siavashs.org>
+
+	* .gitignore: Added .gitignore
+	* clutter-gtk/src/Makefile.am:
+	* clutter-gtk/src/clutter-gtk_docs.xml: Added docs xml
+	* clutter-gtk/src/clutter-gtk_enums.defs:
+	* clutter-gtk/src/clutter-gtk_methods.defs:
+	* clutter-gtk/src/clutter-gtk_signals.defs: Regenerated defs
+	* clutter-gtk/src/viewport.hg: Updated the ctor and create()
+	* examples/events/event.cc: No need to show the stage, the stage is shown
+	when the embed is shown
+	* tools/extra_defs_gen/generate_defs_clutter_gtk.cc: Updated
+
 2009-03-19  Murray Cumming  <murrayc@murrayc.com>
 
 	* clutter-gtk/src/embed.hg: get_stage(): Use refreturn to fix the 

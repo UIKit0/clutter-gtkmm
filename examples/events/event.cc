@@ -52,7 +52,7 @@ Event::Event()
   m_hand->signal_button_press_event().connect(sigc::mem_fun(*this, &Event::on_hand_button_press));
 
   Clutter::Color text_color;
-  //Clutter::Gtk::get_text_color(*this, Gtk::STATE_NORMAL, text_color);
+  Clutter::Gtk::get_text_color(*this, Gtk::STATE_NORMAL, text_color);
   m_clutter_entry = Clutter::Text::create("Sans 10", "", text_color);
   m_stage->add_actor(m_clutter_entry);
   m_clutter_entry->set_position(0, 0);
@@ -89,12 +89,7 @@ Event::Event()
   m_hbox_opacity.pack_start(m_spin_opacity);
   m_spin_opacity.signal_value_changed().connect(sigc::mem_fun(*this, &Event::on_opacity_changed));
 
-  show_all();
-
-  /* Only show/show_all the stage after parent show. widget_show will call
-   * show on the stage.
-  */
-  m_stage->show_all();
+  show_all_children();
 }
 
 Event::~Event()

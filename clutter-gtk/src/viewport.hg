@@ -16,6 +16,7 @@
  */
 
 #include <cluttermm/actor.h>
+#include <gtkmm/adjustment.h>
 
 _DEFS(clutter-gtkmm,clutter-gtk)
 _PINCLUDE(cluttermm/private/actor_p.h)
@@ -33,13 +34,13 @@ class Viewport :
   _CLASS_GOBJECT(Viewport, GtkClutterViewport, GTK_CLUTTER_VIEWPORT, ::Clutter::Actor, ClutterActor)
 
 protected:
-  _CTOR_DEFAULT()
+#m4 _CONVERSION(`::Gtk::Adjustment&',`GtkAdjustment*',`($3).gobj()')
+  _WRAP_CTOR(Viewport(::Gtk::Adjustment& h_adjustment, ::Gtk::Adjustment& v_adjustment), gtk_clutter_viewport_new)
 
 public:
 
+  _WRAP_CREATE(::Gtk::Adjustment& h_adjustment, ::Gtk::Adjustment& v_adjustment)
   _WRAP_METHOD(void get_origin(float& x, float& y, float& z), gtk_clutter_viewport_get_origin)
-#m4 _CONVERSION(`Vertex&',`ClutterVertex*',`($3).gobj()')
-  _WRAP_METHOD(void get_originu(Vertex& origin), gtk_clutter_viewport_get_originu)
 };
 
 } // namespace Gtk
