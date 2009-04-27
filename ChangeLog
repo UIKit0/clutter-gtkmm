@@ -1,5 +1,9 @@
 2009-04-27  Siavash Safi  <siavash@siavashs.org>
 
+	* clutter-gtk/src/Makefile.am: Fixed the Makefile
+
+2009-04-27  Siavash Safi  <siavash@siavashs.org>
+
 	* .gitignore: Added .gitignore
 	* clutter-gtk/src/Makefile.am:
 	* clutter-gtk/src/clutter-gtk_docs.xml: Added docs xml

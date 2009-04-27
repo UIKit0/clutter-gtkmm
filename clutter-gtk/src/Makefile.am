@@ -11,7 +11,7 @@ files_defs	= clutter-gtk.defs \
 			  clutter-gtk_enums.defs \
 			  clutter-gtk_vfuncs.defs \
 			  clutter-gtk_others.defs \
-				clutter-gtk_docs.defs
+				clutter-gtk_docs.xml
 
 include $(top_srcdir)/build_shared/Makefile_gensrc.am_fragment
 
