@@ -1,3 +1,8 @@
+0.9.3:
+
+* Updated for latest clutter-gtk.
+  (Siavash Safi)
+
 0.7.2:
 
 * Created this new clutter-gtkmm tarball, wrapping clutter-gtk.
