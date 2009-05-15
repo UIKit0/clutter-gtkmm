@@ -1,3 +1,7 @@
+2009-05-15  Siavash Safi  <siavash@siavashs.org>
+
+	* configure.in: Increase version and required clutter-gtk version to 0.9.1
+
 2009-04-27  Siavash Safi  <siavash@siavashs.org>
 
 	* clutter-gtk/src/Makefile.am: Fixed the Makefile
