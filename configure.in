@@ -121,6 +121,5 @@ AC_OUTPUT([
 
   examples/Makefile
     examples/events/Makefile
-  tests/Makefile
 ])
 :

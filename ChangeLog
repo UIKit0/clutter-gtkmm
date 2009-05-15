@@ -2,6 +2,12 @@
 
 2009-05-15  Murray Cumming  <murrayc@murrayc.com>
 
+	* configure.in:
+	* Makefile.am: Removed tests/ directory because it is just an old copy of 
+	the one from cluttermm.
+
+2009-05-15  Murray Cumming  <murrayc@murrayc.com>
+
 	* Makefile.am: Mention the tests SUBDIR to fix the build.
 
 2009-05-15  Siavash Safi  <siavash@siavashs.org>
