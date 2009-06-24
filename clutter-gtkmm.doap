@@ -5,21 +5,21 @@
          xmlns="http://usefulinc.com/ns/doap#">
 
   <name xml:lang="en">clutter-gtkmm</name>
-  <shortdesc xml:lang="en">C++ bindings for Clutter-gtk</shortdesc>
+  <shortdesc xml:lang="en">C++ bindings for Clutter-GTK</shortdesc>
   <homepage rdf:resource="http://www.gtkmm.org/" />
   <mailing-list rdf:resource="mailto:gtkmm-list@gnome.org" />
   <category rdf:resource="http://api.gnome.org/doap-extensions#bindings" />
 
   <maintainer>
     <foaf:Person>
-      <foaf:name>Murray Cumming</foaf:name>
-      <foaf:mbox rdf:resource="murrayc@murrayc.com" />
-      <gnome:userid>murrayc</gnome:userid>
+      <foaf:name>Jonathon Jongsma</foaf:name>
+      <foaf:mbox rdf:resource="mailto:jjongsma@gnome.org" />
+      <gnome:userid>jjongsma</gnome:userid>
     </foaf:Person>
     <foaf:Person>
-      <foaf:name>Jonathon Jongsma</foaf:name>
-      <foaf:mbox rdf:resource="jjongsma@gnome.org" />
-      <gnome:userid>jjongsma</gnome:userid>
+      <foaf:name>Murray Cumming</foaf:name>
+      <foaf:mbox rdf:resource="mailto:murrayc@murrayc.com" />
+      <gnome:userid>murrayc</gnome:userid>
     </foaf:Person>
   </maintainer>
 </Project>
