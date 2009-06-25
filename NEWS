@@ -1,3 +1,7 @@
+0.9.4:
+
+* Fixed the build (examples) for the latest cluttermm.
+
 0.9.3:
 
 * Updated for latest clutter-gtk.

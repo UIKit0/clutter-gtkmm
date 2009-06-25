@@ -1,3 +1,9 @@
+0.9.4:
+
+2009-06-25  Murray Cumming  <murrayc@murrayc.com>
+
+	* examples/events/event.cc: Fixed the build with the latest cluttermm.
+
 0.9.3:
 
 2009-05-15  Murray Cumming  <murrayc@murrayc.com>
