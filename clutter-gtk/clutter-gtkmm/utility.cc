@@ -80,19 +80,58 @@ Glib::RefPtr<Texture> create_texture_from_icon_name(::Gtk::Widget& widget, const
   return Glib::wrap(CLUTTER_TEXTURE(gtk_clutter_texture_new_from_icon_name(widget.gobj(), icon_name.c_str(), GtkIconSize(int(size)))));
 }
 
+#ifdef GLIBMM_EXCEPTIONS_ENABLED
 void set_texture_from_pixbuf(const Glib::RefPtr<Texture>& texture, const Glib::RefPtr<Gdk::Pixbuf>& pixbuf)
+#else
+void set_texture_from_pixbuf(const Glib::RefPtr<Texture>& texture, const Glib::RefPtr<Gdk::Pixbuf>& pixbuf, std::auto_ptr<Glib::Error>& error)
+#endif
 {
-  gtk_clutter_texture_set_from_pixbuf(texture->gobj(), pixbuf->gobj());
+  GError* gerror = 0;
+  gtk_clutter_texture_set_from_pixbuf(texture->gobj(), pixbuf->gobj(), &gerror);
+
+#ifdef GLIBMM_EXCEPTIONS_ENABLED
+  if(gerror)
+    ::Glib::Error::throw_exception(gerror);
+#else
+  if(gerror)
+    error = ::Glib::Error::throw_exception(gerror);
+#endif // GLIBMM_EXCEPTIONS_ENABLED
 }
 
+#ifdef GLIBMM_EXCEPTIONS_ENABLED
 void set_texture_from_stock(const Glib::RefPtr<Texture>& texture, ::Gtk::Widget& widget, const Glib::ustring& stock_id, ::Gtk::IconSize size)
+#else
+void set_texture_from_stock(const Glib::RefPtr<Texture>& texture, ::Gtk::Widget& widget, const Glib::ustring& stock_id, ::Gtk::IconSize size, std::auto_ptr<Glib::Error>& error)
+#endif
 {
-  gtk_clutter_texture_set_from_stock(texture->gobj(), widget.gobj(), stock_id.c_str(), GtkIconSize(int(size)));
+  GError* gerror = 0;
+  gtk_clutter_texture_set_from_stock(texture->gobj(), widget.gobj(), stock_id.c_str(), GtkIconSize(int(size)), &gerror);
+
+#ifdef GLIBMM_EXCEPTIONS_ENABLED
+  if(gerror)
+    ::Glib::Error::throw_exception(gerror);
+#else
+  if(gerror)
+    error = ::Glib::Error::throw_exception(gerror);
+#endif // GLIBMM_EXCEPTIONS_ENABLED
 }
 
+#ifdef GLIBMM_EXCEPTIONS_ENABLED
 void set_texture_from_icon_name(const Glib::RefPtr<Texture>& texture, ::Gtk::Widget& widget, const Glib::ustring& icon_name, ::Gtk::IconSize size)
+#else
+void set_texture_from_icon_name(const Glib::RefPtr<Texture>& texture, ::Gtk::Widget& widget, const Glib::ustring& icon_name, ::Gtk::IconSize size, std::auto_ptr<Glib::Error>& error)
+#endif
 {
-  gtk_clutter_texture_set_from_icon_name(texture->gobj(), widget.gobj(), icon_name.c_str(), GtkIconSize(int(size)));
+  GError* gerror = 0;
+  gtk_clutter_texture_set_from_icon_name(texture->gobj(), widget.gobj(), icon_name.c_str(), GtkIconSize(int(size)), &gerror);
+
+#ifdef GLIBMM_EXCEPTIONS_ENABLED
+  if(gerror)
+    ::Glib::Error::throw_exception(gerror);
+#else
+  if(gerror)
+    error = ::Glib::Error::throw_exception(gerror);
+#endif // GLIBMM_EXCEPTIONS_ENABLED
 }
 
 } //namespace Gtk
