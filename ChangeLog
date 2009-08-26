@@ -1,3 +1,12 @@
+2009-08-26  Murray Cumming  <murrayc@murrayc.com>
+
+	Use clutter-gtk-0.10.
+	
+	* configure.in: Use clutter-gtk-0.10 instead of clutter-gtk-0.9.
+	* clutter-gtk/clutter-gtkmm/utility.cc: Handle the new GError parameter for 
+	gtk_clutter_texture_set_from_pixbuf/stock/icon_name().
+	* clutter-gtk/clutter-gtkmm.pc.in: Use clutter-gtk-0.10.
+
 0.9.4:
 
 2009-06-25  Murray Cumming  <murrayc@murrayc.com>

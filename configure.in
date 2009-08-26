@@ -74,7 +74,7 @@ AC_CHECK_PROGS(PERL, perl5 perl)
 PKG_CHECK_MODULES(CLUTTER_GTKMM,
                   [gtkmm-2.4
                    cluttermm-0.9
-                   clutter-gtk-0.9 >= 0.9.1])
+                   clutter-gtk-0.10 >= 0.10.2])
 AC_SUBST(CLUTTER_GTKMM_CFLAGS)
 AC_SUBST(CLUTTER_GTKMM_LIBS)
 

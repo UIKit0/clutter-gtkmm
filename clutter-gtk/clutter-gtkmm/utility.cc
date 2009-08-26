@@ -82,17 +82,26 @@ Glib::RefPtr<Texture> create_texture_from_icon_name(::Gtk::Widget& widget, const
 
 void set_texture_from_pixbuf(const Glib::RefPtr<Texture>& texture, const Glib::RefPtr<Gdk::Pixbuf>& pixbuf)
 {
-  gtk_clutter_texture_set_from_pixbuf(texture->gobj(), pixbuf->gobj());
+  GError* error = 0;
+  gtk_clutter_texture_set_from_pixbuf(texture->gobj(), pixbuf->gobj(), &error);
+  if(error)
+    Glib::Error::throw_exception(error);
 }
 
 void set_texture_from_stock(const Glib::RefPtr<Texture>& texture, ::Gtk::Widget& widget, const Glib::ustring& stock_id, ::Gtk::IconSize size)
 {
-  gtk_clutter_texture_set_from_stock(texture->gobj(), widget.gobj(), stock_id.c_str(), GtkIconSize(int(size)));
+  GError* error = 0;
+  gtk_clutter_texture_set_from_stock(texture->gobj(), widget.gobj(), stock_id.c_str(), GtkIconSize(int(size)), &error);
+  if(error)
+    Glib::Error::throw_exception(error);
 }
 
 void set_texture_from_icon_name(const Glib::RefPtr<Texture>& texture, ::Gtk::Widget& widget, const Glib::ustring& icon_name, ::Gtk::IconSize size)
 {
-  gtk_clutter_texture_set_from_icon_name(texture->gobj(), widget.gobj(), icon_name.c_str(), GtkIconSize(int(size)));
+  GError* error = 0;
+  gtk_clutter_texture_set_from_icon_name(texture->gobj(), widget.gobj(), icon_name.c_str(), GtkIconSize(int(size)), &error);
+  if(error)
+    Glib::Error::throw_exception(error);
 }
 
 } //namespace Gtk

@@ -5,7 +5,7 @@ includedir=@includedir@
 
 Name: clutter-gtkmm
 Description: C++ wrapper for clutter
-Requires: clutter-gtk-@API_VER@ cluttermm-@API_VER@ gtkmm-2.4
+Requires: clutter-gtk-0.10 cluttermm-@API_VER@ gtkmm-2.4
 Version: @VERSION@
 Libs: -L${libdir} -lclutter-gtkmm-@API_VER@
 Cflags: -I${includedir}/clutter-gtkmm-@API_VER@
