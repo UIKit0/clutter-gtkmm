@@ -44,8 +44,8 @@ Event::Event()
     g_error("Unable to load pixbuf\n");
 
   m_stage->add_actor(m_hand);
-  float width = 0;
-  float height = 0;
+  gfloat width = 0;
+  gfloat height = 0;
   m_hand->get_size(width, height);
   m_hand->set_position((CLUTTER_STAGE_WIDTH()/2) - (width/2), (CLUTTER_STAGE_HEIGHT()/2) - (height/2));
   m_hand->set_reactive();
@@ -105,8 +105,8 @@ bool Event::on_stage_capture(Clutter::Event* event)
 {
   if(event->type == CLUTTER_BUTTON_RELEASE)
   {
-    float x = 0;
-    float y = 0;
+    gfloat x = 0;
+    gfloat y = 0;
     clutter_event_get_coords(event, &x, &y);
 
     std::cout << "Event captured at (" << x << ", " << y << ")" << std::endl;
