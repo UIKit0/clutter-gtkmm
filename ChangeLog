@@ -1,3 +1,55 @@
+2009-10-03  Daniel Elstner  <daniel.kitta@gmail.com>
+
+	Adopt new mm-common build infrastructure
+
+	* build/: Rename directory from scripts/ and delete the obsolete
+	M4 macros and build files.
+	* codegen/: Rename directory from tools/.
+	* codegen/extradefs/: Rename from tools/extra_defs_gen/.
+	* codegen/extradefs/generate_extra_defs_clutter_gtk.cc: Rename from
+	tools/extra_defs_gen/generate_defs_clutter_gtk to match the name of
+	the executable.
+	* doc/: Rename directory from docs/.
+	* build_shared/: Delete obsolete build support files.
+	* autogen.sh: Replace with minimal script based on autoreconf.
+	* configure.ac: Rename from configure.in and rewrite for mm-common.
+	Depend on the cluttermm-1.0 module.
+	* Makefile.am, doc/Makefile.am, examples/Makefile.am,
+	clutter-gtk/src/Makefile.am, clutter-gtk/clutter-gtkmm/Makefile.am:
+	Replace with mm-common skeleton build files, with adaptions.
+	* codegen/Makefile.am: Replace with skeleton file adapted for
+	clutter-gtkmm.
+	* codegen/m4/filelist.am, clutter-gtk/src/filelist.am,
+	clutter-gtk/clutter-gtkmm/filelist.am: New Automake include files
+	listing the clutter-gtkmm source files.
+	* codegen/m4/convert_clutter_gtk.m4: Rename file from
+	tools/m4/convert_clutter-gtkmm.m4.
+	* codegen/m4/convert.m4: Include M4 files by their new name.
+	* clutter-gtk/Makefile.am, examples/Makefile.am_fragment,
+	clutter-gtk/src/Makefile_list_of_hg.am_fragment,
+	clutter-gtk/clutter-gtkmm/private/Makefile.am,
+	docs/Makefile_web.am_fragment, docs/reference/Makefile.am,
+	tools/Makefile_list_of_sources.am_fragment, tools/m4/Makefile.am,
+	tools/m4/Makefile_list_of_sources.am_fragment,
+	tools/extra_defs_gen/Makefile.am: Delete obsolete files.
+	* clutter-gtk/clutter-gtkmm.pc.in: Merge the modernized skeleton
+	pkg-config file from mm-common.
+	* clutter-gtk/clutter-gtkmm-uninstalled.pc.in: New pkg-config data
+	file for linking to an uninstalled build of clutter-gtkmm.
+	* clutter/clutter-gtkmmconfig.h.in: Rename file from
+	clutter/clutter-gtkmm-config.h.in for consistency.
+	* clutter/clutter-gtkmm.h: Include clutter-gtkmmconfig.h.  Remove
+	extern declarations of the runtime version number components as they
+	don't appear to be defined anywhere.
+	* clutter-gtk/clutter-gtkmm/init.cc: Remove clutter-gtkmm-config.h
+	include.
+	* examples/events/event.cc (Event::on_hand_button_press): Remove
+	unused parameter name.
+	* doc/reference/Doxyfile.in: Replace file with mm-common skeleton
+	Doxygen configuration, adapted for clutter-gtkmm.
+	* clutter-gtk/README, docs/reference/README, tools/m4/README: Delete
+	useless or empty text files.
+
 2009-08-26  Murray Cumming  <murrayc@murrayc.com>
 
 	Use clutter-gtk-0.10.

@@ -20,15 +20,11 @@
 #ifndef LIBCLUTTER_GTKMM_H
 #define LIBCLUTTER_GTKMM_H
 
-/* cluttermm version.  */
-extern const int clutter_gtkmm_major_version;
-extern const int clutter_gtkmm_minor_version;
-extern const int clutter_gtkmm_micro_version;
-
 #include <cluttermm.h>
-#include <clutter-gtkmm/init.h>
+#include <clutter-gtkmmconfig.h>
 #include <clutter-gtkmm/embed.h>
-#include <clutter-gtkmm/viewport.h>
+#include <clutter-gtkmm/init.h>
 #include <clutter-gtkmm/utility.h>
+#include <clutter-gtkmm/viewport.h>
 
-#endif /* #ifndef LIBCLUTTER_GTKMM_H */
+#endif /* !LIBCLUTTER_GTKMM_H */

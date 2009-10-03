@@ -1,0 +1,13 @@
+## This file is part of clutter-gtkmm.
+
+files_defs =				\
+	clutter-gtk.defs		\
+	clutter-gtk_enums.defs		\
+	clutter-gtk_methods.defs	\
+	clutter-gtk_others.defs		\
+	clutter-gtk_signals.defs	\
+	clutter-gtk_vfuncs.defs		\
+	clutter-gtk_docs.xml
+
+files_hg  = embed.hg viewport.hg
+files_ccg = $(files_hg:.hg=.ccg)

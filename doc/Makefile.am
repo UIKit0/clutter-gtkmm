@@ -15,16 +15,12 @@
 ## You should have received a copy of the GNU Lesser General Public License
 ## along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-AUTOMAKE_OPTIONS = subdir-objects
+include $(top_srcdir)/clutter-gtk/src/filelist.am
+include $(top_srcdir)/clutter-gtk/clutter-gtkmm/filelist.am
 
-check_PROGRAMS = events/events
-dist_noinst_DATA = redhand.png
+clutter_gtkmm_files_h = $(files_built_h) $(filter-out wrap_init.h,$(files_extra_h))
 
-local_includes = -I$(top_builddir)/clutter-gtk $(if $(srcdir:.=),-I$(top_srcdir)/clutter-gtk)
-local_libs = $(top_builddir)/clutter-gtk/clutter-gtkmm/libclutter-gtkmm-$(CLUTTER_GTKMM_API_VERSION).la
+book_name = $(CLUTTER_GTKMM_MODULE_NAME)
+doc_input = $(addprefix $(top_srcdir)/clutter-gtk/clutter-gtkmm/,$(clutter_gtkmm_files_h))
 
-AM_CPPFLAGS = -I$(top_builddir) $(local_includes) $(CLUTTER_GTKMM_CFLAGS)
-AM_CXXFLAGS = $(CLUTTER_GTKMM_WXXFLAGS)
-LDADD = $(CLUTTER_GTKMM_LIBS) $(local_libs)
-
-events_events_SOURCES = events/event.cc events/event.h events/main.cc
+include $(top_srcdir)/build/doc-reference.am

@@ -17,7 +17,6 @@
  * Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-#include <clutter-gtkmm-config.h> //For LIBCLUTTERMM_VERSION
 #include <clutter-gtkmm/wrap_init.h>
 #include <cluttermm/init.h>
 

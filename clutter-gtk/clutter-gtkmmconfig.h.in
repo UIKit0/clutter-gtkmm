@@ -1,0 +1,10 @@
+/* This file is part of clutter-gtkmm. */
+
+/* Major version number of clutter-gtkmm. */
+#undef CLUTTER_GTKMM_MAJOR_VERSION
+
+/* Micro version number of clutter-gtkmm. */
+#undef CLUTTER_GTKMM_MICRO_VERSION
+
+/* Minor version number of clutter-gtkmm. */
+#undef CLUTTER_GTKMM_MINOR_VERSION

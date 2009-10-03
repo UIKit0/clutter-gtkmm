@@ -1,11 +1,19 @@
 prefix=@prefix@
 exec_prefix=@exec_prefix@
 libdir=@libdir@
+datarootdir=@datarootdir@
+datadir=@datadir@
 includedir=@includedir@
 
+docdir=${datarootdir}/doc/@CLUTTER_GTKMM_MODULE_NAME@
+doxytagfile=${docdir}/reference/@CLUTTER_GTKMM_MODULE_NAME@.tag
+htmlrefdir=${docdir}/reference/html
+htmlrefpub=http://library.gnome.org/@PACKAGE_TARNAME@/unstable/
+
 Name: clutter-gtkmm
-Description: C++ wrapper for clutter
-Requires: clutter-gtk-0.10 cluttermm-@API_VER@ gtkmm-2.4
-Version: @VERSION@
-Libs: -L${libdir} -lclutter-gtkmm-@API_VER@
-Cflags: -I${includedir}/clutter-gtkmm-@API_VER@
+Description: C++ binding for clutter-gtk
+Version: @CLUTTER_GTKMM_VERSION@
+URL: http://www.gtkmm.org/
+Requires: @CLUTTER_GTKMM_MODULES@
+Libs: -L${libdir} -lclutter-gtkmm-@CLUTTER_GTKMM_API_VERSION@
+Cflags: -I${includedir}/@CLUTTER_GTKMM_MODULE_NAME@ -I${libdir}/@CLUTTER_GTKMM_MODULE_NAME@/include

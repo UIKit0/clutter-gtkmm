@@ -17,14 +17,17 @@
 
 AUTOMAKE_OPTIONS = subdir-objects
 
-check_PROGRAMS = events/events
-dist_noinst_DATA = redhand.png
+include $(srcdir)/m4/filelist.am
 
-local_includes = -I$(top_builddir)/clutter-gtk $(if $(srcdir:.=),-I$(top_srcdir)/clutter-gtk)
-local_libs = $(top_builddir)/clutter-gtk/clutter-gtkmm/libclutter-gtkmm-$(CLUTTER_GTKMM_API_VERSION).la
+dist_noinst_DATA = $(addprefix m4/,$(files_codegen_m4))
+noinst_PROGRAMS  = extradefs/generate_extra_defs
 
-AM_CPPFLAGS = -I$(top_builddir) $(local_includes) $(CLUTTER_GTKMM_CFLAGS)
+extradefs_generate_extra_defs_SOURCES = extradefs/generate_extra_defs_clutter_gtk.cc
+extradefs_generate_extra_defs_LDADD   = $(CLUTTER_GTKMM_LIBS) -lglibmm_generate_extra_defs-2.4
+
+AM_CPPFLAGS = -I$(top_builddir) $(CLUTTER_GTKMM_CFLAGS)
 AM_CXXFLAGS = $(CLUTTER_GTKMM_WXXFLAGS)
-LDADD = $(CLUTTER_GTKMM_LIBS) $(local_libs)
 
-events_events_SOURCES = events/event.cc events/event.h events/main.cc
+# Instruct GNU make to delete the targets of a rule after it failed, in
+# order to avoid the complication of handling that situation manually.
+.DELETE_ON_ERROR:

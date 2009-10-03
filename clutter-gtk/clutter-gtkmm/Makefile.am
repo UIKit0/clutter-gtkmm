@@ -1,22 +1,31 @@
-## Copyright (c) 2008
-## The cluttermm development team.
+## Copyright (c) 2009  Openismus GmbH <http://www.openismus.com/>
+##
+## This file is part of clutter-gtkmm.
+##
+## clutter-gtkmm is free software: you can redistribute it and/or modify it
+## under the terms of the GNU Lesser General Public License as published
+## by the Free Software Foundation, either version 2.1 of the License,
+## or (at your option) any later version.
+##
+## clutter-gtkmm is distributed in the hope that it will be useful, but
+## WITHOUT ANY WARRANTY; without even the implied warranty of
+## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+## See the GNU Lesser General Public License for more details.
+##
+## You should have received a copy of the GNU Lesser General Public License
+## along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-SUBDIRS = private
+lib_LTLIBRARIES = libclutter-gtkmm-@CLUTTER_GTKMM_API_VERSION@.la
 
-sublib_name = clutter-gtkmm
-sublib_libname = clutter-gtkmm-$(API_VER)
-sublib_libversion = $(CLUTTER_GTKMM_SO_VERSION)
-sublib_namespace = Clutter
-sublib_cflags = $(CLUTTER_GTKMM_CFLAGS)
-sublib_topdir = clutter-gtk
+include $(srcdir)/../src/filelist.am
+include $(srcdir)/filelist.am
+include $(top_srcdir)/build/compile-binding.am
 
-files_extra_h = wrap_init.h init.h utility.h
-files_extra_cc = init.cc utility.cc
+local_cppflags = $(binding_includes) $(binding_cppflags) -DCLUTTER_GTKMM_BUILD=1
 
-include $(top_srcdir)/build_shared/Makefile_build_gensrc.am_fragment
+AM_CPPFLAGS = $(local_cppflags) $(CLUTTER_GTKMM_CFLAGS)
+AM_CXXFLAGS = $(CLUTTER_GTKMM_WXXFLAGS)
 
-lib_LTLIBRARIES = libclutter-gtkmm-@API_VER@.la
-libclutter_gtkmm_@API_VER@_la_SOURCES = $(files_all_cc)
-libclutter_gtkmm_@API_VER@_la_LDFLAGS = $(common_ldflags)
-libclutter_gtkmm_@API_VER@_la_LIBADD = $(CLUTTER_GTKMM_LIBS)
-
+libclutter_gtkmm_@CLUTTER_GTKMM_API_VERSION@_la_SOURCES = $(binding_sources)
+libclutter_gtkmm_@CLUTTER_GTKMM_API_VERSION@_la_LDFLAGS = -no-undefined -version-info $(CLUTTER_GTKMM_SO_VERSION)
+libclutter_gtkmm_@CLUTTER_GTKMM_API_VERSION@_la_LIBADD  = $(CLUTTER_GTKMM_LIBS)

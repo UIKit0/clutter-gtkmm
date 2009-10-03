@@ -15,7 +15,7 @@
  * Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-#include "glibmm_generate_extra_defs/generate_extra_defs.h"
+#include <glibmm_generate_extra_defs/generate_extra_defs.h>
 #include <clutter/clutter.h>
 #include <clutter-gtk/clutter-gtk.h>
 #include <iostream>

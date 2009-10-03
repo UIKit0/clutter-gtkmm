@@ -115,7 +115,7 @@ bool Event::on_stage_capture(Clutter::Event* event)
   return false;
 }
 
-bool Event::on_hand_button_press(Clutter::ButtonEvent* event)
+bool Event::on_hand_button_press(Clutter::ButtonEvent*)
 {
   g_print("Button press on hand ('%s')\n", g_type_name(G_OBJECT_TYPE(m_hand->gobj())));
 
