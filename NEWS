@@ -1,3 +1,10 @@
+0.9.5:
+
+* Use clutter-gtk-0.10 and cluttermmm 1.0.
+* Build:
+  - Use mm-common. (Daniel Elstner)
+  - Fix the no-exceptions build. (Milosz Derezynsk)
+
 0.9.4:
 
 * Fixed the build (examples) for the latest cluttermm.
