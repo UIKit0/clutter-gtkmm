@@ -20,6 +20,40 @@
 #ifndef LIBCLUTTER_GTKMM_H
 #define LIBCLUTTER_GTKMM_H
 
+/** @mainpage clutter-gtkmm Reference Manual
+ *
+ * @section description Description
+ *
+ * clutter-gtkmm is a C++ wrapper for clutter-gtk.
+ *
+ * See also the <a href="http://www.clutter-project.org/">clutter website</a>.
+ *
+ * @section basics Basic Usage
+ *
+ * Include the clutter-gtkmm header:
+ * @code
+ * #include <clutter-gtkmm.h>
+ * @endcode
+ * (You may include individual headers, such as @c clutter-gtkmm/viewport.h
+ * instead.)
+ *
+ * If your source file is @c program.cc, you can compile it with:
+ * @code
+ * g++ program.cc -o program `pkg-config --cflags --libs clutter-gtkmm-1.0`
+ * @endcode
+ *
+ * Alternatively, if using autoconf, use the following in @c configure.ac:
+ * @code
+ * PKG_CHECK_MODULES([CLUTTER_GTKMM], [clutter-gtkmm-1.0])
+ * @endcode
+ * Then use the generated @c CLUTTER_GTKMM_CFLAGS and @c CLUTTER_GTKMM_LIBS
+ * variables in the project @c Makefile.am files. For example:
+ * @code
+ * program_CPPFLAGS = $(CLUTTER_GTKMM_CFLAGS)
+ * program_LDADD = $(CLUTTER_GTKMM_LIBS)
+ * @endcode
+ */
+
 #include <cluttermm.h>
 #include <clutter-gtkmmconfig.h>
 #include <clutter-gtkmm/embed.h>
