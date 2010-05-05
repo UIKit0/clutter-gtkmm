@@ -27,20 +27,33 @@ namespace Clutter
 namespace Gtk
 {
 
-//TODO: Documentation.
+/** This is a scrollable actor that can contain a single Clutter::Actor.
+ *
+ * Using two Gtk::Adjustments it is possible to control the visible area of the 
+ * child actor if the size of the viewport is smaller than the size of the child.
+ *
+ * The Gtk::Adjustments used to control the horizontal and vertical scrolling 
+ * can be attached to a Gtk::Scrollbar subclass, like Gtk::HScrollbar or Gtk::VScrollbar.
+ *
+ * The Viewport can be used inside any Clutter::Container implementation.
+ */
 class Viewport :
   public ::Clutter::Actor
 {
   _CLASS_GOBJECT(Viewport, GtkClutterViewport, GTK_CLUTTER_VIEWPORT, ::Clutter::Actor, ClutterActor)
 
 protected:
-#m4 _CONVERSION(`::Gtk::Adjustment&',`GtkAdjustment*',`($3).gobj()')
-  _WRAP_CTOR(Viewport(::Gtk::Adjustment& h_adjustment, ::Gtk::Adjustment& v_adjustment), gtk_clutter_viewport_new)
+#m4 _CONVERSION(`::Gtk::Adjustment*',`GtkAdjustment*',`($3 ? ($3)->gobj() : 0)')
+  _WRAP_CTOR(Viewport(::Gtk::Adjustment* h_adjustment = 0, ::Gtk::Adjustment* v_adjustment = 0, ::Gtk::Adjustment* z_adjustment = 0), gtk_clutter_viewport_new)
 
 public:
 
-  _WRAP_CREATE(::Gtk::Adjustment& h_adjustment, ::Gtk::Adjustment& v_adjustment)
-  _WRAP_METHOD(void get_origin(float& x, float& y, float& z), gtk_clutter_viewport_get_origin)
+  _WRAP_CREATE(::Gtk::Adjustment* h_adjustment = 0, ::Gtk::Adjustment* v_adjustment = 0, ::Gtk::Adjustment* z_adjustment = 0)
+  _WRAP_METHOD(void get_origin(float& x, float& y, float& z) const, gtk_clutter_viewport_get_origin)
+
+  _WRAP_PROPERTY("h_adjustment", ::Gtk::Adjustment*)
+  _WRAP_PROPERTY("v_adjustment", ::Gtk::Adjustment*)
+  _WRAP_PROPERTY("z_adjustment", ::Gtk::Adjustment*)
 };
 
 } // namespace Gtk

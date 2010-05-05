@@ -1,5 +1,14 @@
 2010-05-05  Murray Cumming  <murrayc@murrayc.com>
 
+	Viewport: Correct the constructor.
+	
+	* clutter-gtk/src/viewport.hg: Constructor and create(): Use the Adjustments
+	via pointer, not reference, allowing default values of 0. Added properties.
+	This also seems to fix the constructor to really use the properties.
+	Added class documentation based on the C docs.
+
+2010-05-05  Murray Cumming  <murrayc@murrayc.com>
+
 	Updated for latest clutter-gtk.
 
 	* configure.ac: Depend on latest clutter-gtk and cluttermm.
