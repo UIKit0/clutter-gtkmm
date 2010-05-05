@@ -15,7 +15,7 @@
 ## You should have received a copy of the GNU Lesser General Public License
 ## along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-AC_INIT([clutter-gtkmm], [0.9.5],
+AC_INIT([clutter-gtkmm], [0.9.6],
         [http://bugzilla.gnome.org/enter_bug.cgi?product=clutter-gtkmm],
         [clutter-gtkmm], [http://www.gtkmm.org/])
 AC_PREREQ([2.59])
@@ -34,7 +34,7 @@ MM_PREREQ([0.8])
 MM_INIT_MODULE([clutter-gtkmm-1.0])
 
 # http://www.gnu.org/software/libtool/manual/html_node/Updating-version-info.html
-AC_SUBST([CLUTTER_GTKMM_SO_VERSION], [0:0:0])
+AC_SUBST([CLUTTER_GTKMM_SO_VERSION], [1:0:0])
 
 AC_PROG_CXX
 AC_DISABLE_STATIC

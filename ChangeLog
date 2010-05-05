@@ -1,3 +1,16 @@
+0.9.6:
+
+2010-05-05  Murray Cumming  <murrayc@murrayc.com>
+
+	Updated for latest clutter-gtk.
+
+	* configure.ac: Depend on latest clutter-gtk and cluttermm.
+	* clutter-gtk/src/clutter-gtk_methods.defs: Regenerated.
+	* clutter-gtk/src/embed.hg: Now derives from Gtk::Container, since it has 
+	changed in clutter-gtk.
+	* clutter-gtk/clutter-gtkmm.h: Improved main page text.
+	* clutter-gtk/clutter-gtkmm.pc.in: Corrected htmlrefpub.
+	
 2010-05-05  Murray Cumming  <murrayc@murrayc.com>
 
 	Viewport: Correct the constructor.

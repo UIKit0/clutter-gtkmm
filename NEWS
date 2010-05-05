@@ -1,3 +1,11 @@
+0.9.6:
+
+* Update for latest clutter-gtk.
+  Clutter::Gtk::Embed now derives from Gtk::Container.
+  (Murray Cumming)
+  
+* Slightly improve documentation.
+  (David King, Murray Cumming)
 0.9.5:
 
 * Use clutter-gtk-0.10 and cluttermmm 1.0.
