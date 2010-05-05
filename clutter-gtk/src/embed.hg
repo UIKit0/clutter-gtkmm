@@ -16,11 +16,11 @@
  */
 
 #include <cluttermm/stage.h>
-#include <gtkmm/widget.h>
+#include <gtkmm/container.h>
  
 _DEFS(clutter-gtkmm,clutter-gtk)
 _PINCLUDE(cluttermm/private/stage_p.h)
-_PINCLUDE(gtkmm/private/widget_p.h)
+_PINCLUDE(gtkmm/private/container_p.h)
 
 
 namespace Clutter
@@ -28,11 +28,18 @@ namespace Clutter
 namespace Gtk
 {
 
-//TODO: Documentation.
+/** This widget embeds a Clutter::Stage, allowing you to build, show and 
+ * interact with a scene built using Clutter, inside a gtkmm application.
+ *
+ * @note To avoid flickering on show(), you should call Gtk::Widget::show() 
+ * or Gtk::Widget::realize() before calling Clutter::Actor::show() on the 
+ * embedded Clutter::Stage actor. This is needed for Clutter to be able to 
+ * paint on the Clutter::Gtk::Embed widget.
+ */ 
 class Embed :
-  public ::Gtk::Widget
+  public ::Gtk::Container
 {
-  _CLASS_GTKOBJECT(Embed, GtkClutterEmbed, GTK_CLUTTER_EMBED, ::Gtk::Widget, GtkWidget)
+  _CLASS_GTKOBJECT(Embed, GtkClutterEmbed, GTK_CLUTTER_EMBED, ::Gtk::Container, GtkContainer)
 
 public:
   _CTOR_DEFAULT

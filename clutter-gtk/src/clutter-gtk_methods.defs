@@ -2,7 +2,7 @@
 ; object definitions ...
 (define-object ClutterEmbed
   (in-module "Gtk")
-  (parent "GtkWidget")
+  (parent "GtkContainer")
   (c-name "GtkClutterEmbed")
   (gtype-id "GTK_TYPE_CLUTTER_EMBED")
 )
@@ -20,6 +20,12 @@
   (gtype-id "GTK_TYPE_CLUTTER_VIEWPORT")
 )
 
+(define-object ClutterZoomable
+  (in-module "Gtk")
+  (c-name "GtkClutterZoomable")
+  (gtype-id "GTK_TYPE_CLUTTER_ZOOMABLE")
+)
+
 ;; Enumerations and flags ...
 
 (define-enum GtkInitError
@@ -29,6 +35,16 @@
   (values
     '("last" "CLUTTER_INIT_ERROR_LAST")
     '("gtk" "CLUTTER_INIT_ERROR_GTK")
+  )
+)
+
+(define-enum GtkTextureError
+  (in-module "Clutter")
+  (c-name "ClutterGtkTextureError")
+  (gtype-id "CLUTTER_TYPE_GTK_TEXTURE_ERROR")
+  (values
+    '("invalid-stock-id" "CLUTTER_GTK_TEXTURE_INVALID_STOCK_ID")
+    '("error-last" "CLUTTER_GTK_TEXTURE_ERROR_LAST")
   )
 )
 
@@ -219,34 +235,42 @@
   )
 )
 
+(define-function gtk_clutter_texture_error_quark
+  (c-name "gtk_clutter_texture_error_quark")
+  (return-type "GQuark")
+)
+
 (define-function gtk_clutter_texture_set_from_pixbuf
   (c-name "gtk_clutter_texture_set_from_pixbuf")
-  (return-type "none")
+  (return-type "gboolean")
   (parameters
     '("ClutterTexture*" "texture")
     '("GdkPixbuf*" "pixbuf")
+    '("GError**" "error")
   )
 )
 
 (define-function gtk_clutter_texture_set_from_stock
   (c-name "gtk_clutter_texture_set_from_stock")
-  (return-type "none")
+  (return-type "gboolean")
   (parameters
     '("ClutterTexture*" "texture")
     '("GtkWidget*" "widget")
     '("const-gchar*" "stock_id")
     '("GtkIconSize" "size")
+    '("GError**" "error")
   )
 )
 
 (define-function gtk_clutter_texture_set_from_icon_name
   (c-name "gtk_clutter_texture_set_from_icon_name")
-  (return-type "none")
+  (return-type "gboolean")
   (parameters
     '("ClutterTexture*" "texture")
     '("GtkWidget*" "widget")
     '("const-gchar*" "icon_name")
     '("GtkIconSize" "size")
+    '("GError**" "error")
   )
 )
 
@@ -266,6 +290,7 @@
   (parameters
     '("GtkAdjustment*" "h_adjust")
     '("GtkAdjustment*" "v_adjust")
+    '("GtkAdjustment*" "z_adjust")
   )
 )
 
@@ -278,6 +303,30 @@
     '("gfloat*" "y")
     '("gfloat*" "z")
   )
+)
+
+
+
+;; From gtk-clutter-zoomable.h
+
+(define-function gtk_clutter_zoomable_get_type
+  (c-name "gtk_clutter_zoomable_get_type")
+  (return-type "GType")
+)
+
+(define-method set_adjustment
+  (of-object "GtkClutterZoomable")
+  (c-name "gtk_clutter_zoomable_set_adjustment")
+  (return-type "none")
+  (parameters
+    '("GtkAdjustment*" "z_adjust")
+  )
+)
+
+(define-method get_adjustment
+  (of-object "GtkClutterZoomable")
+  (c-name "gtk_clutter_zoomable_get_adjustment")
+  (return-type "GtkAdjustment*")
 )
 
 

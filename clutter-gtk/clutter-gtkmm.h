@@ -24,9 +24,9 @@
  *
  * @section description Description
  *
- * clutter-gtkmm is a C++ wrapper for clutter-gtk.
- *
- * See also the <a href="http://www.clutter-project.org/">clutter website</a>.
+ * clutter-gtkmm is a C++ wrapper for <a href="http://www.clutter-project.org/">clutter-gtk</a>, 
+ * allowing you to use cluttermm with <a href="http://www.gtkmm.org">gtkmm</a> windows and widgets.
+ * See the Clutter::Gtk::Embed widget.
  *
  * @section basics Basic Usage
  *

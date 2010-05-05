@@ -41,7 +41,7 @@ AC_DISABLE_STATIC
 AC_LIBTOOL_WIN32_DLL
 AC_PROG_LIBTOOL
 
-AC_SUBST([CLUTTER_GTKMM_MODULES], ['clutter-gtk-0.10 >= 0.10.2 cluttermm-1.0 >= 0.9 gtkmm-2.4 >= 2.18'])
+AC_SUBST([CLUTTER_GTKMM_MODULES], ['clutter-gtk-0.10 >= 0.10.4 cluttermm-1.0 >= 0.9.6 gtkmm-2.4 >= 2.18'])
 PKG_CHECK_MODULES([CLUTTER_GTKMM], [$CLUTTER_GTKMM_MODULES])
 
 MM_PKG_CONFIG_SUBST([GMMPROC_DIR], [--variable=gmmprocdir glibmm-2.4])
