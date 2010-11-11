@@ -9,5 +9,5 @@ files_defs =				\
 	clutter-gtk_vfuncs.defs		\
 	clutter-gtk_docs.xml
 
-files_hg  = embed.hg viewport.hg
+files_hg  = embed.hg
 files_ccg = $(files_hg:.hg=.ccg)

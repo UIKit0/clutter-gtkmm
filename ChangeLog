@@ -1,4 +1,11 @@
-2010-11-11  Murray Cumming  <murrayc@murrayc-desktop>
+2010-11-11  Murray Cumming  <murrayc@murrayc.com>
+
+	Fix the build.
+
+	* clutter-gtk/src/viewport.[hg|ccg]: Remove Viewport, because it was removed
+	from the C API. We need to wrap the new stuff, such as GtkClutterActor.
+
+2010-11-11  Murray Cumming  <murrayc@murrayc.com>
 
 	Use clutter-gtk-1.0 and gtkmm-3.0.
 
