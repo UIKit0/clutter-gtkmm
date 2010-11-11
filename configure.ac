@@ -41,7 +41,7 @@ AC_DISABLE_STATIC
 AC_LIBTOOL_WIN32_DLL
 AC_PROG_LIBTOOL
 
-AC_SUBST([CLUTTER_GTKMM_MODULES], ['clutter-gtk-0.10 >= 0.10.4 cluttermm-1.0 >= 0.9.6 gtkmm-2.4 >= 2.18'])
+AC_SUBST([CLUTTER_GTKMM_MODULES], ['clutter-gtk-1.0 >= 0.90.2 cluttermm-1.0 >= 0.9.6 gtkmm-3.0 >= 2.91.2'])
 PKG_CHECK_MODULES([CLUTTER_GTKMM], [$CLUTTER_GTKMM_MODULES])
 
 MM_PKG_CONFIG_SUBST([GMMPROC_DIR], [--variable=gmmprocdir glibmm-2.4])
@@ -53,7 +53,7 @@ MM_ARG_WITH_TAGFILE_DOC([libsigc++-2.0.tag], [sigc++-2.0])
 MM_ARG_WITH_TAGFILE_DOC([glibmm-2.4.tag], [glibmm-2.4])
 MM_ARG_WITH_TAGFILE_DOC([cairomm-1.0.tag], [cairomm-1.0])
 MM_ARG_WITH_TAGFILE_DOC([pangomm-1.4.tag], [pangomm-1.4])
-MM_ARG_WITH_TAGFILE_DOC([gtkmm-2.4.tag], [gtkmm-2.4])
+MM_ARG_WITH_TAGFILE_DOC([gtkmm-3.0.tag], [gtkmm-3.0])
 MM_ARG_WITH_TAGFILE_DOC([cluttermm-1.0.tag], [cluttermm-1.0])
 
 AC_LANG([C++])

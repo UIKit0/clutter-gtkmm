@@ -1,3 +1,10 @@
+2010-11-11  Murray Cumming  <murrayc@murrayc-desktop>
+
+	Use clutter-gtk-1.0 and gtkmm-3.0.
+
+	* configure.ac: Try to use the latest versions. This doesn't build yet
+	though.
+
 2010-09-29  Chris Kühl  <chrisk@openismus.com>
 
 	Added const version of Clutter::Gtk::Embed::get_stage()
@@ -1450,4 +1457,3 @@
 	* clutter/src/container.hg:
 	* tools/m4/convert_cluttermm.m4: added initial wrapping of the
 	ClutterContainer interface.
-
