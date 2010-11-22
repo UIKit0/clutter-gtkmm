@@ -1,3 +1,10 @@
+2010-11-23  Chris Kühl  <chrisk@openismus.com>
+
+	Removed references to *VIEWPORT and *SCROLLABLE macros in extradefs.
+
+	* codegen/extradefs/generate_extra_defs_clutter_gtk.cc: Removed references
+	to GTK_CLUTTER_TYPE_VIEWPORT and GTK_CLUTTER_TYPE_SCROLLABLE macros.
+
 2010-11-11  Murray Cumming  <murrayc@murrayc.com>
 
 	Fix the build.

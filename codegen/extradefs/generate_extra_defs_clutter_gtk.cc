@@ -25,10 +25,7 @@ int main(int argc, char** argv)
   clutter_init(&argc, &argv);
 
   std::cout
-    << get_defs(GTK_CLUTTER_TYPE_EMBED)
-    << get_defs(GTK_CLUTTER_TYPE_VIEWPORT)
-    << get_defs(GTK_CLUTTER_TYPE_SCROLLABLE)
-    ;
+    << get_defs(GTK_CLUTTER_TYPE_EMBED);
 
   return 0;
 }
