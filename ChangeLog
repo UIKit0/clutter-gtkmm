@@ -1,3 +1,7 @@
+2011-03-06  Chris Kühl  <chrisk@openismus.com>
+
+	Bump version and dependencies to track clutter-gtk 0.91.8
+
 2010-11-23  Chris Kühl  <chrisk@openismus.com>
 
 	Removed references to *VIEWPORT and *SCROLLABLE macros in extradefs.

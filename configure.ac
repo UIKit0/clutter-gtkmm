@@ -15,7 +15,7 @@
 ## You should have received a copy of the GNU Lesser General Public License
 ## along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-AC_INIT([clutter-gtkmm], [0.9.6],
+AC_INIT([clutter-gtkmm], [0.91.8],
         [http://bugzilla.gnome.org/enter_bug.cgi?product=clutter-gtkmm],
         [clutter-gtkmm], [http://www.gtkmm.org/])
 AC_PREREQ([2.59])
@@ -41,7 +41,7 @@ AC_DISABLE_STATIC
 AC_LIBTOOL_WIN32_DLL
 AC_PROG_LIBTOOL
 
-AC_SUBST([CLUTTER_GTKMM_MODULES], ['clutter-gtk-1.0 >= 0.90.2 cluttermm-1.0 >= 0.9.6 gtkmm-3.0 >= 2.91.2'])
+AC_SUBST([CLUTTER_GTKMM_MODULES], ['clutter-gtk-1.0 >= 0.91.8 cluttermm-1.0 >= 0.9.6 gtkmm-3.0 >= 2.91.2'])
 PKG_CHECK_MODULES([CLUTTER_GTKMM], [$CLUTTER_GTKMM_MODULES])
 
 MM_PKG_CONFIG_SUBST([GMMPROC_DIR], [--variable=gmmprocdir glibmm-2.4])
