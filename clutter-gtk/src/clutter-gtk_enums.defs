@@ -1,10 +1,15 @@
-;; From /usr/local/include/clutter-0.9/clutter-gtk/gtk-clutter-util.h
+;; From gtk-clutter-texture.h
 
-(define-enum-extended GtkInitError
-  (in-module "Clutter")
-  (c-name "ClutterGtkInitError")
+;; Original typedef:
+;; typedef enum {
+;;   GTK_CLUTTER_TEXTURE_ERROR_INVALID_STOCK_ID
+;; } GtkClutterTextureError;
+
+(define-enum-extended ClutterTextureError
+  (in-module "Gtk")
+  (c-name "GtkClutterTextureError")
   (values
-    '("t" "CLUTTER_INIT_ERROR_LAST" "#error")
+    '("invalid-stock-id" "GTK_CLUTTER_TEXTURE_ERROR_INVALID_STOCK_ID" "0")
   )
 )
 

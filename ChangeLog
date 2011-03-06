@@ -1,4 +1,12 @@
 2011-03-06  Chris Kühl  <chrisk@openismus.com>
+	Regenerated *def files.
+
+	* clutter-gtk/src/clutter-gtk_enums.defs
+	* clutter-gtk/src/clutter-gtk_methods.defs
+	* clutter-gtk/src/clutter-gtk_signals.defs
+	* codegen/extradefs/generate_extra_defs_clutter_gtk.cc
+
+2011-03-06  Chris Kühl  <chrisk@openismus.com>
 
 	Bump version and dependencies to track clutter-gtk 0.91.8
 

@@ -25,7 +25,9 @@ int main(int argc, char** argv)
   clutter_init(&argc, &argv);
 
   std::cout
-    << get_defs(GTK_CLUTTER_TYPE_EMBED);
+    << get_defs(GTK_CLUTTER_TYPE_ACTOR)
+    << get_defs(GTK_CLUTTER_TYPE_EMBED)
+    << get_defs(GTK_CLUTTER_TYPE_WINDOW);
 
   return 0;
 }

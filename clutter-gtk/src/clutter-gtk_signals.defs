@@ -1,13 +1,447 @@
-;; From GtkClutterEmbed
+;; From GtkClutterActor
 
-(define-property user-data
-  (of-object "GtkClutterEmbed")
-  (prop-type "GParamPointer")
-  (docs "Anonymous User Data Pointer")
+(define-property name
+  (of-object "GtkClutterActor")
+  (prop-type "GParamString")
+  (docs "Name of the actor")
   (readable #t)
   (writable #t)
   (construct-only #f)
 )
+
+(define-property x
+  (of-object "GtkClutterActor")
+  (prop-type "GParamFloat")
+  (docs "X coordinate of the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property y
+  (of-object "GtkClutterActor")
+  (prop-type "GParamFloat")
+  (docs "Y coordinate of the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property width
+  (of-object "GtkClutterActor")
+  (prop-type "GParamFloat")
+  (docs "Width of the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property height
+  (of-object "GtkClutterActor")
+  (prop-type "GParamFloat")
+  (docs "Height of the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property fixed-x
+  (of-object "GtkClutterActor")
+  (prop-type "GParamFloat")
+  (docs "Forced X position of the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property fixed-y
+  (of-object "GtkClutterActor")
+  (prop-type "GParamFloat")
+  (docs "Forced Y position of the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property fixed-position-set
+  (of-object "GtkClutterActor")
+  (prop-type "GParamBoolean")
+  (docs "Whether to use fixed positioning for the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property min-width
+  (of-object "GtkClutterActor")
+  (prop-type "GParamFloat")
+  (docs "Forced minimum width request for the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property min-width-set
+  (of-object "GtkClutterActor")
+  (prop-type "GParamBoolean")
+  (docs "Whether to use the min-width property")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property min-height
+  (of-object "GtkClutterActor")
+  (prop-type "GParamFloat")
+  (docs "Forced minimum height request for the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property min-height-set
+  (of-object "GtkClutterActor")
+  (prop-type "GParamBoolean")
+  (docs "Whether to use the min-height property")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property natural-width
+  (of-object "GtkClutterActor")
+  (prop-type "GParamFloat")
+  (docs "Forced natural width request for the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property natural-width-set
+  (of-object "GtkClutterActor")
+  (prop-type "GParamBoolean")
+  (docs "Whether to use the natural-width property")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property natural-height
+  (of-object "GtkClutterActor")
+  (prop-type "GParamFloat")
+  (docs "Forced natural height request for the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property natural-height-set
+  (of-object "GtkClutterActor")
+  (prop-type "GParamBoolean")
+  (docs "Whether to use the natural-height property")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property request-mode
+  (of-object "GtkClutterActor")
+  (prop-type "GParamEnum")
+  (docs "The actor's request mode")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property allocation
+  (of-object "GtkClutterActor")
+  (prop-type "GParamBoxed")
+  (docs "The actor's allocation")
+  (readable #t)
+  (writable #f)
+  (construct-only #f)
+)
+
+(define-property depth
+  (of-object "GtkClutterActor")
+  (prop-type "GParamFloat")
+  (docs "Position on the Z axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property clip
+  (of-object "GtkClutterActor")
+  (prop-type "GParamBoxed")
+  (docs "The clip region for the actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property has-clip
+  (of-object "GtkClutterActor")
+  (prop-type "GParamBoolean")
+  (docs "Whether the actor has a clip set")
+  (readable #t)
+  (writable #f)
+  (construct-only #f)
+)
+
+(define-property clip-to-allocation
+  (of-object "GtkClutterActor")
+  (prop-type "GParamBoolean")
+  (docs "Sets the clip region to track the actor's allocation")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property opacity
+  (of-object "GtkClutterActor")
+  (prop-type "GParamUInt")
+  (docs "Opacity of an actor")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property visible
+  (of-object "GtkClutterActor")
+  (prop-type "GParamBoolean")
+  (docs "Whether the actor is visible or not")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property mapped
+  (of-object "GtkClutterActor")
+  (prop-type "GParamBoolean")
+  (docs "Whether the actor will be painted")
+  (readable #t)
+  (writable #f)
+  (construct-only #f)
+)
+
+(define-property realized
+  (of-object "GtkClutterActor")
+  (prop-type "GParamBoolean")
+  (docs "Whether the actor has been realized")
+  (readable #t)
+  (writable #f)
+  (construct-only #f)
+)
+
+(define-property reactive
+  (of-object "GtkClutterActor")
+  (prop-type "GParamBoolean")
+  (docs "Whether the actor is reactive to events")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property scale-x
+  (of-object "GtkClutterActor")
+  (prop-type "GParamDouble")
+  (docs "Scale factor on the X axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property scale-y
+  (of-object "GtkClutterActor")
+  (prop-type "GParamDouble")
+  (docs "Scale factor on the Y axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property scale-center-x
+  (of-object "GtkClutterActor")
+  (prop-type "GParamFloat")
+  (docs "Horizontal scale center")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property scale-center-y
+  (of-object "GtkClutterActor")
+  (prop-type "GParamFloat")
+  (docs "Vertical scale center")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property scale-gravity
+  (of-object "GtkClutterActor")
+  (prop-type "GParamEnum")
+  (docs "The center of scaling")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property rotation-angle-x
+  (of-object "GtkClutterActor")
+  (prop-type "GParamDouble")
+  (docs "The rotation angle on the X axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property rotation-angle-y
+  (of-object "GtkClutterActor")
+  (prop-type "GParamDouble")
+  (docs "The rotation angle on the Y axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property rotation-angle-z
+  (of-object "GtkClutterActor")
+  (prop-type "GParamDouble")
+  (docs "The rotation angle on the Z axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property rotation-center-x
+  (of-object "GtkClutterActor")
+  (prop-type "GParamBoxed")
+  (docs "The rotation center on the X axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property rotation-center-y
+  (of-object "GtkClutterActor")
+  (prop-type "GParamBoxed")
+  (docs "The rotation center on the Y axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property rotation-center-z
+  (of-object "GtkClutterActor")
+  (prop-type "GParamBoxed")
+  (docs "The rotation center on the Z axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property rotation-center-z-gravity
+  (of-object "GtkClutterActor")
+  (prop-type "GParamEnum")
+  (docs "Center point for rotation around the Z axis")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property anchor-x
+  (of-object "GtkClutterActor")
+  (prop-type "GParamFloat")
+  (docs "X coordinate of the anchor point")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property anchor-y
+  (of-object "GtkClutterActor")
+  (prop-type "GParamFloat")
+  (docs "Y coordinate of the anchor point")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property anchor-gravity
+  (of-object "GtkClutterActor")
+  (prop-type "GParamEnum")
+  (docs "The anchor point as a ClutterGravity")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property show-on-set-parent
+  (of-object "GtkClutterActor")
+  (prop-type "GParamBoolean")
+  (docs "Whether the actor is shown when parented")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property text-direction
+  (of-object "GtkClutterActor")
+  (prop-type "GParamEnum")
+  (docs "Direction of the text")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property has-pointer
+  (of-object "GtkClutterActor")
+  (prop-type "GParamBoolean")
+  (docs "Whether the actor contains the pointer of an input device")
+  (readable #t)
+  (writable #f)
+  (construct-only #f)
+)
+
+(define-property actions
+  (of-object "GtkClutterActor")
+  (prop-type "GParamObject")
+  (docs "Adds an action to the actor")
+  (readable #f)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property constraints
+  (of-object "GtkClutterActor")
+  (prop-type "GParamObject")
+  (docs "Adds a constraint to the actor")
+  (readable #f)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property effect
+  (of-object "GtkClutterActor")
+  (prop-type "GParamObject")
+  (docs "Add an effect to be applied on the actor")
+  (readable #f)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property contents
+  (of-object "GtkClutterActor")
+  (prop-type "GParamObject")
+  (docs "The widget to be embedded")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+;; From GtkClutterEmbed
 
 (define-property name
   (of-object "GtkClutterEmbed")
@@ -153,15 +587,6 @@
   (construct-only #f)
 )
 
-(define-property extension-events
-  (of-object "GtkClutterEmbed")
-  (prop-type "GParamEnum")
-  (docs "The mask that decides what kind of extension events this widget gets")
-  (readable #t)
-  (writable #t)
-  (construct-only #f)
-)
-
 (define-property no-show-all
   (of-object "GtkClutterEmbed")
   (prop-type "GParamBoolean")
@@ -207,428 +632,750 @@
   (construct-only #f)
 )
 
-;; From GtkClutterViewport
-
-(define-property vadjustment
-  (of-object "GtkClutterViewport")
-  (prop-type "GParamObject")
-  (docs "The GtkAdjustment that determines the value of the vertical position for this scrollable actor")
-  (readable #t)
-  (writable #t)
-  (construct-only #f)
-)
-
-(define-property hadjustment
-  (of-object "GtkClutterViewport")
-  (prop-type "GParamObject")
-  (docs "The GtkAdjustment that determines the value of the horizontal position for this scrollable actor")
-  (readable #t)
-  (writable #t)
-  (construct-only #f)
-)
-
-(define-property name
-  (of-object "GtkClutterViewport")
-  (prop-type "GParamString")
-  (docs "Name of the actor")
-  (readable #t)
-  (writable #t)
-  (construct-only #f)
-)
-
-(define-property x
-  (of-object "GtkClutterViewport")
-  (prop-type "GParamInt")
-  (docs "X coordinate of the actor")
-  (readable #t)
-  (writable #t)
-  (construct-only #f)
-)
-
-(define-property y
-  (of-object "GtkClutterViewport")
-  (prop-type "GParamInt")
-  (docs "Y coordinate of the actor")
-  (readable #t)
-  (writable #t)
-  (construct-only #f)
-)
-
-(define-property width
-  (of-object "GtkClutterViewport")
-  (prop-type "GParamInt")
-  (docs "Width of the actor")
-  (readable #t)
-  (writable #t)
-  (construct-only #f)
-)
-
-(define-property height
-  (of-object "GtkClutterViewport")
-  (prop-type "GParamInt")
-  (docs "Height of the actor")
-  (readable #t)
-  (writable #t)
-  (construct-only #f)
-)
-
-(define-property fixed-x
-  (of-object "GtkClutterViewport")
-  (prop-type "ClutterParamSpecUnit")
-  (docs "Forced X position of the actor")
-  (readable #t)
-  (writable #t)
-  (construct-only #f)
-)
-
-(define-property fixed-y
-  (of-object "GtkClutterViewport")
-  (prop-type "ClutterParamSpecUnit")
-  (docs "Forced Y position of the actor")
-  (readable #t)
-  (writable #t)
-  (construct-only #f)
-)
-
-(define-property fixed-position-set
-  (of-object "GtkClutterViewport")
+(define-property double-buffered
+  (of-object "GtkClutterEmbed")
   (prop-type "GParamBoolean")
-  (docs "Whether to use fixed positioning for the actor")
+  (docs "Whether the widget is double buffered")
   (readable #t)
   (writable #t)
   (construct-only #f)
 )
 
-(define-property min-width
-  (of-object "GtkClutterViewport")
-  (prop-type "ClutterParamSpecUnit")
-  (docs "Forced minimum width request for the actor")
-  (readable #t)
-  (writable #t)
-  (construct-only #f)
-)
-
-(define-property min-width-set
-  (of-object "GtkClutterViewport")
-  (prop-type "GParamBoolean")
-  (docs "Whether to use the min-width property")
-  (readable #t)
-  (writable #t)
-  (construct-only #f)
-)
-
-(define-property min-height
-  (of-object "GtkClutterViewport")
-  (prop-type "ClutterParamSpecUnit")
-  (docs "Forced minimum height request for the actor")
-  (readable #t)
-  (writable #t)
-  (construct-only #f)
-)
-
-(define-property min-height-set
-  (of-object "GtkClutterViewport")
-  (prop-type "GParamBoolean")
-  (docs "Whether to use the min-height property")
-  (readable #t)
-  (writable #t)
-  (construct-only #f)
-)
-
-(define-property natural-width
-  (of-object "GtkClutterViewport")
-  (prop-type "ClutterParamSpecUnit")
-  (docs "Forced natural width request for the actor")
-  (readable #t)
-  (writable #t)
-  (construct-only #f)
-)
-
-(define-property natural-width-set
-  (of-object "GtkClutterViewport")
-  (prop-type "GParamBoolean")
-  (docs "Whether to use the natural-width property")
-  (readable #t)
-  (writable #t)
-  (construct-only #f)
-)
-
-(define-property natural-height
-  (of-object "GtkClutterViewport")
-  (prop-type "ClutterParamSpecUnit")
-  (docs "Forced natural height request for the actor")
-  (readable #t)
-  (writable #t)
-  (construct-only #f)
-)
-
-(define-property natural-height-set
-  (of-object "GtkClutterViewport")
-  (prop-type "GParamBoolean")
-  (docs "Whether to use the natural-height property")
-  (readable #t)
-  (writable #t)
-  (construct-only #f)
-)
-
-(define-property request-mode
-  (of-object "GtkClutterViewport")
+(define-property halign
+  (of-object "GtkClutterEmbed")
   (prop-type "GParamEnum")
-  (docs "The actor's request mode")
+  (docs "How to position in extra horizontal space")
   (readable #t)
   (writable #t)
   (construct-only #f)
 )
 
-(define-property allocation
-  (of-object "GtkClutterViewport")
-  (prop-type "GParamBoxed")
-  (docs "The actor's allocation")
-  (readable #t)
-  (writable #f)
-  (construct-only #f)
-)
-
-(define-property depth
-  (of-object "GtkClutterViewport")
-  (prop-type "GParamInt")
-  (docs "Depth of actor")
-  (readable #t)
-  (writable #t)
-  (construct-only #f)
-)
-
-(define-property clip
-  (of-object "GtkClutterViewport")
-  (prop-type "GParamBoxed")
-  (docs "The clip region for the actor")
-  (readable #t)
-  (writable #t)
-  (construct-only #f)
-)
-
-(define-property has-clip
-  (of-object "GtkClutterViewport")
-  (prop-type "GParamBoolean")
-  (docs "Whether the actor has a clip set or not")
-  (readable #t)
-  (writable #f)
-  (construct-only #f)
-)
-
-(define-property clip-to-allocation
-  (of-object "GtkClutterViewport")
-  (prop-type "GParamBoolean")
-  (docs "Sets the clip region to track the actor's allocation")
-  (readable #t)
-  (writable #t)
-  (construct-only #f)
-)
-
-(define-property opacity
-  (of-object "GtkClutterViewport")
-  (prop-type "GParamUChar")
-  (docs "Opacity of actor")
-  (readable #t)
-  (writable #t)
-  (construct-only #f)
-)
-
-(define-property visible
-  (of-object "GtkClutterViewport")
-  (prop-type "GParamBoolean")
-  (docs "Whether the actor is visible or not")
-  (readable #t)
-  (writable #t)
-  (construct-only #f)
-)
-
-(define-property reactive
-  (of-object "GtkClutterViewport")
-  (prop-type "GParamBoolean")
-  (docs "Whether the actor is reactive to events or not")
-  (readable #t)
-  (writable #t)
-  (construct-only #f)
-)
-
-(define-property scale-x
-  (of-object "GtkClutterViewport")
-  (prop-type "GParamDouble")
-  (docs "Scale factor on the X axis")
-  (readable #t)
-  (writable #t)
-  (construct-only #f)
-)
-
-(define-property scale-y
-  (of-object "GtkClutterViewport")
-  (prop-type "GParamDouble")
-  (docs "Scale factor on the Y axis")
-  (readable #t)
-  (writable #t)
-  (construct-only #f)
-)
-
-(define-property scale-center-x
-  (of-object "GtkClutterViewport")
-  (prop-type "GParamInt")
-  (docs "Horizontal scale center")
-  (readable #t)
-  (writable #t)
-  (construct-only #f)
-)
-
-(define-property scale-center-y
-  (of-object "GtkClutterViewport")
-  (prop-type "GParamInt")
-  (docs "Vertical scale center")
-  (readable #t)
-  (writable #t)
-  (construct-only #f)
-)
-
-(define-property scale-gravity
-  (of-object "GtkClutterViewport")
+(define-property valign
+  (of-object "GtkClutterEmbed")
   (prop-type "GParamEnum")
-  (docs "The center of scaling")
+  (docs "How to position in extra vertical space")
   (readable #t)
   (writable #t)
   (construct-only #f)
 )
 
-(define-property rotation-angle-x
-  (of-object "GtkClutterViewport")
-  (prop-type "GParamDouble")
-  (docs "The rotation angle on the X axis")
-  (readable #t)
-  (writable #t)
-  (construct-only #f)
-)
-
-(define-property rotation-angle-y
-  (of-object "GtkClutterViewport")
-  (prop-type "GParamDouble")
-  (docs "The rotation angle on the Y axis")
-  (readable #t)
-  (writable #t)
-  (construct-only #f)
-)
-
-(define-property rotation-angle-z
-  (of-object "GtkClutterViewport")
-  (prop-type "GParamDouble")
-  (docs "The rotation angle on the Z axis")
-  (readable #t)
-  (writable #t)
-  (construct-only #f)
-)
-
-(define-property rotation-center-x
-  (of-object "GtkClutterViewport")
-  (prop-type "GParamBoxed")
-  (docs "The rotation center on the X axis")
-  (readable #t)
-  (writable #t)
-  (construct-only #f)
-)
-
-(define-property rotation-center-y
-  (of-object "GtkClutterViewport")
-  (prop-type "GParamBoxed")
-  (docs "The rotation center on the Y axis")
-  (readable #t)
-  (writable #t)
-  (construct-only #f)
-)
-
-(define-property rotation-center-z
-  (of-object "GtkClutterViewport")
-  (prop-type "GParamBoxed")
-  (docs "The rotation center on the Z axis")
-  (readable #t)
-  (writable #t)
-  (construct-only #f)
-)
-
-(define-property rotation-center-z-gravity
-  (of-object "GtkClutterViewport")
-  (prop-type "GParamEnum")
-  (docs "Center point for rotation around the Z axis")
-  (readable #t)
-  (writable #t)
-  (construct-only #f)
-)
-
-(define-property anchor-x
-  (of-object "GtkClutterViewport")
+(define-property margin-left
+  (of-object "GtkClutterEmbed")
   (prop-type "GParamInt")
-  (docs "X coordinate of the anchor point")
+  (docs "Pixels of extra space on the left side")
   (readable #t)
   (writable #t)
   (construct-only #f)
 )
 
-(define-property anchor-y
-  (of-object "GtkClutterViewport")
+(define-property margin-right
+  (of-object "GtkClutterEmbed")
   (prop-type "GParamInt")
-  (docs "Y coordinate of the anchor point")
+  (docs "Pixels of extra space on the right side")
   (readable #t)
   (writable #t)
   (construct-only #f)
 )
 
-(define-property anchor-gravity
-  (of-object "GtkClutterViewport")
-  (prop-type "GParamEnum")
-  (docs "The anchor point as a ClutterGravity")
+(define-property margin-top
+  (of-object "GtkClutterEmbed")
+  (prop-type "GParamInt")
+  (docs "Pixels of extra space on the top side")
   (readable #t)
   (writable #t)
   (construct-only #f)
 )
 
-(define-property show-on-set-parent
-  (of-object "GtkClutterViewport")
+(define-property margin-bottom
+  (of-object "GtkClutterEmbed")
+  (prop-type "GParamInt")
+  (docs "Pixels of extra space on the bottom side")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property margin
+  (of-object "GtkClutterEmbed")
+  (prop-type "GParamInt")
+  (docs "Pixels of extra space on all four sides")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property hexpand
+  (of-object "GtkClutterEmbed")
   (prop-type "GParamBoolean")
-  (docs "Whether the actor is shown when parented")
+  (docs "Whether widget wants more horizontal space")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property vexpand
+  (of-object "GtkClutterEmbed")
+  (prop-type "GParamBoolean")
+  (docs "Whether widget wants more vertical space")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property hexpand-set
+  (of-object "GtkClutterEmbed")
+  (prop-type "GParamBoolean")
+  (docs "Whether to use the hexpand property")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property vexpand-set
+  (of-object "GtkClutterEmbed")
+  (prop-type "GParamBoolean")
+  (docs "Whether to use the vexpand property")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property expand
+  (of-object "GtkClutterEmbed")
+  (prop-type "GParamBoolean")
+  (docs "Whether widget wants to expand in both directions")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property border-width
+  (of-object "GtkClutterEmbed")
+  (prop-type "GParamUInt")
+  (docs "The width of the empty border outside the containers children")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property resize-mode
+  (of-object "GtkClutterEmbed")
+  (prop-type "GParamEnum")
+  (docs "Specify how resize events are handled")
   (readable #t)
   (writable #t)
   (construct-only #f)
 )
 
 (define-property child
-  (of-object "GtkClutterViewport")
+  (of-object "GtkClutterEmbed")
   (prop-type "GParamObject")
-  (docs "The ClutterActor inside the viewport")
+  (docs "Can be used to add a new child to the container")
+  (readable #f)
+  (writable #t)
+  (construct-only #f)
+)
+
+;; From GtkClutterWindow
+
+(define-property name
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamString")
+  (docs "The name of the widget")
   (readable #t)
   (writable #t)
   (construct-only #f)
 )
 
-(define-property origin
-  (of-object "GtkClutterViewport")
-  (prop-type "GParamBoxed")
-  (docs "The current origin of the viewport")
+(define-property parent
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamObject")
+  (docs "The parent widget of this widget. Must be a Container widget")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property width-request
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamInt")
+  (docs "Override for width request of the widget, or -1 if natural request should be used")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property height-request
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamInt")
+  (docs "Override for height request of the widget, or -1 if natural request should be used")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property visible
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamBoolean")
+  (docs "Whether the widget is visible")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property sensitive
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamBoolean")
+  (docs "Whether the widget responds to input")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property app-paintable
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamBoolean")
+  (docs "Whether the application will paint directly on the widget")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property can-focus
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamBoolean")
+  (docs "Whether the widget can accept the input focus")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property has-focus
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamBoolean")
+  (docs "Whether the widget has the input focus")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property is-focus
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamBoolean")
+  (docs "Whether the widget is the focus widget within the toplevel")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property can-default
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamBoolean")
+  (docs "Whether the widget can be the default widget")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property has-default
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamBoolean")
+  (docs "Whether the widget is the default widget")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property receives-default
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamBoolean")
+  (docs "If TRUE, the widget will receive the default action when it is focused")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property composite-child
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamBoolean")
+  (docs "Whether the widget is part of a composite widget")
   (readable #t)
   (writable #f)
   (construct-only #f)
 )
 
-;; From GtkClutterScrollable
-
-(define-property vadjustment
-  (of-object "GtkClutterScrollable")
+(define-property style
+  (of-object "GtkClutterWindow")
   (prop-type "GParamObject")
-  (docs "The GtkAdjustment that determines the value of the vertical position for this scrollable actor")
+  (docs "The style of the widget, which contains information about how it will look (colors etc)")
   (readable #t)
   (writable #t)
   (construct-only #f)
 )
 
-(define-property hadjustment
-  (of-object "GtkClutterScrollable")
+(define-property events
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamFlags")
+  (docs "The event mask that decides what kind of GdkEvents this widget gets")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property no-show-all
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamBoolean")
+  (docs "Whether gtk_widget_show_all() should not affect this widget")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property has-tooltip
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamBoolean")
+  (docs "Whether this widget has a tooltip")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property tooltip-markup
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamString")
+  (docs "The contents of the tooltip for this widget")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property tooltip-text
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamString")
+  (docs "The contents of the tooltip for this widget")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property window
+  (of-object "GtkClutterWindow")
   (prop-type "GParamObject")
-  (docs "The GtkAdjustment that determines the value of the horizontal position for this scrollable actor")
+  (docs "The widget's window if it is realized")
+  (readable #t)
+  (writable #f)
+  (construct-only #f)
+)
+
+(define-property double-buffered
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamBoolean")
+  (docs "Whether the widget is double buffered")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property halign
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamEnum")
+  (docs "How to position in extra horizontal space")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property valign
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamEnum")
+  (docs "How to position in extra vertical space")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property margin-left
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamInt")
+  (docs "Pixels of extra space on the left side")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property margin-right
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamInt")
+  (docs "Pixels of extra space on the right side")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property margin-top
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamInt")
+  (docs "Pixels of extra space on the top side")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property margin-bottom
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamInt")
+  (docs "Pixels of extra space on the bottom side")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property margin
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamInt")
+  (docs "Pixels of extra space on all four sides")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property hexpand
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamBoolean")
+  (docs "Whether widget wants more horizontal space")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property vexpand
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamBoolean")
+  (docs "Whether widget wants more vertical space")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property hexpand-set
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamBoolean")
+  (docs "Whether to use the hexpand property")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property vexpand-set
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamBoolean")
+  (docs "Whether to use the vexpand property")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property expand
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamBoolean")
+  (docs "Whether widget wants to expand in both directions")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property border-width
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamUInt")
+  (docs "The width of the empty border outside the containers children")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property resize-mode
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamEnum")
+  (docs "Specify how resize events are handled")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property child
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamObject")
+  (docs "Can be used to add a new child to the container")
+  (readable #f)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property type
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamEnum")
+  (docs "The type of the window")
+  (readable #t)
+  (writable #t)
+  (construct-only #t)
+)
+
+(define-property title
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamString")
+  (docs "The title of the window")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property role
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamString")
+  (docs "Unique identifier for the window to be used when restoring a session")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property resizable
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamBoolean")
+  (docs "If TRUE, users can resize the window")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property modal
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamBoolean")
+  (docs "If TRUE, the window is modal (other windows are not usable while this one is up)")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property window-position
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamEnum")
+  (docs "The initial position of the window")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property default-width
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamInt")
+  (docs "The default width of the window, used when initially showing the window")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property default-height
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamInt")
+  (docs "The default height of the window, used when initially showing the window")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property destroy-with-parent
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamBoolean")
+  (docs "If this window should be destroyed when the parent is destroyed")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property icon
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamObject")
+  (docs "Icon for this window")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property icon-name
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamString")
+  (docs "Name of the themed icon for this window")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property screen
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamObject")
+  (docs "The screen where this window will be displayed")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property type-hint
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamEnum")
+  (docs "Hint to help the desktop environment understand what kind of window this is and how to treat it.")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property skip-taskbar-hint
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamBoolean")
+  (docs "TRUE if the window should not be in the task bar.")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property skip-pager-hint
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamBoolean")
+  (docs "TRUE if the window should not be in the pager.")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property urgency-hint
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamBoolean")
+  (docs "TRUE if the window should be brought to the user's attention.")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property accept-focus
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamBoolean")
+  (docs "TRUE if the window should receive the input focus.")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property focus-on-map
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamBoolean")
+  (docs "TRUE if the window should receive the input focus when mapped.")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property decorated
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamBoolean")
+  (docs "Whether the window should be decorated by the window manager")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property deletable
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamBoolean")
+  (docs "Whether the window frame should have a close button")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property gravity
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamEnum")
+  (docs "The window gravity of the window")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property transient-for
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamObject")
+  (docs "The transient parent of the dialog")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property opacity
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamDouble")
+  (docs "The opacity of the window, from 0 to 1")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property has-resize-grip
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamBoolean")
+  (docs "Specifies whether the window should have a resize grip")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property resize-grip-visible
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamBoolean")
+  (docs "Specifies whether the window's resize grip is visible.")
+  (readable #t)
+  (writable #f)
+  (construct-only #f)
+)
+
+(define-property application
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamObject")
+  (docs "The GtkApplication for the window")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property is-active
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamBoolean")
+  (docs "Whether the toplevel is the current active window")
+  (readable #t)
+  (writable #f)
+  (construct-only #f)
+)
+
+(define-property has-toplevel-focus
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamBoolean")
+  (docs "Whether the input focus is within this GtkWindow")
+  (readable #t)
+  (writable #f)
+  (construct-only #f)
+)
+
+(define-property startup-id
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamString")
+  (docs "Unique startup identifier for the window used by startup-notification")
+  (readable #f)
+  (writable #t)
+  (construct-only #f)
+)
+
+(define-property mnemonics-visible
+  (of-object "GtkClutterWindow")
+  (prop-type "GParamBoolean")
+  (docs "Whether mnemonics are currently visible in this window")
   (readable #t)
   (writable #t)
   (construct-only #f)
