@@ -1,3 +1,11 @@
+2011-03-07  Chris Kühl  <chrisk@openismus.com>
+
+	[Build] Fixed build issues.
+
+	* clutter-gtk/clutter-gtkmm/utility.[h|cc]: Removed functions no longer
+	in clutter-gtkmm or moved to own object (ie. ClutterGtkTexture).
+	* clutter-gtk/src/embed.hg: Changed GtkObject to GObject
+
 2011-03-06  Chris Kühl  <chrisk@openismus.com>
 	Regenerated *def files.
 

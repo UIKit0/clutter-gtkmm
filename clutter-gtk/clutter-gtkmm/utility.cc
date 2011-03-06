@@ -25,114 +25,74 @@ namespace Clutter
 namespace Gtk
 {
 
-void get_fg_color(::Gtk::Widget& widget, ::Gtk::StateType state, Color& color)
-{
-  gtk_clutter_get_fg_color(widget.gobj(), GtkStateType(state), color.gobj());
-}
+// Glib::RefPtr<Texture> create_texture_from_pixbuf(const Glib::RefPtr<Gdk::Pixbuf>& pixbuf)
+// {
+//   return Glib::wrap(CLUTTER_TEXTURE(gtk_clutter_texture_new_from_pixbuf(pixbuf->gobj())));
+// }
 
-void get_bg_color(::Gtk::Widget& widget, ::Gtk::StateType state, Color& color)
-{
-  gtk_clutter_get_bg_color(widget.gobj(), GtkStateType(state), color.gobj());
-}
+// Glib::RefPtr<Texture> create_texture_from_stock(::Gtk::Widget& widget, const Glib::ustring& stock_id, ::Gtk::IconSize size)
+// {
+//   return Glib::wrap(CLUTTER_TEXTURE(gtk_clutter_texture_new_from_stock(widget.gobj(), stock_id.c_str(), GtkIconSize(int(size)))));
+// }
 
-void get_text_color(::Gtk::Widget& widget, ::Gtk::StateType state, Color& color)
-{
-  gtk_clutter_get_text_color(widget.gobj(), GtkStateType(state), color.gobj());
-}
+// Glib::RefPtr<Texture> create_texture_from_icon_name(::Gtk::Widget& widget, const Glib::ustring& icon_name, ::Gtk::IconSize size)
+// {
+//   return Glib::wrap(CLUTTER_TEXTURE(gtk_clutter_texture_new_from_icon_name(widget.gobj(), icon_name.c_str(), GtkIconSize(int(size)))));
+// }
 
-void get_base_color(::Gtk::Widget& widget, ::Gtk::StateType state, Color& color)
-{
-  gtk_clutter_get_base_color(widget.gobj(), GtkStateType(state), color.gobj());
-}
+// #ifdef GLIBMM_EXCEPTIONS_ENABLED
+// void set_texture_from_pixbuf(const Glib::RefPtr<Texture>& texture, const Glib::RefPtr<Gdk::Pixbuf>& pixbuf)
+// #else
+// void set_texture_from_pixbuf(const Glib::RefPtr<Texture>& texture, const Glib::RefPtr<Gdk::Pixbuf>& pixbuf, std::auto_ptr<Glib::Error>& error)
+// #endif
+// {
+//   GError* gerror = 0;
+//   gtk_clutter_texture_set_from_pixbuf(texture->gobj(), pixbuf->gobj(), &gerror);
 
-void get_text_aa_color(::Gtk::Widget& widget, ::Gtk::StateType state, Color& color)
-{
-  gtk_clutter_get_text_aa_color(widget.gobj(), GtkStateType(state), color.gobj());
-}
+// #ifdef GLIBMM_EXCEPTIONS_ENABLED
+//   if(gerror)
+//     ::Glib::Error::throw_exception(gerror);
+// #else
+//   if(gerror)
+//     error = ::Glib::Error::throw_exception(gerror);
+// #endif // GLIBMM_EXCEPTIONS_ENABLED
+// }
 
-void get_light_color(::Gtk::Widget& widget, ::Gtk::StateType state, Color& color)
-{
-  gtk_clutter_get_light_color(widget.gobj(), GtkStateType(state), color.gobj());
-}
+// #ifdef GLIBMM_EXCEPTIONS_ENABLED
+// void set_texture_from_stock(const Glib::RefPtr<Texture>& texture, ::Gtk::Widget& widget, const Glib::ustring& stock_id, ::Gtk::IconSize size)
+// #else
+// void set_texture_from_stock(const Glib::RefPtr<Texture>& texture, ::Gtk::Widget& widget, const Glib::ustring& stock_id, ::Gtk::IconSize size, std::auto_ptr<Glib::Error>& error)
+// #endif
+// {
+//   GError* gerror = 0;
+//   gtk_clutter_texture_set_from_stock(texture->gobj(), widget.gobj(), stock_id.c_str(), GtkIconSize(int(size)), &gerror);
 
-void get_mid_color(::Gtk::Widget& widget, ::Gtk::StateType state, Color& color)
-{
-  gtk_clutter_get_mid_color(widget.gobj(), GtkStateType(state), color.gobj());
-}
+// #ifdef GLIBMM_EXCEPTIONS_ENABLED
+//   if(gerror)
+//     ::Glib::Error::throw_exception(gerror);
+// #else
+//   if(gerror)
+//     error = ::Glib::Error::throw_exception(gerror);
+// #endif // GLIBMM_EXCEPTIONS_ENABLED
+// }
 
-void get_dark_color(::Gtk::Widget& widget, ::Gtk::StateType state, Color& color)
-{
-  gtk_clutter_get_dark_color(widget.gobj(), GtkStateType(state), color.gobj());
-}
+// #ifdef GLIBMM_EXCEPTIONS_ENABLED
+// void set_texture_from_icon_name(const Glib::RefPtr<Texture>& texture, ::Gtk::Widget& widget, const Glib::ustring& icon_name, ::Gtk::IconSize size)
+// #else
+// void set_texture_from_icon_name(const Glib::RefPtr<Texture>& texture, ::Gtk::Widget& widget, const Glib::ustring& icon_name, ::Gtk::IconSize size, std::auto_ptr<Glib::Error>& error)
+// #endif
+// {
+//   GError* gerror = 0;
+//   gtk_clutter_texture_set_from_icon_name(texture->gobj(), widget.gobj(), icon_name.c_str(), GtkIconSize(int(size)), &gerror);
 
-Glib::RefPtr<Texture> create_texture_from_pixbuf(const Glib::RefPtr<Gdk::Pixbuf>& pixbuf)
-{
-  return Glib::wrap(CLUTTER_TEXTURE(gtk_clutter_texture_new_from_pixbuf(pixbuf->gobj())));
-}
-
-Glib::RefPtr<Texture> create_texture_from_stock(::Gtk::Widget& widget, const Glib::ustring& stock_id, ::Gtk::IconSize size)
-{
-  return Glib::wrap(CLUTTER_TEXTURE(gtk_clutter_texture_new_from_stock(widget.gobj(), stock_id.c_str(), GtkIconSize(int(size)))));
-}
-
-Glib::RefPtr<Texture> create_texture_from_icon_name(::Gtk::Widget& widget, const Glib::ustring& icon_name, ::Gtk::IconSize size)
-{
-  return Glib::wrap(CLUTTER_TEXTURE(gtk_clutter_texture_new_from_icon_name(widget.gobj(), icon_name.c_str(), GtkIconSize(int(size)))));
-}
-
-#ifdef GLIBMM_EXCEPTIONS_ENABLED
-void set_texture_from_pixbuf(const Glib::RefPtr<Texture>& texture, const Glib::RefPtr<Gdk::Pixbuf>& pixbuf)
-#else
-void set_texture_from_pixbuf(const Glib::RefPtr<Texture>& texture, const Glib::RefPtr<Gdk::Pixbuf>& pixbuf, std::auto_ptr<Glib::Error>& error)
-#endif
-{
-  GError* gerror = 0;
-  gtk_clutter_texture_set_from_pixbuf(texture->gobj(), pixbuf->gobj(), &gerror);
-
-#ifdef GLIBMM_EXCEPTIONS_ENABLED
-  if(gerror)
-    ::Glib::Error::throw_exception(gerror);
-#else
-  if(gerror)
-    error = ::Glib::Error::throw_exception(gerror);
-#endif // GLIBMM_EXCEPTIONS_ENABLED
-}
-
-#ifdef GLIBMM_EXCEPTIONS_ENABLED
-void set_texture_from_stock(const Glib::RefPtr<Texture>& texture, ::Gtk::Widget& widget, const Glib::ustring& stock_id, ::Gtk::IconSize size)
-#else
-void set_texture_from_stock(const Glib::RefPtr<Texture>& texture, ::Gtk::Widget& widget, const Glib::ustring& stock_id, ::Gtk::IconSize size, std::auto_ptr<Glib::Error>& error)
-#endif
-{
-  GError* gerror = 0;
-  gtk_clutter_texture_set_from_stock(texture->gobj(), widget.gobj(), stock_id.c_str(), GtkIconSize(int(size)), &gerror);
-
-#ifdef GLIBMM_EXCEPTIONS_ENABLED
-  if(gerror)
-    ::Glib::Error::throw_exception(gerror);
-#else
-  if(gerror)
-    error = ::Glib::Error::throw_exception(gerror);
-#endif // GLIBMM_EXCEPTIONS_ENABLED
-}
-
-#ifdef GLIBMM_EXCEPTIONS_ENABLED
-void set_texture_from_icon_name(const Glib::RefPtr<Texture>& texture, ::Gtk::Widget& widget, const Glib::ustring& icon_name, ::Gtk::IconSize size)
-#else
-void set_texture_from_icon_name(const Glib::RefPtr<Texture>& texture, ::Gtk::Widget& widget, const Glib::ustring& icon_name, ::Gtk::IconSize size, std::auto_ptr<Glib::Error>& error)
-#endif
-{
-  GError* gerror = 0;
-  gtk_clutter_texture_set_from_icon_name(texture->gobj(), widget.gobj(), icon_name.c_str(), GtkIconSize(int(size)), &gerror);
-
-#ifdef GLIBMM_EXCEPTIONS_ENABLED
-  if(gerror)
-    ::Glib::Error::throw_exception(gerror);
-#else
-  if(gerror)
-    error = ::Glib::Error::throw_exception(gerror);
-#endif // GLIBMM_EXCEPTIONS_ENABLED
-}
+// #ifdef GLIBMM_EXCEPTIONS_ENABLED
+//   if(gerror)
+//     ::Glib::Error::throw_exception(gerror);
+// #else
+//   if(gerror)
+//     error = ::Glib::Error::throw_exception(gerror);
+// #endif // GLIBMM_EXCEPTIONS_ENABLED
+// }
 
 } //namespace Gtk
 } //namespace Clutter

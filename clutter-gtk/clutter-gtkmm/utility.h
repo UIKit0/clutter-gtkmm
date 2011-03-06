@@ -26,21 +26,12 @@ namespace Clutter
 {
 namespace Gtk
 {
-
-void get_fg_color(::Gtk::Widget& widget, ::Gtk::StateType state, Color& color);
-void get_bg_color(::Gtk::Widget& widget, ::Gtk::StateType state, Color& color);
-void get_text_color(::Gtk::Widget& widget, ::Gtk::StateType state, Color& color);
-void get_base_color(::Gtk::Widget& widget, ::Gtk::StateType state, Color& color);
-void get_text_aa_color(::Gtk::Widget& widget, ::Gtk::StateType state, Color& color);
-void get_light_color(::Gtk::Widget& widget, ::Gtk::StateType state, Color& color);
-void get_mid_color(::Gtk::Widget& widget, ::Gtk::StateType state, Color& color);
-void get_dark_color(::Gtk::Widget& widget, ::Gtk::StateType state, Color& color);
-Glib::RefPtr<Texture> create_texture_from_pixbuf(const Glib::RefPtr<Gdk::Pixbuf>& pixbuf);
-Glib::RefPtr<Texture> create_texture_from_stock(::Gtk::Widget& widget, const Glib::ustring& stock_id, ::Gtk::IconSize size);
-Glib::RefPtr<Texture> create_texture_from_icon_name(::Gtk::Widget& widget, const Glib::ustring& icon_name, ::Gtk::IconSize size);
-void set_texture_from_pixbuf(const Glib::RefPtr<Texture>& texture, const Glib::RefPtr<Gdk::Pixbuf>& pixbuf);
-void set_texture_from_stock(const Glib::RefPtr<Texture>& texture, ::Gtk::Widget& widget, const Glib::ustring& stock_id, ::Gtk::IconSize size);
-void set_texture_from_icon_name(const Glib::RefPtr<Texture>& texture, ::Gtk::Widget& widget, const Glib::ustring& icon_name, ::Gtk::IconSize size);
+// Glib::RefPtr<Texture> create_texture_from_pixbuf(const Glib::RefPtr<Gdk::Pixbuf>& pixbuf);
+// Glib::RefPtr<Texture> create_texture_from_stock(::Gtk::Widget& widget, const Glib::ustring& stock_id, ::Gtk::IconSize size);
+// Glib::RefPtr<Texture> create_texture_from_icon_name(::Gtk::Widget& widget, const Glib::ustring& icon_name, ::Gtk::IconSize size);
+// void set_texture_from_pixbuf(const Glib::RefPtr<Texture>& texture, const Glib::RefPtr<Gdk::Pixbuf>& pixbuf);
+// void set_texture_from_stock(const Glib::RefPtr<Texture>& texture, ::Gtk::Widget& widget, const Glib::ustring& stock_id, ::Gtk::IconSize size);
+// void set_texture_from_icon_name(const Glib::RefPtr<Texture>& texture, ::Gtk::Widget& widget, const Glib::ustring& icon_name, ::Gtk::IconSize size);
 
 } //namespace Gtk
 } //namespace Clutter
