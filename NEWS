@@ -1,3 +1,8 @@
+0.91.8:
+
+* Updated for newer clutter-gtk api.
+  (Chris Kühl)
+
 0.9.6:
 
 * Update for latest clutter-gtk.
