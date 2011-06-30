@@ -59,6 +59,5 @@
 #include <clutter-gtkmm/embed.h>
 #include <clutter-gtkmm/init.h>
 #include <clutter-gtkmm/utility.h>
-#include <clutter-gtkmm/viewport.h>
 
 #endif /* !LIBCLUTTER_GTKMM_H */

@@ -1,3 +1,9 @@
+2011-07-01  Chris Kühl  <chrisk@openismus.com>
+
+	Removed remaining viewport.h include.
+
+	* /clutter-gtk/clutter-gtkmm.h
+
 2011-03-07  Chris Kühl  <chrisk@openismus.com>
 
 	[Build] Fixed build issues.
