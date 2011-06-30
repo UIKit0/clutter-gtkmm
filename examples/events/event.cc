@@ -6,10 +6,10 @@ Event::Event()
   m_label_y("Rotate y-axis"),
   m_label_z("Rotate z-axis"),
   m_label_opacity("Adjust opacity"),
-  m_adjustment_x(0.0, 0.0, 360.0),
-  m_adjustment_y(0.0, 0.0, 360.0),
-  m_adjustment_z(0.0, 0.0, 360.0),
-  m_adjustment_opacity(255.0, 0.0, 255.0),
+  m_adjustment_x(Gtk::Adjustment::create(0.0, 0.0, 360.0)),
+  m_adjustment_y(Gtk::Adjustment::create(0.0, 0.0, 360.0)),
+  m_adjustment_z(Gtk::Adjustment::create(0.0, 0.0, 360.0)),
+  m_adjustment_opacity(Gtk::Adjustment::create(255.0, 0.0, 255.0)),
   m_spin_x(m_adjustment_x),
   m_spin_y(m_adjustment_y),
   m_spin_z(m_adjustment_z),
@@ -33,9 +33,9 @@ Event::Event()
   m_hbox.pack_start(m_embed);
 
   m_stage = m_embed.get_stage();
-  Clutter::Color stage_color;
-  Clutter::Gtk::get_bg_color(*this, Gtk::STATE_NORMAL, stage_color);
-  m_stage->set_color(stage_color);
+  // Clutter::Color stage_color;
+  // Clutter::Gtk::get_bg_color(*this, Gtk::STATE_NORMAL, stage_color);
+  // m_stage->set_color(stage_color);
   m_embed.set_size_request(640, 480);
   m_stage->signal_captured_event().connect(sigc::mem_fun(*this, &Event::on_stage_capture));
 
@@ -51,9 +51,9 @@ Event::Event()
   m_hand->set_reactive();
   m_hand->signal_button_press_event().connect(sigc::mem_fun(*this, &Event::on_hand_button_press));
 
-  Clutter::Color text_color;
-  Clutter::Gtk::get_text_color(*this, Gtk::STATE_NORMAL, text_color);
-  m_clutter_entry = Clutter::Text::create("Sans 10", "", text_color);
+  // Clutter::Color text_color;
+  // Clutter::Gtk::get_text_color(*this, Gtk::STATE_NORMAL, text_color);
+  // m_clutter_entry = Clutter::Text::create("Sans 10", "", text_color);
   m_stage->add_actor(m_clutter_entry);
   m_clutter_entry->set_position(0, 0);
   m_clutter_entry->set_size(500, 20);

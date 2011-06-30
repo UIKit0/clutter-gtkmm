@@ -1,5 +1,11 @@
 2011-07-01  Chris Kühl  <chrisk@openismus.com>
 
+	[Examples] Updated event example to new api.
+
+	* examples/events/event.[h|cc]
+
+2011-07-01  Chris Kühl  <chrisk@openismus.com>
+
 	Removed remaining viewport.h include.
 
 	* /clutter-gtk/clutter-gtkmm.h

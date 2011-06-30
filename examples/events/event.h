@@ -22,7 +22,7 @@ protected:
   Gtk::Entry m_gtk_entry;
   Gtk::Button m_button;
   Gtk::Label m_label_x, m_label_y, m_label_z, m_label_opacity;
-  Gtk::Adjustment m_adjustment_x, m_adjustment_y, m_adjustment_z, m_adjustment_opacity;
+  Glib::RefPtr<Gtk::Adjustment> m_adjustment_x, m_adjustment_y, m_adjustment_z, m_adjustment_opacity;
   Gtk::SpinButton m_spin_x, m_spin_y, m_spin_z, m_spin_opacity;
 
   Clutter::Gtk::Embed m_embed;
